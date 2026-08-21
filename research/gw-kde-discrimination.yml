@@ -1,0 +1,38 @@
+version: 1
+experiment_id: gw-kde-discrimination-v1
+epistemic_class: ADAPTED
+status: frozen_development_data
+purpose: >-
+  Score closed-form SMBHB and first-order-phase-transition spectra against the
+  published NANOGrav 15yr free-spectrum KDE marginals, deciding whether any causal
+  bubble-collision region outperforms the binary-background baseline.
+data:
+  registry_id: nanograv-15yr-kde-freespectra
+  convention: >-
+    VERIFIED FROM SOURCE: log10rho equals one half of log10 of the ceffyl residual PSD
+    S_r = A^2/(12 pi^2) fyr^(gamma-3) f^(-gamma) / Tspan (ceffyl models.py powerlaw);
+    phase-transition models enter through the convention-free ratio Omega_PT/Omega_SMBHB
+    multiplied into the SMBHB S_r (PTArcade omega2cross ceffyl branch)
+  bins: 30 frequencies from 1.977e-9 to 5.93e-8 Hz
+analysis:
+  model_score: per-bin log-likelihood of log10rho_model via direct linear interpolation of the log-PDF rows
+  kde_scoring: density rows are LOG PDFs per README; per-bin log-likelihood is direct linear interpolation of the log PDF, no renormalization
+  smhb_baseline: A 2.4e-15 at 1/yr, alpha -2/3, published median
+  pt_grid: omega_pk in [1e-11, 1e-7] decades, f_pk in [1e-9, 1e-7] decades, n2 in [-1, 0, 1]
+  statistics:
+    - delta_logl = sum of per-bin PT log densities minus SMBHB log densities, marginals-only with documented independence caveat
+    - median per-bin dex residual against the KDE posterior median
+    - fraction of bins inside the KDE 90 percent support interval
+decision_rule:
+  pt_preferred: any grid point with delta_logl > 0 and at least 20 of 30 bins inside 90 percent support
+  smhb_selfcheck: SMBHB baseline should sit inside 90 percent support in at least 20 of 30 bins
+forbidden_claims:
+  - Bayes factor or model evidence
+  - detection of a phase transition
+  - evidence for a multiverse
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - Per-bin marginals ignore inter-bin correlations; the combined log-density is a screening statistic, not an evidence.
+  - The pt_bubble MCMC chains remain in the declared 22.4 GB archive; this gate uses our closed-form templates against NANOGrav own marginals.

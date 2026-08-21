@@ -28,6 +28,7 @@ results/*
 !results/wmap-t-null-pipeline.json
 !results/wmap-t-analytic-nulls.json
 !results/gw-pt-feasibility.json
+!results/gw-kde-discrimination.json
 *.fits
 *.h5
 *.hdf5

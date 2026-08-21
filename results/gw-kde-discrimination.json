@@ -1,0 +1,537 @@
+{
+  "best_pt_point": {
+    "bins_inside_90pct": 26,
+    "delta_logl_vs_smhb": 1.6752823150269691,
+    "f_pk_hz": 1e-09,
+    "median_dex_residual": 2.412083303369112,
+    "n2": 1.0,
+    "omega_pk": 1e-09,
+    "pt_preferred": true,
+    "rejected_outside_support": false
+  },
+  "checks": {
+    "finite_scores": true,
+    "smhb_selfcheck": true
+  },
+  "contract": {
+    "archive_sha256": "b461125ff9d384761ec4647756587c42067723c6980ef3c633b178012a4d91d8",
+    "path": "research/gw-kde-discrimination.yml",
+    "registry_id": "nanograv-15yr-kde-freespectra",
+    "sha256": "424e0f037f28c12366b20786ecb75a7595c72cdc036ebc6537ceb4896342421c"
+  },
+  "decision_rule": {
+    "pt_preferred": "any grid point with delta_logl > 0 and at least 20 of 30 bins inside 90 percent support",
+    "smhb_selfcheck": "SMBHB baseline should sit inside 90 percent support in at least 20 of 30 bins"
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "gw-kde-discrimination-v1",
+  "grid": [
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -86.78711647963641,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": -0.09673769240547081,
+      "n2": -1.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -59.27043812367689,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 0.69270408225732,
+      "n2": 0.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -53.320248910586564,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 1.412083303369112,
+      "n2": 1.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -87.41729190024344,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 0.4019292095217697,
+      "n2": -1.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -87.45167903865064,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 0.6881814329683174,
+      "n2": 0.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -86.45583648082297,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 0.8841244589802004,
+      "n2": 1.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -85.59793612613348,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": -0.1339507555941326,
+      "n2": -1.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -85.50443783150584,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": -0.1382850851249735,
+      "n2": 0.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -85.30113104518884,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": -0.15091327947852573,
+      "n2": 1.0,
+      "omega_pk": 1e-11,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -59.1133145355623,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 0.4032623075945292,
+      "n2": -1.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -50.95600486653078,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 1.19270408225732,
+      "n2": 0.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -12.225517328819386,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 1.912083303369112,
+      "n2": 1.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -68.36846948242135,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 0.9019292095217697,
+      "n2": -1.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -28.643081723008883,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 1.1881814329683174,
+      "n2": 0.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -85.8514936380356,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 1.3841244589802004,
+      "n2": 1.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -56.05742358039107,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 0.3660492444058674,
+      "n2": -1.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -56.0392525301996,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 0.3617149148750265,
+      "n2": 0.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -56.11139740575975,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 0.34908672052147427,
+      "n2": 1.0,
+      "omega_pk": 1e-10,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -52.64257725458983,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 0.9032623075945292,
+      "n2": -1.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -4.864423964861118,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 1.69270408225732,
+      "n2": 0.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 26,
+      "delta_logl_vs_smhb": 1.6752823150269691,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 2.412083303369112,
+      "n2": 1.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": true,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -51.7923828380304,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 1.4019292095217697,
+      "n2": -1.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -52.95391375776416,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 1.6881814329683174,
+      "n2": 0.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -51.47682991514825,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 1.8841244589802004,
+      "n2": 1.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -56.637995458602695,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 0.8660492444058674,
+      "n2": -1.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -56.818580400167455,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 0.8617149148750265,
+      "n2": 0.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -57.03378990470873,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 0.8490867205214743,
+      "n2": 1.0,
+      "omega_pk": 1e-09,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 29,
+      "delta_logl_vs_smhb": -39.2743901072137,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 1.4032623075945292,
+      "n2": -1.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 25,
+      "delta_logl_vs_smhb": -44.582575628798985,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 2.19270408225732,
+      "n2": 0.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 13,
+      "delta_logl_vs_smhb": -150.48643615027862,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 2.912083303369112,
+      "n2": 1.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 29,
+      "delta_logl_vs_smhb": -1.3614693916258531,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 1.9019292095217697,
+      "n2": -1.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 27,
+      "delta_logl_vs_smhb": -0.006318396208115473,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 2.1881814329683174,
+      "n2": 0.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 26,
+      "delta_logl_vs_smhb": 0.8490276467952,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 2.3841244589802004,
+      "n2": 1.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": true,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -55.648058397085656,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 1.3660492444058674,
+      "n2": -1.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -55.55478559568373,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 1.3617149148750265,
+      "n2": 0.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -55.3255869764964,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 1.3490867205214743,
+      "n2": 1.0,
+      "omega_pk": 1e-08,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 25,
+      "delta_logl_vs_smhb": -108.70723407497047,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 1.9032623075945292,
+      "n2": -1.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 18,
+      "delta_logl_vs_smhb": -148.57970277007058,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 2.69270408225732,
+      "n2": 0.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 6,
+      "delta_logl_vs_smhb": -380.67798132217234,
+      "f_pk_hz": 1e-09,
+      "median_dex_residual": 3.4120833033691116,
+      "n2": 1.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 20,
+      "delta_logl_vs_smhb": -14.337508571007156,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 2.4019292095217697,
+      "n2": -1.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 18,
+      "delta_logl_vs_smhb": -42.53971345618209,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 2.6881814329683174,
+      "n2": 0.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 13,
+      "delta_logl_vs_smhb": -13.293677257135094,
+      "f_pk_hz": 1e-08,
+      "median_dex_residual": 2.8841244589802,
+      "n2": 1.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -85.16170100314466,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 1.8660492444058674,
+      "n2": -1.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -85.20008943782545,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 1.8617149148750265,
+      "n2": 0.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    },
+    {
+      "bins_inside_90pct": 28,
+      "delta_logl_vs_smhb": -85.38765023415252,
+      "f_pk_hz": 1e-07,
+      "median_dex_residual": 1.8490867205214743,
+      "n2": 1.0,
+      "omega_pk": 1e-07,
+      "pt_preferred": false,
+      "rejected_outside_support": false
+    }
+  ],
+  "grid_size": 45,
+  "limitations": [
+    "Per-bin KDE marginals ignore inter-bin correlations; the combined log-density is a screening statistic, not a model evidence.",
+    "The rho-to-Omega convention follows the Ceffyl free-spectrum labels and was verified only against the labels file.",
+    "Closed-form PT templates are our feasibility family; the published pt_bubble MCMC chains remain in the declared 22.4 GB archive.",
+    "No Planck product or observational polarization was accessed."
+  ],
+  "provenance": {
+    "bin_count": 30,
+    "frequency_max_hz": 5.9304793727040147e-08,
+    "frequency_min_hz": 1.976826457568005e-09,
+    "kde_grid_points": 10000,
+    "observational_cmb_maps_opened": false,
+    "planck_accessed": false,
+    "polarization_accessed": false,
+    "variant": "30f_fs{hd}_ceffyl"
+  },
+  "pt_preferred_count": 2,
+  "smhb_baseline": {
+    "alpha": -0.6666666666666666,
+    "amplitude": 2.4e-15,
+    "bins_inside_90pct": 28,
+    "median_dex_residual": 2.1245182938858447,
+    "per_bin_z_like_logl": [
+      -2.4116739721459473,
+      1.3872179621174645,
+      1.129445168117154,
+      0.7507102105447813,
+      -0.7538310517543988,
+      -1.7437503415106568,
+      -1.892002794665901,
+      -2.687816562358167,
+      -2.170553127109572,
+      -1.807053381701499,
+      -1.9383043128622897,
+      -1.7469084021807701,
+      -2.194971870481799,
+      -2.107139846965835,
+      -2.007540020136162,
+      -2.3041459549119203,
+      -2.291554076976131,
+      -2.331322364316131,
+      -2.23460073788123,
+      -2.1906084870337774,
+      -2.056979160016091,
+      -2.1125586708655106,
+      -1.9974709206624588,
+      -2.077639697005765,
+      -2.7206361141191397,
+      -2.559115122922549,
+      -2.016723319168113,
+      -2.03263892173353,
+      -2.0538977455500484,
+      -2.198633653282866
+    ]
+  },
+  "status": "PT-PREFERRED"
+}
