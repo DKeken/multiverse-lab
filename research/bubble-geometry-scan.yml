@@ -1,0 +1,40 @@
+version: 1
+experiment_id: bubble-geometry-scan-v1
+epistemic_class: ADAPTED
+status: frozen_forecast_survey
+purpose: >-
+  Survey angular radii of axisymmetric bubble collisions to locate geometries where
+  the physical fiducial maximum amplitude reaches a three-sigma cosmic-variance
+  ceiling in joint T+E, deciding whether any revival of the conditional program exists.
+inherit:
+  template_producer: src/bubble_te_template.py
+  amplitude_mapping: research/bubble-amplitude-prior.yml
+  cosmology: identical CAMB parameters and transfer functions as the published template bank
+survey:
+  basis: linear
+  angular_radii_deg: [5, 10, 15, 20, 25, 30, 40, 50, 60]
+  lmax: 256
+  radial_nodes: 160
+  fiducial_constants: {A: 0.179, delta_phi_0_over_Mpl: 1.0, separation_factor_s: 2.0}
+  typical_constants: {A: 0.179, delta_phi_0_over_Mpl: 0.1, separation_factor_s: 1.0}
+  physical_amplitude_formula: R_0 = A * delta_phi_0_over_Mpl * separation_factor_s * (x_ls - x_c) / x_ls
+metrics_per_radius:
+  - joint_fisher_sigma_linear
+  - fiducial_maximum_R0
+  - typical_R0
+  - fiducial_ceiling_sigma
+  - typical_ceiling_sigma
+viability_rule:
+  viable_geometry: fiducial_ceiling_sigma >= 3.0
+  note: report-only survey; no observational claim and no holdout access
+forbidden_claims:
+  - observational bubble evidence
+  - proof of a multiverse
+  - reuse of five-degree depth numbers at other radii
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - Ell truncation at 256 excludes sharp-rim multipoles; reported ceilings are lower bounds, most conservative for the no-go direction.
+  - Full-sky cosmic-variance Fisher only; mask, beam, noise, and foregrounds are later gates and can only lower ceilings.
+  - The scan is center-independent because full-sky harmonic Fisher does not depend on collision position.

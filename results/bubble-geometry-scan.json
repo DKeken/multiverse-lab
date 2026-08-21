@@ -1,0 +1,148 @@
+{
+  "contract": {
+    "path": "research/bubble-geometry-scan.yml",
+    "sha256": "0598b7656369f51e91dbbc197049a9f4957a06dd88b4ac79b4043a071e3c4d6a"
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "bubble-geometry-scan-v1",
+  "last_scattering_distance_mpc": 13804.766629874142,
+  "limitations": [
+    "Cosmic-variance full-sky Fisher only; mask, beam, noise, and foregrounds can only lower these ceilings.",
+    "Ell truncation at 256 excludes sharp-rim multipoles, so every ceiling here is a lower bound.",
+    "The scan is center-independent because full-sky harmonic Fisher does not depend on collision position.",
+    "A forecast ceiling is not observational evidence and does not access any holdout product."
+  ],
+  "provenance": {
+    "amplitude_mapping": "research/bubble-amplitude-prior.yml",
+    "camb_cosmology": {
+      "As": 2e-09,
+      "H0": 67.5,
+      "ns": 0.965,
+      "ombh2": 0.022,
+      "omch2": 0.122,
+      "tau": 0.06
+    },
+    "lmax": 256,
+    "observational_cmb_maps_opened": false,
+    "planck_accessed": false,
+    "radial_nodes": 160,
+    "template_producer": "src/bubble_te_template.py"
+  },
+  "radii": [
+    {
+      "angular_radius_deg": 5.0,
+      "causal_boundary_mpc": 13752.235325074475,
+      "fiducial_ceiling_sigma": 3.986249808680805,
+      "fiducial_maximum_R0": 0.0013622980831551042,
+      "joint_linear_sigma": 0.0003417493003545451,
+      "shell_ratio": 0.003805301908254481,
+      "typical_R0": 6.811490415775521e-05,
+      "typical_ceiling_sigma": 0.19931249043404023,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 10.0,
+      "causal_boundary_mpc": 13595.041205624266,
+      "fiducial_ceiling_sigma": 67.6568140303061,
+      "fiducial_maximum_R0": 0.0054388244216295265,
+      "joint_linear_sigma": 8.03884205838198e-05,
+      "shell_ratio": 0.015192246987791974,
+      "typical_R0": 0.00027194122108147636,
+      "typical_ceiling_sigma": 3.3828407015153052,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 15.0,
+      "causal_boundary_mpc": 13334.380613688938,
+      "fiducial_ceiling_sigma": 228.33974336891447,
+      "fiducial_maximum_R0": 0.012198554188513542,
+      "joint_linear_sigma": 5.342282516629218e-05,
+      "shell_ratio": 0.03407417371093168,
+      "typical_R0": 0.0006099277094256771,
+      "typical_ceiling_sigma": 11.416987168445724,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 20.0,
+      "causal_boundary_mpc": 12972.237333764286,
+      "fiducial_ceiling_sigma": 430.9013518872334,
+      "fiducial_maximum_R0": 0.021590041758644776,
+      "joint_linear_sigma": 5.0104372297942746e-05,
+      "shell_ratio": 0.06030737921409156,
+      "typical_R0": 0.001079502087932239,
+      "typical_ceiling_sigma": 21.545067594361672,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 25.0,
+      "causal_boundary_mpc": 12511.367494878627,
+      "fiducial_ceiling_sigma": 709.723739629695,
+      "fiducial_maximum_R0": 0.03354181224087931,
+      "joint_linear_sigma": 4.72603780428425e-05,
+      "shell_ratio": 0.09369221296335002,
+      "typical_R0": 0.0016770906120439652,
+      "typical_ceiling_sigma": 35.48618698148475,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 30.0,
+      "causal_boundary_mpc": 11955.2785947867,
+      "fiducial_ceiling_sigma": 1067.1413394094593,
+      "fiducial_maximum_R0": 0.04796290544517093,
+      "joint_linear_sigma": 4.4945222974599516e-05,
+      "shell_ratio": 0.13397459621556126,
+      "typical_R0": 0.0023981452722585464,
+      "typical_ceiling_sigma": 53.357066970472964,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 40.0,
+      "causal_boundary_mpc": 10575.064765369389,
+      "fiducial_ceiling_sigma": 1969.5092409778217,
+      "fiducial_maximum_R0": 0.08375608936340585,
+      "joint_linear_sigma": 4.252637541412227e-05,
+      "shell_ratio": 0.23395555688102196,
+      "typical_R0": 0.004187804468170293,
+      "typical_ceiling_sigma": 98.47546204889109,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 50.0,
+      "causal_boundary_mpc": 8873.532944297303,
+      "fiducial_ceiling_sigma": 3051.041107785043,
+      "fiducial_maximum_R0": 0.1278820357322189,
+      "joint_linear_sigma": 4.19142290170771e-05,
+      "shell_ratio": 0.35721239031346064,
+      "typical_R0": 0.006394101786610945,
+      "typical_ceiling_sigma": 152.55205538925213,
+      "viable": true
+    },
+    {
+      "angular_radius_deg": 60.0,
+      "causal_boundary_mpc": 6902.383314937073,
+      "fiducial_ceiling_sigma": 4144.766169713685,
+      "fiducial_maximum_R0": 0.17899999999999996,
+      "joint_linear_sigma": 4.3186996001843226e-05,
+      "shell_ratio": 0.4999999999999999,
+      "typical_R0": 0.008949999999999998,
+      "typical_ceiling_sigma": 207.23830848568423,
+      "viable": true
+    }
+  ],
+  "status": "SURVEY-COMPLETE",
+  "viability_rule": {
+    "note": "report-only survey; no observational claim and no holdout access",
+    "viable_geometry": "fiducial_ceiling_sigma >= 3.0"
+  },
+  "viable_radii_deg": [
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0
+  ]
+}

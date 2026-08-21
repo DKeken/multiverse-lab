@@ -142,7 +142,9 @@ def information_multipole(ell: np.ndarray, contribution: np.ndarray, fraction: f
 
 
 def fisher_information(data: Any, bases: dict[str, dict[str, list[float]]]) -> dict[str, Any]:
-    names = ("linear", "quadratic")
+    names = tuple(bases.keys())
+    if not names:
+        raise RuntimeError("Fisher information requires at least one basis")
     ell = np.asarray(bases[names[0]]["ell"], dtype=int)
     if any(not np.array_equal(ell, np.asarray(bases[name]["ell"], dtype=int)) for name in names[1:]):
         raise RuntimeError("Bubble template bases use inconsistent multipoles")
@@ -198,7 +200,11 @@ def fisher_information(data: Any, bases: dict[str, dict[str, list[float]]]) -> d
             "conditional_e_information_ell_90": information_multipole(ell, contribution, 0.9),
         }
 
-    joint_correlation = float(joint_fisher[0, 1] / math.sqrt(joint_fisher[0, 0] * joint_fisher[1, 1]))
+    joint_correlation = (
+        float(joint_fisher[0, 1] / math.sqrt(joint_fisher[0, 0] * joint_fisher[1, 1]))
+        if len(names) == 2
+        else None
+    )
     return {
         "method": "Feeney et al. Eq. 19, exactly decomposed as F_T + F_E_given_T",
         "covariance": "cosmic-variance-only unlensed scalar CAMB TT/EE/TE; no beam, noise, mask, or foreground",

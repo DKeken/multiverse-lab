@@ -15,6 +15,7 @@ MASKED_INPUT = ROOT / "results" / "masked-te-injection.json"
 STRESS_INPUT = ROOT / "results" / "te-systematics-stress.json"
 DEPTH_INPUT = ROOT / "results" / "te-noise-depth.json"
 PIXEL_INPUT = ROOT / "results" / "te-pixel-covariance.json"
+SCAN_INPUT = ROOT / "results" / "bubble-geometry-scan.json"
 OUTPUT = ROOT / "results" / "research-control-room.svg"
 
 
@@ -109,6 +110,8 @@ def render() -> str:
     pixel_successes = int(pixel_result["validation"]["successes"])
     pixel_trials = int(pixel_result["validation"]["trials"])
     pixel_b_max = float(pixel_result["validation"]["maximum_absolute_b_score"])
+    scan_rows = json.loads(SCAN_INPUT.read_text())["radii"]
+    scan_typical = {row["angular_radius_deg"]: float(row["typical_ceiling_sigma"]) for row in scan_rows}
 
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">',
@@ -199,8 +202,8 @@ def render() -> str:
         out.append(text(x + 16, 616, label, 12, "#eef2ff", 750))
         out.append(text(x + 16, 641, state, 10, color, 700))
     out += [
-        text(64, 696, f"Matrix-free covariance rejects {calibrated_depth:.3f} µK target: {pixel_successes}/{pixel_trials}; max |B| {pixel_b_max:.3f}σ.", 12, "#ff9dac"),
-        text(1366, 696, "New depth gate required · no observational Q/U", 11, "#ff9dac", 700, "end"),
+        text(64, 696, f"Geometry scan: typical-amplitude ceiling 0.20σ at 5° → {scan_typical[10.0]:.1f}σ at 10° → {scan_typical[30.0]:.0f}σ at 30°; revival at ≥10°.", 12, "#45d483"),
+        text(1366, 696, "Next: analytic WMAP-T multi-radius filter", 11, "#ffba69", 700, "end"),
     ]
 
     out += card(24, 752, 1392, 120, "Operations")
@@ -216,7 +219,7 @@ def render() -> str:
         out.append(f'<circle cx="{x}" cy="827" r="5" fill="{color}"/>')
         out.append(text(x + 13, 832, state, 13, "#e8edff", 700))
     out += [
-        text(1392, 888, "generated from WMAP + physical T/E + systematic + harmonic/pixel covariance JSON", 10, "#4e5b78", 400, "end"),
+        text(1392, 888, "generated from WMAP + physical T/E + systematics + covariance + geometry-scan JSON", 10, "#4e5b78", 400, "end"),
         "</svg>",
     ]
     return "".join(out)
