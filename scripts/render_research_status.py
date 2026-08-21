@@ -12,6 +12,7 @@ JOINT_INPUT = ROOT / "results" / "joint-te-synthetic.json"
 CAMB_INPUT = ROOT / "results" / "camb-te-selection.json"
 BUBBLE_INPUT = ROOT / "results" / "bubble-te-template.json"
 MASKED_INPUT = ROOT / "results" / "masked-te-injection.json"
+STRESS_INPUT = ROOT / "results" / "te-systematics-stress.json"
 OUTPUT = ROOT / "results" / "research-control-room.svg"
 
 
@@ -70,6 +71,7 @@ def render() -> str:
     camb_result = json.loads(CAMB_INPUT.read_text())
     bubble_result = json.loads(BUBBLE_INPUT.read_text())
     masked_result = json.loads(MASKED_INPUT.read_text())
+    stress_result = json.loads(STRESS_INPUT.read_text())
     pilot = result["global_pilot"]
     pipeline = result["pipeline"]
     candidates = all_candidates(result)
@@ -93,6 +95,10 @@ def render() -> str:
     retained_snr = float(masked_recovery["retained_snr_fraction"])
     recovered_score = float(masked_recovery["recovered_injection_response_score_sigma"])
     b_leakage = float(masked_recovery["purified_b_leakage_score_sigma"])
+    stress_recovery = stress_result["recovery"]
+    stress_expected = float(stress_recovery["expected_injection_response_score_sigma"])
+    stress_total = float(stress_recovery["total_recovery_score_sigma"])
+    stress_bias = float(stress_recovery["fractional_injection_response_bias"])
 
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">',
@@ -171,7 +177,7 @@ def render() -> str:
         (290, "E ⟂ T", f"{conditional_rate * 100:.3f}% FPR", "#45d483"),
         (516, "PHYSICAL T/E", f"BANK {bubble_result['status']}", "#45d483"),
         (742, "MASKED T/Q/U", f"{retained_snr * 100:.3f}% S/N", "#45d483"),
-        (968, "RECOVERY", f"{recovered_score:.5f}σ · B {b_leakage:.2g}σ", "#7c8cff"),
+        (968, "MISMATCH STRESS", f"{stress_result['status']} · EXP {stress_expected:.3f}σ", "#ff7a8a"),
         (1194, "PLANCK + Q/U", "SEALED", "#ff7a8a"),
     ]
     for index, (x, label, state, color) in enumerate(stages):
@@ -183,8 +189,8 @@ def render() -> str:
         out.append(text(x + 16, 616, label, 12, "#eef2ff", 750))
         out.append(text(x + 16, 641, state, 10, color, 700))
     out += [
-        text(64, 696, f"CAMB recon p95 ≤ {camb_reconstruction_p95 * 100:.3f}%; Fisher gain L {linear_gain:.3f}× / Q {quadratic_gain:.3f}×; exact PySM score delta < 1e-15σ.", 12, "#8fa0c4"),
-        text(1366, 696, "Synthetic only · no observational Q/U", 11, "#ff9dac", 700, "end"),
+        text(64, 696, f"Noise-limited: frozen total {stress_total:.3f}σ; injection-response bias {stress_bias * 100:.3f}%; physical Fisher gain remains forecast-only.", 12, "#ff9dac"),
+        text(1366, 696, "Synthetic FAIL · no observational Q/U", 11, "#ff9dac", 700, "end"),
     ]
 
     out += card(24, 752, 1392, 120, "Operations")
@@ -200,7 +206,7 @@ def render() -> str:
         out.append(f'<circle cx="{x}" cy="827" r="5" fill="{color}"/>')
         out.append(text(x + 13, 832, state, 13, "#e8edff", 700))
     out += [
-        text(1392, 888, "generated from WMAP + conditional selection + CAMB physical template + masked injection JSON", 10, "#4e5b78", 400, "end"),
+        text(1392, 888, "generated from WMAP + conditional selection + physical template + masked/systematic stress JSON", 10, "#4e5b78", 400, "end"),
         "</svg>",
     ]
     return "".join(out)

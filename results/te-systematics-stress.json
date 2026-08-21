@@ -1,0 +1,93 @@
+{
+  "checks": {
+    "b_veto": true,
+    "foreground_residual": true,
+    "injection_response_bias": true,
+    "total_recovery": false
+  },
+  "contract": {
+    "frozen_analysis_assumptions": {
+      "beam_fwhm_arcmin": 55.0,
+      "covariance": "CAMB conditional E plus isotropic white-noise spectrum at the mean frozen depth",
+      "frequency_ghz": 100.0,
+      "mask": "inherited exactly from research/masked-te-injection.yml",
+      "nuisance_presets": [
+        "d1",
+        "s1"
+      ]
+    },
+    "frozen_truth": {
+      "beam_fwhm_arcmin": 60.0,
+      "foreground_presets": [
+        "d2",
+        "s2"
+      ],
+      "frequency_ghz": 105.0,
+      "noise_depth_ratio_max_to_min": 3.0,
+      "noise_pattern": "sigma_pixel equals base_rms times one plus two times cosine-squared Galactic colatitude",
+      "noise_rms_uK_per_pixel": 2.0,
+      "polarization_angle_error_deg": 0.5,
+      "polarization_gain": 1.01
+    },
+    "path": "research/te-systematics-stress.yml",
+    "sha256": "d47462db2eea6daea439b08ec65cdd566d8f8c1dc59a70ab32363447c510d472",
+    "thresholds": {
+      "maximum_absolute_b_score_sigma": 1.0,
+      "maximum_absolute_foreground_residual_sigma": 1.0,
+      "maximum_absolute_fractional_injection_response_bias": 0.2,
+      "minimum_total_recovery_score_sigma": 3.0
+    }
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "physical-te-systematics-stress-v1",
+  "foregrounds": {
+    "analysis_component_rms": {
+      "d1": 1.1558869003082522e-06,
+      "s1": 1.855270049091032e-07
+    },
+    "truth_and_analysis_models_match": false,
+    "truth_component_rms": {
+      "d2": 1.2986083672449997e-06,
+      "s2": 1.5859412537156138e-07
+    }
+  },
+  "limitations": [
+    "Synthetic CMB and PySM foregrounds only; no observational polarization or Planck product was opened.",
+    "This is one fixed adversarial scenario, not a calibrated distribution of systematic uncertainty.",
+    "Temperature-systematic and T-to-E regression errors are not varied in this polarization-focused stress test.",
+    "Noise covariance uses the mean frozen pixel variance rather than the full anisotropic pixel covariance.",
+    "Passing or failing this gate is method evidence, not observational evidence for a bubble collision or multiverse."
+  ],
+  "mask": {
+    "binary_sky_fraction": 0.6614583333333334,
+    "effective_apodized_sky_fraction": 0.6269414829211671
+  },
+  "noise": {
+    "maximum_rms_uK_per_pixel": 5.999348984824286,
+    "mean_square_white_noise_cl": 4.3135285266880384e-16,
+    "minimum_rms_uK_per_pixel": 2.0
+  },
+  "provenance": {
+    "base_contract_path": "research/masked-te-injection.yml",
+    "base_contract_sha256": "7eb504af73e593c49d48083d1f7a36f4d47187d4b514d9f109235336f0b4705a",
+    "healpy_version": "1.20.0",
+    "namaster_version": "3.0.1",
+    "observational_cmb_maps_opened": false,
+    "physical_template_path": "results/bubble-te-template.json",
+    "physical_template_sha256": "92531a1b2b95c543c33b8a45ddd8aae1fc05bf77abd702e4b796b5137b6ba7aa",
+    "planck_accessed": false,
+    "pysm3_version": "3.4.6"
+  },
+  "recovery": {
+    "expected_injection_response_score_sigma": 0.9260036132068746,
+    "foreground_residual_score_sigma": -0.04501176940268834,
+    "fractional_injection_response_bias": 0.003924429679594388,
+    "full_sky_conditional_information": 3595869.606362796,
+    "injected_unit_basis_amplitude": 0.0026367444276455495,
+    "measured_injection_response_score_sigma": 0.9296376492699554,
+    "processed_analysis_information": 123335.83795864716,
+    "total_purified_b_score_sigma": -0.004281761910405975,
+    "total_recovery_score_sigma": -0.7393795956507144
+  },
+  "status": "FAIL"
+}

@@ -115,20 +115,31 @@ def make_mask(contract: dict[str, Any]) -> tuple[np.ndarray, float, float]:
     return mask, float(np.mean(binary)), float(np.mean(mask))
 
 
-def foreground_templates(contract: dict[str, Any]) -> tuple[np.ndarray, dict[str, float]]:
-    inputs = contract["inputs"]
-    engines = contract["engines"]["foreground_generator"]
-    nside = int(inputs["nside"])
-    frequency = float(engines["frequency_ghz"]) * u.GHz
+def generate_foregrounds(
+    nside: int,
+    presets: list[str],
+    frequency_ghz: float,
+) -> tuple[np.ndarray, dict[str, float]]:
+    frequency = frequency_ghz * u.GHz
     polarized: list[np.ndarray] = []
     rms: dict[str, float] = {}
-    for preset in engines["presets"]:
+    for preset in presets:
         sky = pysm3.Sky(nside=nside, preset_strings=[preset], output_unit=u.uK_CMB)
         emission = sky.get_emission(frequency).to_value(u.uK_CMB) / CMB_TEMPERATURE_UK
         qu = np.asarray(emission[1:3], dtype=float)
         polarized.append(qu)
         rms[preset] = float(np.sqrt(np.mean(np.square(qu))))
     return np.asarray(polarized), rms
+
+
+def foreground_templates(contract: dict[str, Any]) -> tuple[np.ndarray, dict[str, float]]:
+    inputs = contract["inputs"]
+    engine = contract["engines"]["foreground_generator"]
+    return generate_foregrounds(
+        int(inputs["nside"]),
+        list(engine["presets"]),
+        float(engine["frequency_ghz"]),
+    )
 
 
 def harmonic_dot(first: np.ndarray, second: np.ndarray, covariance: np.ndarray, lmax: int) -> float:

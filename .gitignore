@@ -20,6 +20,7 @@ results/*
 !results/camb-te-selection.json
 !results/bubble-te-template.json
 !results/masked-te-injection.json
+!results/te-systematics-stress.json
 *.fits
 *.h5
 *.hdf5

@@ -15,6 +15,8 @@
 - Cosmic-variance-only Fisher decomposition gives joint-over-temperature information ratios of 1.740 for the linear basis and 1.607 for the quadratic basis; the basis correlation is 0.964, so these are fixed-other-basis forecasts rather than marginalized observational sensitivities.
 - Frozen synthetic `NSIDE=64`, `lmax=96` T/Q/U injection through a 20-degree Galactic cut and 5-degree C2 apodization retains 99.969 percent of conditional-E signal-to-noise; NaMaster recovers 4.99846 sigma from the expected 4.99846 sigma with 0.0000166 sigma B leakage.
 - Exact 100 GHz PySM3 d1+s1 template deprojection changes the recovered score by 4.04e-16 sigma. This validates the projection operator only; foreground-model mismatch, beam, anisotropic noise, and calibration remain untested.
+- The frozen mismatch stress fails overall: d2+s2 truth at 105 GHz versus d1+s1 nuisance templates at 100 GHz, 60 versus 55 arcmin beams, 1 percent gain error, 0.5-degree angle error, and 2-to-6 uK per-pixel anisotropic noise leave only 0.926 expected sigma and -0.739 realized sigma, below the frozen 3-sigma gate.
+- Injection response itself remains stable at 0.392 percent bias; foreground residual is -0.045 sigma and B score -0.00428 sigma. The active blocker is noise depth in this fixed scenario, not foreground or beam-response bias.
 
 ## Excluded conclusions
 

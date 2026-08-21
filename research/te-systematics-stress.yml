@@ -1,0 +1,54 @@
+version: 1
+experiment_id: physical-te-systematics-stress-v1
+epistemic_class: ADAPTED
+status: frozen_synthetic_only
+purpose: >-
+  Stress the physical conditional-E bubble statistic with deliberately mismatched
+  foreground, beam, noise, gain, and polarization-angle assumptions before any
+  observational polarization product is opened.
+base:
+  contract: research/masked-te-injection.yml
+  physical_template: results/bubble-te-template.json
+  basis: linear
+  nside: 64
+  lmax: 96
+  injection_center_galactic_deg: {longitude: 207.1022727272727, latitude: -57.39952353962295}
+  injection_sigma: 5.0
+  seed: 20260822
+sky_truth:
+  frequency_ghz: 105.0
+  foreground_presets: [d2, s2]
+  beam_fwhm_arcmin: 60.0
+  polarization_gain: 1.01
+  polarization_angle_error_deg: 0.5
+  noise_pattern: sigma_pixel equals base_rms times one plus two times cosine-squared Galactic colatitude
+  noise_rms_uK_per_pixel: 2.0
+  noise_depth_ratio_max_to_min: 3.0
+analysis_assumptions:
+  frequency_ghz: 100.0
+  nuisance_presets: [d1, s1]
+  beam_fwhm_arcmin: 55.0
+  covariance: CAMB conditional E plus isotropic white-noise spectrum at the mean frozen depth
+  mask: inherited exactly from research/masked-te-injection.yml
+statistic:
+  injection_response: same-noise difference between stressed signal and stressed null maps
+  foreground_residual: stressed foreground-plus-null score minus stressed null-only score
+  total_recovery: stressed foreground-plus-signal score
+  b_veto: purified B matched-filter score against the processed bubble E morphology in the same covariance metric
+pass_conditions:
+  - absolute fractional injection-response bias is at most 0.20
+  - absolute foreground residual E score is at most 1 sigma
+  - absolute purified B score is below 1 sigma
+  - total recovered E score is at least 3 sigma
+forbidden_claims:
+  - observational bubble evidence
+  - Planck confirmation
+  - foreground-complete sensitivity
+  - proof of a multiverse
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - Failure is an accepted scientific outcome and thresholds must not be changed after generation.
+  - This is one fixed stress scenario, not a calibrated systematic-error distribution.
+  - PySM inputs are synthetic foreground-model assets, not observational CMB polarization products.
