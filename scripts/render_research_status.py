@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WMAP_INPUT = ROOT / "results" / "wmap-pilot.json"
 JOINT_INPUT = ROOT / "results" / "joint-te-synthetic.json"
 CAMB_INPUT = ROOT / "results" / "camb-te-selection.json"
+BUBBLE_INPUT = ROOT / "results" / "bubble-te-template.json"
 OUTPUT = ROOT / "results" / "research-control-room.svg"
 
 
@@ -66,6 +67,7 @@ def render() -> str:
     result = load_result()
     joint = json.loads(JOINT_INPUT.read_text())
     camb_result = json.loads(CAMB_INPUT.read_text())
+    bubble_result = json.loads(BUBBLE_INPUT.read_text())
     pilot = result["global_pilot"]
     pipeline = result["pipeline"]
     candidates = all_candidates(result)
@@ -77,6 +79,14 @@ def render() -> str:
     naive_rate = float(joint["null_calibration"]["naive_selected_e_rate"])
     conditional_rate = float(joint["null_calibration"]["conditional_rate"])
     camb_rho = float(camb_result["filter"]["effective_rho"])
+    bubble_fisher = bubble_result["fisher_information"]["per_basis"]
+    linear_gain = float(bubble_fisher["linear"]["joint_over_temperature_fisher"])
+    quadratic_gain = float(bubble_fisher["quadratic"]["joint_over_temperature_fisher"])
+    camb_reconstruction_p95 = max(
+        float(value)
+        for key, value in bubble_result["normalization_checks"].items()
+        if "p95" in key
+    )
 
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">',
@@ -149,26 +159,26 @@ def render() -> str:
         text(972, 457, "Decision: move compute to independent T/E gate", 12, "#8fa0c4"),
     ]
 
-    out += card(24, 490, 1392, 238, "Conditional T/E selection gate")
+    out += card(24, 490, 1392, 238, "Conditional physical T/E gate")
     stages = [
         (64, "KNOWN COLD SPOT", "1.103° MATCH", "#45d483"),
-        (290, "T SELECTION", "256 TRIALS", "#45d483"),
-        (548, "NAIVE E", f"{naive_rate * 100:.3f}% FPR", "#ff7a8a"),
-        (774, "E ⟂ T", f"{conditional_rate * 100:.3f}% FPR", "#45d483"),
-        (1010, "CAMB COV", f"ρ={camb_rho:.4f}", "#7c8cff"),
-        (1242, "PLANCK", "SEALED", "#ff7a8a"),
+        (290, "E ⟂ T", f"{conditional_rate * 100:.3f}% FPR", "#45d483"),
+        (516, "PHYSICAL T/E", f"BANK {bubble_result['status']}", "#45d483"),
+        (742, "CAMB RECON", f"P95 ≤ {camb_reconstruction_p95 * 100:.3f}%", "#7c8cff"),
+        (968, "FISHER T→T/E", f"L {linear_gain:.3f}× · Q {quadratic_gain:.3f}×", "#7c8cff"),
+        (1194, "PLANCK + Q/U", "SEALED", "#ff7a8a"),
     ]
     for index, (x, label, state, color) in enumerate(stages):
         if index:
-            out.append(line(stages[index - 1][0] + 130, 610, x - 16, 610, "#435170", 2))
+            out.append(line(stages[index - 1][0] + 150, 610, x - 16, 610, "#435170", 2))
             out.append(f'<path d="M{x-22} 604 L{x-12} 610 L{x-22} 616" fill="none" stroke="#435170" stroke-width="2"/>')
-        out.append(f'<rect x="{x}" y="558" width="150" height="104" rx="12" fill="#0c1425" stroke="{color}" stroke-opacity="0.7"/>')
+        out.append(f'<rect x="{x}" y="558" width="166" height="104" rx="12" fill="#0c1425" stroke="{color}" stroke-opacity="0.7"/>')
         out.append(f'<circle cx="{x + 20}" cy="578" r="5" fill="{color}"/>')
         out.append(text(x + 16, 616, label, 12, "#eef2ff", 750))
         out.append(text(x + 16, 641, state, 10, color, 700))
     out += [
-        text(64, 696, "Result: conditioning removes T-selected E bias; CAMB physical covariance passes both frozen orientations.", 12, "#8fa0c4"),
-        text(1366, 696, "No Q/U observation opened", 11, "#ff9dac", 700, "end"),
+        text(64, 696, f"Naive selected-E FPR {naive_rate * 100:.3f}% → conditional {conditional_rate * 100:.3f}%; physical E adds 1.61–1.74× diagonal information.", 12, "#8fa0c4"),
+        text(1366, 696, "No observational Q/U opened", 11, "#ff9dac", 700, "end"),
     ]
 
     out += card(24, 752, 1392, 120, "Operations")
@@ -184,7 +194,7 @@ def render() -> str:
         out.append(f'<circle cx="{x}" cy="827" r="5" fill="{color}"/>')
         out.append(text(x + 13, 832, state, 13, "#e8edff", 700))
     out += [
-        text(1392, 888, "generated from WMAP + synthetic T/E + CAMB result JSON", 10, "#4e5b78", 400, "end"),
+        text(1392, 888, "generated from WMAP + selection-calibration + CAMB physical-template JSON", 10, "#4e5b78", 400, "end"),
         "</svg>",
     ]
     return "".join(out)

@@ -47,6 +47,8 @@ $$E_{\perp T}=E-C_{ET}C_{TT}^{-1}T,$$
 
 then project frozen leakage/foreground nuisance modes and reserve B for a veto. Synthetic calibration at 256 temperature trials per sky inflated a naive nominal one-sided `z≥3` E confirmation from the Gaussian `0.135%` target to `13.684%`; the conditional statistic returned `0.195%`, calibrated mean/std, nuisance invariance, and injection recovery. This is an adapted method result, not observational evidence.
 
+Physical-template gate: a repository-owned adapter now propagates five-degree unit-linear and unit-quadratic Feeney Eq. 1-4 curvature profiles through pinned CAMB 2.0.3 T/E transfer functions. Independent TT/EE/TE reconstruction has p95 relative error below `0.078%`, and 160-versus-80-node radial convergence drift is below `3.6e-13` of peak. An exact Eq. 19 Fisher decomposition gives joint-over-temperature information ratios `1.740` (linear) and `1.607` (quadratic); conditional E supplies `42.5%` and `37.8%` of joint diagonal information. The two bases remain strongly correlated (`0.964`). These are cosmic-variance-only, fixed-other-basis synthetic forecasts—not marginalized sensitivities or observational evidence. Next gate: masked synthetic map injection/recovery with purified E/B leakage and PySM3 nuisance modes; observational polarization remains sealed.
+
 ## Dataset strategy
 
 Do not mirror large datasets. Registry entries must freeze URL, SHA-256, byte size, release, license/terms, field/order/unit semantics, role (`development`, `calibration`, `holdout`), redistribution status, and cache path.

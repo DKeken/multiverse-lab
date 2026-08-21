@@ -18,6 +18,7 @@ results/*
 !results/research-control-room.svg
 !results/joint-te-synthetic.json
 !results/camb-te-selection.json
+!results/bubble-te-template.json
 *.fits
 *.h5
 *.hdf5

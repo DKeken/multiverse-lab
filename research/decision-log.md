@@ -11,6 +11,8 @@
 - Integer evidence gives an exact deterministic five-sigma null-budget minimum of 59,305,448; temperature-only expansion to one million nulls is futile for that target.
 - Synthetic temperature selection over 256 trials inflated a naive nominal z>=3 E-mode confirmation to 13.684 percent versus a 0.135 percent Gaussian target; conditioning E on selected T restored calibration to 0.195 percent.
 - CAMB 2.0.3 gives a frozen 5-degree filtered T/E correlation of 0.08195 with two TE sign changes; conditional calibration passes both template orientations while naive false-positive rates vary from 0.073 to 0.305 percent.
+- Public CAMB 2.0.3 plus a repository-owned Feeney Eq. 1-4 adapter produces converged five-degree unit-linear and unit-quadratic T/E basis templates; reconstructed TT/EE/TE p95 relative errors are all below 0.078 percent.
+- Cosmic-variance-only Fisher decomposition gives joint-over-temperature information ratios of 1.740 for the linear basis and 1.607 for the quadratic basis; the basis correlation is 0.964, so these are fixed-other-basis forecasts rather than marginalized observational sensitivities.
 
 ## Excluded conclusions
 
@@ -31,3 +33,5 @@
 - Preserved Planck temperature/frequency/polarization products as unopened holdouts requiring approval.
 - Replaced the planned standalone radial Qr/Ur experiment because WMAP/Planck Cold Spot analyses already implemented it; the next gate is conditional joint T/E with nuisance projection and B veto.
 - Restricted AIPOCH to optional provenance review; repository artifacts remain authoritative and AIPOCH cannot promote scientific evidence.
+- Selected maintained CAMB plus a minimal spatial-profile adapter instead of adopting the Python-2-era CosmoBubbles runtime; CAMB owns transfer physics and the repository owns only the missing profile-to-transfer integration.
+- Applied CAMB's exact spin-2 E normalization from `CalcScalCls` and verified it by independently reconstructing unlensed scalar TT/EE/TE.
