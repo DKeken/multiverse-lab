@@ -21,6 +21,7 @@
 - Independent harmonic validation passes exactly at its preregistered boundary: 58 of 64 seeds exceed 3 sigma, with mean 4.260 sigma and sample standard deviation 0.903. Treat this as a fragile synthetic design requirement, not proof of 90 percent power or Planck sensitivity.
 - Matrix-free cut-sky inverse filtering solves the 65024-dimensional anisotropic Q/U covariance without a dense matrix; six template/nuisance CG solves converge in 99 to 124 iterations with relative residual below 9.42e-8.
 - The inherited 0.192293 uK per-pixel harmonic depth is rejected by the more exact operator: 55 of 64 seeds exceed 3 sigma rather than the frozen 58, mean E score is 3.990 sigma, and maximum absolute B diagnostic is 3.601 sigma versus the 3-sigma veto. Recalibration must be a new preregistered gate.
+- Instrument feasibility stops the synthetic series: the frozen requirement equals map depth of roughly 10 uK-arcmin at NSIDE=64, while Planck HFI polarization is order 600 to 1000 uK-arcmin per channel (at least 30 times short even with an optimistic three-channel combination) and WMAP polarization is worse; CMB-S4-class 1 to 2 uK-arcmin gives 5 to 10 times margin. Planck Q/U stays closed as non-viable for this statistic at the frozen unit-basis 5-sigma amplitude. The requirement is conditional on that arbitrary amplitude; a physically motivated amplitude prior is the next scientific input, and the synthetic gate series stops here rather than recalibrating depth again.
 
 ## Excluded conclusions
 
