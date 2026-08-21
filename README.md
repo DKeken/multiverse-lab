@@ -64,6 +64,7 @@ The synthetic masked T/Q/U gate uses optional native NaMaster and PySM3 engines.
 uv sync --frozen --extra masked-te
 uv run --extra masked-te python src/masked_te_injection.py
 uv run --extra masked-te python src/te_systematics_stress.py
+uv run --extra masked-te python src/te_noise_depth.py
 ```
 
 This command uses synthetic CMB and PySM foregrounds only. It does not fetch or open Planck or observational polarization maps.

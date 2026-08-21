@@ -21,6 +21,7 @@ results/*
 !results/bubble-te-template.json
 !results/masked-te-injection.json
 !results/te-systematics-stress.json
+!results/te-noise-depth.json
 *.fits
 *.h5
 *.hdf5

@@ -1,0 +1,440 @@
+{
+  "calibrated_depth": {
+    "base_rms_uK_per_pixel": 0.19229254447021454,
+    "maximum_rms_uK_per_pixel": 0.5768776334106436,
+    "maximum_search_noise_mean_score_sigma": 0.8846258798672656,
+    "required_mean_score_sigma": 4.281551565544601,
+    "root_mean_score_sigma": 4.281551538092591,
+    "white_noise_cl": 3.987471348843369e-18,
+    "zero_noise_mean_score_sigma": 5.050008914833818
+  },
+  "checks": {
+    "analytic_root": true,
+    "finite_scores": true,
+    "seed_detection_count": true
+  },
+  "contract": {
+    "masked_contract_sha256": "7eb504af73e593c49d48083d1f7a36f4d47187d4b514d9f109235336f0b4705a",
+    "path": "research/te-noise-depth.yml",
+    "sha256": "c89694f9e8d2130dd0bec4db28ba9e269156598b185ba1295c6bc70cf7089783",
+    "systematics_contract_sha256": "d47462db2eea6daea439b08ec65cdd566d8f8c1dc59a70ab32363447c510d472"
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "physical-te-noise-depth-v1",
+  "limitations": [
+    "Synthetic harmonic CMB-plus-noise seeds only; no observational polarization or Planck product was opened.",
+    "NaMaster mask/deprojection/purification morphology is fixed once; seed variation is performed in the same approximate harmonic covariance used by the statistic.",
+    "The 58-of-64 rule is a preregistered finite calibration criterion, not a lower confidence bound proving 90 percent population power.",
+    "One fixed foreground, beam, gain, angle, and anisotropic-depth pattern is inherited from the mismatch stress.",
+    "Noise covariance uses mean pixel variance rather than the full anisotropic pixel covariance.",
+    "A passing depth is a synthetic design requirement, not Planck sensitivity or observational evidence."
+  ],
+  "provenance": {
+    "healpy_version": "1.20.0",
+    "namaster_version": "3.0.1",
+    "observational_cmb_maps_opened": false,
+    "physical_template_path": "results/bubble-te-template.json",
+    "physical_template_sha256": "92531a1b2b95c543c33b8a45ddd8aae1fc05bf77abd702e4b796b5137b6ba7aa",
+    "planck_accessed": false,
+    "pysm3_version": "3.4.6"
+  },
+  "seed_records": [
+    {
+      "b_score_sigma": -0.886914053349275,
+      "detected": true,
+      "e_score_sigma": 4.819316219303863,
+      "seed": 20260900
+    },
+    {
+      "b_score_sigma": -0.7277608748276788,
+      "detected": true,
+      "e_score_sigma": 5.485518591142733,
+      "seed": 20260901
+    },
+    {
+      "b_score_sigma": 0.2957026512793309,
+      "detected": true,
+      "e_score_sigma": 4.245141013083954,
+      "seed": 20260902
+    },
+    {
+      "b_score_sigma": 0.3662365248338611,
+      "detected": true,
+      "e_score_sigma": 4.9138729728452475,
+      "seed": 20260903
+    },
+    {
+      "b_score_sigma": 0.3115487116421099,
+      "detected": true,
+      "e_score_sigma": 5.7262467255957485,
+      "seed": 20260904
+    },
+    {
+      "b_score_sigma": 0.33901239718687914,
+      "detected": true,
+      "e_score_sigma": 4.4734610625457005,
+      "seed": 20260905
+    },
+    {
+      "b_score_sigma": 0.2941488898817855,
+      "detected": true,
+      "e_score_sigma": 4.256270505121417,
+      "seed": 20260906
+    },
+    {
+      "b_score_sigma": -0.02880961876589799,
+      "detected": true,
+      "e_score_sigma": 4.088432289320149,
+      "seed": 20260907
+    },
+    {
+      "b_score_sigma": 0.6067220815084895,
+      "detected": true,
+      "e_score_sigma": 3.6770480548234254,
+      "seed": 20260908
+    },
+    {
+      "b_score_sigma": -0.8824777944504016,
+      "detected": true,
+      "e_score_sigma": 4.320306251751748,
+      "seed": 20260909
+    },
+    {
+      "b_score_sigma": 0.6297884124174182,
+      "detected": true,
+      "e_score_sigma": 4.806136807745394,
+      "seed": 20260910
+    },
+    {
+      "b_score_sigma": -0.24374716720386772,
+      "detected": true,
+      "e_score_sigma": 5.9346412016903045,
+      "seed": 20260911
+    },
+    {
+      "b_score_sigma": 0.42624567594849566,
+      "detected": true,
+      "e_score_sigma": 5.323568918633636,
+      "seed": 20260912
+    },
+    {
+      "b_score_sigma": 0.514625617801743,
+      "detected": false,
+      "e_score_sigma": 2.7793373789430533,
+      "seed": 20260913
+    },
+    {
+      "b_score_sigma": 0.17993041691754427,
+      "detected": true,
+      "e_score_sigma": 3.6688677522764483,
+      "seed": 20260914
+    },
+    {
+      "b_score_sigma": -0.25634357977215877,
+      "detected": true,
+      "e_score_sigma": 4.792110513628393,
+      "seed": 20260915
+    },
+    {
+      "b_score_sigma": 0.023311613041757332,
+      "detected": true,
+      "e_score_sigma": 6.018699131581156,
+      "seed": 20260916
+    },
+    {
+      "b_score_sigma": 0.3410607429761835,
+      "detected": true,
+      "e_score_sigma": 3.429098069305152,
+      "seed": 20260917
+    },
+    {
+      "b_score_sigma": 0.1555865679525977,
+      "detected": true,
+      "e_score_sigma": 4.679480701194913,
+      "seed": 20260918
+    },
+    {
+      "b_score_sigma": -0.5916229293865952,
+      "detected": false,
+      "e_score_sigma": 2.778260422152226,
+      "seed": 20260919
+    },
+    {
+      "b_score_sigma": -0.19577639566729838,
+      "detected": true,
+      "e_score_sigma": 3.349098065906607,
+      "seed": 20260920
+    },
+    {
+      "b_score_sigma": 0.47416312439533137,
+      "detected": true,
+      "e_score_sigma": 5.095045156415041,
+      "seed": 20260921
+    },
+    {
+      "b_score_sigma": 0.6576220496070772,
+      "detected": true,
+      "e_score_sigma": 4.3861894514130295,
+      "seed": 20260922
+    },
+    {
+      "b_score_sigma": -0.43698018916347664,
+      "detected": true,
+      "e_score_sigma": 3.6876214269382697,
+      "seed": 20260923
+    },
+    {
+      "b_score_sigma": 0.9366834054458918,
+      "detected": true,
+      "e_score_sigma": 4.798996003047855,
+      "seed": 20260924
+    },
+    {
+      "b_score_sigma": -0.5998910679677862,
+      "detected": false,
+      "e_score_sigma": 2.553734035824484,
+      "seed": 20260925
+    },
+    {
+      "b_score_sigma": 0.9488057658784808,
+      "detected": true,
+      "e_score_sigma": 3.42940314572718,
+      "seed": 20260926
+    },
+    {
+      "b_score_sigma": 0.3873803685372049,
+      "detected": true,
+      "e_score_sigma": 3.8252341556154033,
+      "seed": 20260927
+    },
+    {
+      "b_score_sigma": -0.6191913661797153,
+      "detected": true,
+      "e_score_sigma": 3.9080572967239324,
+      "seed": 20260928
+    },
+    {
+      "b_score_sigma": -0.004236320305761425,
+      "detected": true,
+      "e_score_sigma": 4.111032480256745,
+      "seed": 20260929
+    },
+    {
+      "b_score_sigma": -0.7707592048225836,
+      "detected": true,
+      "e_score_sigma": 3.7697129392904136,
+      "seed": 20260930
+    },
+    {
+      "b_score_sigma": 0.597054498750576,
+      "detected": true,
+      "e_score_sigma": 3.755924642609423,
+      "seed": 20260931
+    },
+    {
+      "b_score_sigma": -0.09735620906993274,
+      "detected": true,
+      "e_score_sigma": 3.994800820227566,
+      "seed": 20260932
+    },
+    {
+      "b_score_sigma": 1.21058832047058,
+      "detected": true,
+      "e_score_sigma": 4.405982756893947,
+      "seed": 20260933
+    },
+    {
+      "b_score_sigma": 0.0556644230413387,
+      "detected": true,
+      "e_score_sigma": 3.6541958931193705,
+      "seed": 20260934
+    },
+    {
+      "b_score_sigma": -0.18922978504337828,
+      "detected": true,
+      "e_score_sigma": 4.617723022184467,
+      "seed": 20260935
+    },
+    {
+      "b_score_sigma": 0.8830754521273892,
+      "detected": true,
+      "e_score_sigma": 3.6452629587529035,
+      "seed": 20260936
+    },
+    {
+      "b_score_sigma": 0.382671904010001,
+      "detected": true,
+      "e_score_sigma": 4.025254228012786,
+      "seed": 20260937
+    },
+    {
+      "b_score_sigma": 1.4186499449304613,
+      "detected": true,
+      "e_score_sigma": 5.5552925291943955,
+      "seed": 20260938
+    },
+    {
+      "b_score_sigma": 0.2604589094461104,
+      "detected": false,
+      "e_score_sigma": 2.926489560105719,
+      "seed": 20260939
+    },
+    {
+      "b_score_sigma": -0.2858653955249577,
+      "detected": true,
+      "e_score_sigma": 5.476286000456129,
+      "seed": 20260940
+    },
+    {
+      "b_score_sigma": 0.3178448072128828,
+      "detected": true,
+      "e_score_sigma": 5.931467343478237,
+      "seed": 20260941
+    },
+    {
+      "b_score_sigma": 0.8579427991198206,
+      "detected": true,
+      "e_score_sigma": 4.019240073153127,
+      "seed": 20260942
+    },
+    {
+      "b_score_sigma": 0.13781172071422151,
+      "detected": true,
+      "e_score_sigma": 3.4475412514516126,
+      "seed": 20260943
+    },
+    {
+      "b_score_sigma": -0.04752694001033603,
+      "detected": true,
+      "e_score_sigma": 4.037333951846372,
+      "seed": 20260944
+    },
+    {
+      "b_score_sigma": 0.7518840147854591,
+      "detected": true,
+      "e_score_sigma": 3.696377838210498,
+      "seed": 20260945
+    },
+    {
+      "b_score_sigma": -0.5369373103497281,
+      "detected": true,
+      "e_score_sigma": 4.301450767509261,
+      "seed": 20260946
+    },
+    {
+      "b_score_sigma": 0.6472301186514959,
+      "detected": true,
+      "e_score_sigma": 5.361492505473613,
+      "seed": 20260947
+    },
+    {
+      "b_score_sigma": -0.3545146262039567,
+      "detected": true,
+      "e_score_sigma": 4.022885773670266,
+      "seed": 20260948
+    },
+    {
+      "b_score_sigma": 0.5782075550845378,
+      "detected": true,
+      "e_score_sigma": 4.187239475975171,
+      "seed": 20260949
+    },
+    {
+      "b_score_sigma": -0.4679570740538493,
+      "detected": true,
+      "e_score_sigma": 3.571823336572594,
+      "seed": 20260950
+    },
+    {
+      "b_score_sigma": -0.2672697925715712,
+      "detected": true,
+      "e_score_sigma": 4.514944167546297,
+      "seed": 20260951
+    },
+    {
+      "b_score_sigma": 0.5391475067904731,
+      "detected": true,
+      "e_score_sigma": 4.364716577482814,
+      "seed": 20260952
+    },
+    {
+      "b_score_sigma": 0.15887959958026662,
+      "detected": true,
+      "e_score_sigma": 4.108656436759311,
+      "seed": 20260953
+    },
+    {
+      "b_score_sigma": 0.19806655020825908,
+      "detected": true,
+      "e_score_sigma": 4.508893607552759,
+      "seed": 20260954
+    },
+    {
+      "b_score_sigma": 0.9995291486406421,
+      "detected": false,
+      "e_score_sigma": 2.789905110670025,
+      "seed": 20260955
+    },
+    {
+      "b_score_sigma": 0.0699109903243066,
+      "detected": true,
+      "e_score_sigma": 4.502712758242502,
+      "seed": 20260956
+    },
+    {
+      "b_score_sigma": -0.32405602682477996,
+      "detected": true,
+      "e_score_sigma": 5.141800307426488,
+      "seed": 20260957
+    },
+    {
+      "b_score_sigma": -0.16322926245286537,
+      "detected": false,
+      "e_score_sigma": 2.944850249351229,
+      "seed": 20260958
+    },
+    {
+      "b_score_sigma": 0.31434621813214636,
+      "detected": true,
+      "e_score_sigma": 3.2109271790928444,
+      "seed": 20260959
+    },
+    {
+      "b_score_sigma": 0.6140347900732728,
+      "detected": true,
+      "e_score_sigma": 3.06056449260053,
+      "seed": 20260960
+    },
+    {
+      "b_score_sigma": 0.7060436603607047,
+      "detected": true,
+      "e_score_sigma": 5.059709545612503,
+      "seed": 20260961
+    },
+    {
+      "b_score_sigma": -0.29474397738312424,
+      "detected": true,
+      "e_score_sigma": 3.791926195377953,
+      "seed": 20260962
+    },
+    {
+      "b_score_sigma": 0.4432210026537144,
+      "detected": true,
+      "e_score_sigma": 6.876531981648359,
+      "seed": 20260963
+    }
+  ],
+  "status": "PASS",
+  "validation": {
+    "b_score_mean": 0.16808815610952912,
+    "b_score_sample_std": 0.5256539521049657,
+    "e_score_maximum": 6.876531981648359,
+    "e_score_mean": 4.260002219970385,
+    "e_score_minimum": 2.553734035824484,
+    "e_score_sample_std": 0.9026668633426146,
+    "maximum_absolute_b_score": 1.4186499449304613,
+    "success_fraction": 0.90625,
+    "successes": 58,
+    "trials": 64
+  }
+}

@@ -1,0 +1,43 @@
+version: 1
+experiment_id: physical-te-noise-depth-v1
+epistemic_class: ADAPTED
+status: frozen_synthetic_only
+purpose: >-
+  Derive the maximum base Q/U pixel-noise depth whose analytic Gaussian matched-filter
+  forecast gives at least 90 percent probability of exceeding 3 sigma, then validate
+  that frozen depth on 64 independent synthetic CMB-plus-noise seeds.
+inherit:
+  masked_contract: research/masked-te-injection.yml
+  systematics_contract: research/te-systematics-stress.yml
+  physical_template: results/bubble-te-template.json
+forecast:
+  detection_threshold_sigma: 3.0
+  target_detection_probability: 0.90
+  gaussian_required_mean_sigma: 4.281551565544601
+  base_noise_search_uK_per_pixel: {minimum: 0.0, maximum: 2.0}
+  noise_pattern: inherited anisotropic one-to-three depth multiplier
+  solver_absolute_tolerance_uK_per_pixel: 1.0e-6
+validation:
+  independent_seed_start: 20260900
+  seed_count: 64
+  minimum_detection_successes: 58
+  detection_success: total recovered E score is at least 3 sigma
+  b_veto_diagnostic_sigma: 3.0
+  require_finite_scores: true
+pass_conditions:
+  - analytic forecast has a unique depth root inside the frozen search interval
+  - at least 58 of 64 independent total E scores exceed 3 sigma
+  - every E and B score is finite
+forbidden_claims:
+  - observational bubble evidence
+  - Planck sensitivity
+  - a confidence bound proving 90 percent population power
+  - foreground-complete sensitivity
+  - proof of a multiverse
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - The empirical 58-of-64 rule is a preregistered finite calibration criterion, not a 95 percent lower confidence bound on power.
+  - Depth is chosen before validation from the analytic mean-score equation and is never retuned using seed outcomes.
+  - The same fixed foreground, beam, gain, angle, mask, and approximate mean-noise covariance assumptions from the mismatch stress are inherited.

@@ -17,6 +17,8 @@
 - Exact 100 GHz PySM3 d1+s1 template deprojection changes the recovered score by 4.04e-16 sigma. This validates the projection operator only; foreground-model mismatch, beam, anisotropic noise, and calibration remain untested.
 - The frozen mismatch stress fails overall: d2+s2 truth at 105 GHz versus d1+s1 nuisance templates at 100 GHz, 60 versus 55 arcmin beams, 1 percent gain error, 0.5-degree angle error, and 2-to-6 uK per-pixel anisotropic noise leave only 0.926 expected sigma and -0.739 realized sigma, below the frozen 3-sigma gate.
 - Injection response itself remains stable at 0.392 percent bias; foreground residual is -0.045 sigma and B score -0.00428 sigma. The active blocker is noise depth in this fixed scenario, not foreground or beam-response bias.
+- Analytic Gaussian power forecast requires base Q/U noise no larger than 0.192293 uK per pixel under the inherited one-to-three depth pattern, 10.4 times below the failed 2 uK per-pixel stress depth.
+- Independent harmonic validation passes exactly at its preregistered boundary: 58 of 64 seeds exceed 3 sigma, with mean 4.260 sigma and sample standard deviation 0.903. Treat this as a fragile synthetic design requirement, not proof of 90 percent power or Planck sensitivity.
 
 ## Excluded conclusions
 
