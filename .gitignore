@@ -27,6 +27,7 @@ results/*
 !results/wmap-t-radius-filter.json
 !results/wmap-t-null-pipeline.json
 !results/wmap-t-analytic-nulls.json
+!results/gw-pt-feasibility.json
 *.fits
 *.h5
 *.hdf5

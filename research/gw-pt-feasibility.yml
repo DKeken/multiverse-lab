@@ -1,0 +1,40 @@
+version: 1
+experiment_id: gw-pt-feasibility-v1
+epistemic_class: ADAPTED
+status: frozen_feasibility_forecast
+purpose: >-
+  Decide whether a full NANOGrav chain-based discrimination gate between the binary
+  supermassive-black-hole background and first-order-phase-transition spectra is
+  warranted, using only published headline constraints and closed-form spectra.
+published_anchor:
+  source: arXiv:2306.16213 (Agazie et al. 2023, NANOGrav 15 yr GWB evidence)
+  strain_amplitude_90pct: {median: 2.4e-15, low: 1.8e-15, high: 3.1e-15}
+  reference_frequency_hz: 3.168e-8
+  spectral_index_alpha: -0.6666666666666666
+  hd_detection_sigma_frequentist: [3.5, 4.0]
+  exotic_sources_statement: not excluded
+models:
+  smhb: Om = (2 pi^2 / 3 H0^2) f^2 (A (f/fref)^alpha)^2 with H0 67.5
+  first_order_pt: >-
+    Om_pk (f/fpk)^3 [1 + (f/fpk)^((3-n2)/delta)]^(-delta), causal low-frequency slope 3,
+    delta 1, n2 in [-1, 1], fpk in [1e-9, 1e-7] Hz, Om_pk in [1e-11, 1e-7]
+discrimination_metric:
+  sigma_dex_one_sigma: 0.28
+  derivation: 90 percent credible half-width 0.46 dex divided by 1.645
+  statistic: absolute dex distance between model log10 Omega at the reference frequency
+temperature_bridge:
+  formula: fpk_today = 1.9e-5 Hz * (beta_over_H) * (T_star / 100 GeV) * (g_star / 100)^(1/6)
+  status: order-of-magnitude conversion from phase-transition literature, to verify against primary sources before any chain gate
+decision_rule:
+  open_chain_gate: any grid point with today discrimination >= 2 sigma and 20-year projection >= 3 sigma
+  otherwise: keep track frozen pending new public data releases
+forbidden_claims:
+  - detection of a phase transition
+  - evidence for a multiverse
+  - replacement of NANOGrav own model comparisons
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - This gate downloads nothing; the NANOGrav public chains repository must be registry-frozen before any fetch gate.
+  - All numbers trace to the pinned primary source or the frozen formula block above.
