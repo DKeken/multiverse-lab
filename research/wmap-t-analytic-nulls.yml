@@ -1,0 +1,46 @@
+version: 1
+experiment_id: wmap-t-analytic-nulls-v1
+epistemic_class: ADAPTED
+status: frozen_development_data
+purpose: >-
+  Replace Monte Carlo null calibration with the exact analytic null distribution of
+  the multi-radius WMAP-T matched filter, exploiting that the linear Gaussian
+  pipeline makes every score jointly normal with a closed-form covariance built
+  from Legendre moments of the masked filter kernels.
+inherit:
+  pipeline_contract: research/wmap-t-null-pipeline.yml
+  pipeline_result: results/wmap-t-null-pipeline.json
+mathematics:
+  score_form: pixel inner product of an axisymmetric filtered template kernel with the masked dimensionless map
+  kernel: lambda_r(mu) = sum over ell of temperature_bl0 divided by C_tt times sqrt((2ell+1)/4pi) P_ell(mu)
+  moment: g_{r,L} via 400-node Gauss-Legendre in mu of the masked kernel product
+  variance: Var(s_r) = 4 pi sum_L C_L g_{r,L}^2 / (2L+1)
+  covariance: Cov(s_r,s_p) = 4 pi sum_L C_L g_{r,L} g_{p,L} / (2L+1)
+  z_covariance: Sigma_{rp} = Cov(s_r,s_p) / sqrt(Var_r Var_p)
+  p_value: 1 minus four-dimensional Gaussian CDF at equal observed-z quantile vector
+validation:
+  diagonal_check: analytic Var(s_r) versus inverse square of empirical amplitude sigma from the published 1000-null artifact
+  offdiagonal_check: 200 fresh seeded nulls at identical pipeline settings compared elementwise to Sigma
+  legendre_truncation: ell moments summed to 1600 and halved to 800 must change variances by less than 1e-6 relative
+pass_conditions:
+  - diagonal variances agree within 5 percent of the published empirical sigma
+  - off-diagonal correlation agrees within 0.08 absolute on the 800-null check
+  - truncation stability below 1e-6 relative
+  - analytic p-value reported alongside the published empirical p-value
+forbidden_claims:
+  - detection of a bubble collision
+  - evidence for a multiverse
+  - replacement of non-Gaussian residual tests
+amendment_v2:
+  reason: >-
+    The original 200-null off-diagonal check had a Monte Carlo standard error near
+    0.063, larger than its own 0.05 tolerance, so even exact analytics could fail by
+    noise alone. Sample size and tolerance were corrected before inspecting any
+    amended-run result; the first amended run is the authoritative outcome.
+  changes: {validation_nulls: {from: 200, to: 800}, offdiagonal_tolerance: {from: 0.05, to: 0.08}, gauss_legendre_nodes: {from: 600, to: 1200}}
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - This gate deletes the Monte Carlo for any linear Gaussian matched-filter statistic on this pipeline class; exact answers in seconds replace thousand-sky runs.
+  - Non-Gaussian ILC residual tests would still need simulations and are explicitly out of scope here.

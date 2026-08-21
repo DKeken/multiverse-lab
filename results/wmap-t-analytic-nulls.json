@@ -1,0 +1,131 @@
+{
+  "analytic": {
+    "analytic_p_value": 0.40216764149777984,
+    "observed_max_z": 0.9938321192758965,
+    "per_radius": [
+      {
+        "analytic_amplitude_sigma": 0.00013561549729822632,
+        "angular_radius_deg": 10.0,
+        "data_z": -0.14398757169418247,
+        "published_empirical_sigma": 0.00013902639239643763,
+        "sigma_ratio": 0.9754658447261938,
+        "upper_limit_95_R0": 0.00022306764260181513
+      },
+      {
+        "analytic_amplitude_sigma": 8.439831952649687e-05,
+        "angular_radius_deg": 15.0,
+        "data_z": -0.5532887854030347,
+        "published_empirical_sigma": 8.906380995436903e-05,
+        "sigma_ratio": 0.9476163165458285,
+        "upper_limit_95_R0": 0.00013882288198176763
+      },
+      {
+        "analytic_amplitude_sigma": 7.483274434097592e-05,
+        "angular_radius_deg": 20.0,
+        "data_z": -0.010072504225644307,
+        "published_empirical_sigma": 7.857698796450966e-05,
+        "sigma_ratio": 0.952349361810294,
+        "upper_limit_95_R0": 0.0001230889109439865
+      },
+      {
+        "analytic_amplitude_sigma": 6.531371581296147e-05,
+        "angular_radius_deg": 30.0,
+        "data_z": 0.9938321192758965,
+        "published_empirical_sigma": 6.585587638602615e-05,
+        "sigma_ratio": 0.991767468556842,
+        "upper_limit_95_R0": 0.00010743150234462738
+      }
+    ],
+    "published_empirical_p_value": 0.4165834165834166,
+    "z_correlation_matrix": [
+      [
+        1.0,
+        0.5902183290359907,
+        0.30735741637628744,
+        0.05439595878614509
+      ],
+      [
+        0.5902183290359907,
+        1.0,
+        0.6386715389805832,
+        0.19092291520608654
+      ],
+      [
+        0.30735741637628744,
+        0.6386715389805832,
+        1.0,
+        0.4280093568549087
+      ],
+      [
+        0.05439595878614509,
+        0.19092291520608654,
+        0.4280093568549087,
+        1.0
+      ]
+    ]
+  },
+  "checks": {
+    "diagonal_within_5pct": false,
+    "offdiagonal_within_0p08": true,
+    "truncation_stable": true
+  },
+  "contract": {
+    "path": "research/wmap-t-analytic-nulls.yml",
+    "pipeline_result_sha256": "580d120518b2de4fb5bf812db0861002fd41eaaa05521645acfba4cd45664ae6",
+    "sha256": "163e08faf4422459a2b34218c0a2a012d86f6a7e6eb818dfb9653862b36247d3"
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "wmap-t-analytic-nulls-v1",
+  "limitations": [
+    "Exact only for the linear Gaussian pipeline; non-Gaussian ILC residual tests still require simulations.",
+    "Legendre moments truncated at 1600 with an 800-term stability check at the frozen tolerance.",
+    "The 200 fresh nulls validate the covariance and do not replace the closed-form calibration.",
+    "No Planck product or observational polarization was accessed."
+  ],
+  "provenance": {
+    "development_data_only": true,
+    "gauss_legendre_nodes": 1200,
+    "legendre_sums": [
+      1600,
+      800
+    ],
+    "map_path": "data/wmap_ilc_9yr_v5.fits",
+    "map_sha256": "4501090f824f9140e916339f9e8e490333f6ffe4257a6ee6a02526c8640099a9",
+    "nside_analysis": 256,
+    "observational_cmb_maps_opened": true,
+    "planck_accessed": false,
+    "polarization_accessed": false,
+    "validation_null_count": 800
+  },
+  "status": "INVALID",
+  "validation": {
+    "fresh_null_empirical_correlation": [
+      [
+        1.0,
+        0.6001436853417155,
+        0.27991554453547673,
+        0.04382290739573041
+      ],
+      [
+        0.6001436853417155,
+        1.0,
+        0.6436018911889653,
+        0.19873175833351955
+      ],
+      [
+        0.27991554453547673,
+        0.6436018911889653,
+        1.0,
+        0.4355843537026321
+      ],
+      [
+        0.04382290739573041,
+        0.19873175833351955,
+        0.4355843537026321,
+        1.0
+      ]
+    ],
+    "offdiagonal_max_abs_delta": 0.027441871840810705,
+    "truncation_relative_delta": 0.0
+  }
+}

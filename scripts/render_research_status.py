@@ -18,6 +18,7 @@ PIXEL_INPUT = ROOT / "results" / "te-pixel-covariance.json"
 SCAN_INPUT = ROOT / "results" / "bubble-geometry-scan.json"
 WMAP_FILTER_INPUT = ROOT / "results" / "wmap-t-radius-filter.json"
 NULL_INPUT = ROOT / "results" / "wmap-t-null-pipeline.json"
+ANALYTIC_INPUT = ROOT / "results" / "wmap-t-analytic-nulls.json"
 OUTPUT = ROOT / "results" / "research-control-room.svg"
 
 
@@ -117,6 +118,7 @@ def render() -> str:
     wmap_rows = json.loads(WMAP_FILTER_INPUT.read_text())
     null_result = json.loads(NULL_INPUT.read_text())
     null_p = float(null_result["observed"]["p_value"])
+    analytic_result = json.loads(ANALYTIC_INPUT.read_text())
 
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">',
@@ -207,7 +209,7 @@ def render() -> str:
         out.append(text(x + 16, 616, label, 12, "#eef2ff", 750))
         out.append(text(x + 16, 641, state, 10, color, 700))
     out += [
-        text(64, 696, f"Null-calibrated: p = {null_p:.3f}; 95% UL R₀ = 1.1–2.3×10⁻⁴; development-data collision search closed.", 12, "#45d483"),
+        text(64, 696, f"Analytic nulls: p = {analytic_result['analytic']['analytic_p_value']:.3f} exact in seconds — Monte Carlo deleted for linear Gaussian filters.", 12, "#7c8cff"),
         text(1366, 696, "Planck sealed · approval-gated", 11, "#ffba69", 700, "end"),
     ]
 
