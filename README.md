@@ -65,6 +65,7 @@ uv sync --frozen --extra masked-te
 uv run --extra masked-te python src/masked_te_injection.py
 uv run --extra masked-te python src/te_systematics_stress.py
 uv run --extra masked-te python src/te_noise_depth.py
+uv run --extra masked-te python src/te_pixel_covariance.py
 ```
 
 This command uses synthetic CMB and PySM foregrounds only. It does not fetch or open Planck or observational polarization maps.

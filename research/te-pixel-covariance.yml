@@ -1,0 +1,50 @@
+version: 1
+experiment_id: physical-te-pixel-covariance-v1
+epistemic_class: ADAPTED
+status: frozen_synthetic_only
+purpose: >-
+  Test whether the previously frozen 0.19229254447021454 uK-per-pixel base-noise
+  requirement retains its preregistered 3-sigma detection rate when the mean harmonic
+  noise approximation is replaced by matrix-free anisotropic cut-sky Q/U covariance.
+inherit:
+  masked_contract: research/masked-te-injection.yml
+  systematics_contract: research/te-systematics-stress.yml
+  depth_contract: research/te-noise-depth.yml
+  depth_result: results/te-noise-depth.json
+analysis:
+  base_noise_rms_uK_per_pixel: 0.19229254447021454
+  observed_pixels: binary Galactic mask accepted pixels before apodization
+  signal_covariance: CAMB conditional E covariance convolved with assumed 55-arcmin beam
+  noise_covariance: exact diagonal Q/U pixel covariance from inherited one-to-three depth pattern
+  inverse: matrix-free conjugate gradient
+  cg_relative_tolerance: 1.0e-7
+  cg_absolute_tolerance: 0.0
+  cg_maximum_iterations: 512
+  maximum_accepted_relative_residual: 1.0e-5
+  nuisance_projection: d1 and s1 Q/U templates projected in the same inverse-covariance metric
+validation:
+  independent_seed_start: 20261000
+  seed_count: 64
+  minimum_detection_successes: 58
+  detection_threshold_sigma: 3.0
+  require_finite_scores: true
+  maximum_absolute_b_diagnostic_sigma: 3.0
+pass_conditions:
+  - all template and nuisance inverse solves converge below the frozen residual threshold
+  - at least 58 of 64 independent cut-sky CMB-plus-anisotropic-noise scores exceed 3 sigma
+  - every E and B diagnostic score is finite
+  - maximum absolute B diagnostic score is below 3 sigma
+forbidden_claims:
+  - observational bubble evidence
+  - Planck sensitivity
+  - proof of 90 percent population power
+  - full instrument-likelihood validation
+  - proof of a multiverse
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - The inherited depth is tested once and is never retuned from these seed outcomes.
+  - Pixel covariance uses the binary accepted cut sky; apodized NaMaster purification remains a separate passed operator gate.
+  - The inverse filter includes exact inherited anisotropic pixel noise but not correlated 1/f noise or bandpass-map covariance.
+  - The 58-of-64 rule remains a finite preregistered criterion, not a lower confidence bound on population power.

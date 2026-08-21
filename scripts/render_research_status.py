@@ -14,6 +14,7 @@ BUBBLE_INPUT = ROOT / "results" / "bubble-te-template.json"
 MASKED_INPUT = ROOT / "results" / "masked-te-injection.json"
 STRESS_INPUT = ROOT / "results" / "te-systematics-stress.json"
 DEPTH_INPUT = ROOT / "results" / "te-noise-depth.json"
+PIXEL_INPUT = ROOT / "results" / "te-pixel-covariance.json"
 OUTPUT = ROOT / "results" / "research-control-room.svg"
 
 
@@ -74,6 +75,7 @@ def render() -> str:
     masked_result = json.loads(MASKED_INPUT.read_text())
     stress_result = json.loads(STRESS_INPUT.read_text())
     depth_result = json.loads(DEPTH_INPUT.read_text())
+    pixel_result = json.loads(PIXEL_INPUT.read_text())
     pilot = result["global_pilot"]
     pipeline = result["pipeline"]
     candidates = all_candidates(result)
@@ -104,6 +106,9 @@ def render() -> str:
     calibrated_depth = float(depth_result["calibrated_depth"]["base_rms_uK_per_pixel"])
     depth_successes = int(depth_result["validation"]["successes"])
     depth_trials = int(depth_result["validation"]["trials"])
+    pixel_successes = int(pixel_result["validation"]["successes"])
+    pixel_trials = int(pixel_result["validation"]["trials"])
+    pixel_b_max = float(pixel_result["validation"]["maximum_absolute_b_score"])
 
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">',
@@ -181,8 +186,8 @@ def render() -> str:
         (64, "KNOWN COLD SPOT", "1.103° MATCH", "#45d483"),
         (290, "E ⟂ T", f"{conditional_rate * 100:.3f}% FPR", "#45d483"),
         (516, "PHYSICAL T/E", f"BANK {bubble_result['status']}", "#45d483"),
-        (742, "MISMATCH STRESS", f"{stress_result['status']} · {stress_expected:.3f}σ", "#ff7a8a"),
-        (968, "NOISE DEPTH", f"≤ {calibrated_depth:.3f} µK · {depth_successes}/{depth_trials}", "#ffba69"),
+        (742, "HARMONIC DEPTH", f"{depth_result['status']} · {depth_successes}/{depth_trials}", "#ffba69"),
+        (968, "PIXEL COV", f"{pixel_result['status']} · {pixel_successes}/{pixel_trials}", "#ff7a8a"),
         (1194, "PLANCK + Q/U", "SEALED", "#ff7a8a"),
     ]
     for index, (x, label, state, color) in enumerate(stages):
@@ -194,8 +199,8 @@ def render() -> str:
         out.append(text(x + 16, 616, label, 12, "#eef2ff", 750))
         out.append(text(x + 16, 641, state, 10, color, 700))
     out += [
-        text(64, 696, f"Depth calibration {depth_result['status']} exactly at boundary: {depth_successes}/{depth_trials}; full anisotropic covariance still required.", 12, "#ffba69"),
-        text(1366, 696, "Synthetic design target · no observational Q/U", 11, "#ff9dac", 700, "end"),
+        text(64, 696, f"Matrix-free covariance rejects {calibrated_depth:.3f} µK target: {pixel_successes}/{pixel_trials}; max |B| {pixel_b_max:.3f}σ.", 12, "#ff9dac"),
+        text(1366, 696, "New depth gate required · no observational Q/U", 11, "#ff9dac", 700, "end"),
     ]
 
     out += card(24, 752, 1392, 120, "Operations")
@@ -211,7 +216,7 @@ def render() -> str:
         out.append(f'<circle cx="{x}" cy="827" r="5" fill="{color}"/>')
         out.append(text(x + 13, 832, state, 13, "#e8edff", 700))
     out += [
-        text(1392, 888, "generated from WMAP + conditional T/E + physical template + systematic/depth calibration JSON", 10, "#4e5b78", 400, "end"),
+        text(1392, 888, "generated from WMAP + physical T/E + systematic + harmonic/pixel covariance JSON", 10, "#4e5b78", 400, "end"),
         "</svg>",
     ]
     return "".join(out)

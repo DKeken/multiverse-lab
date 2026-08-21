@@ -19,6 +19,8 @@
 - Injection response itself remains stable at 0.392 percent bias; foreground residual is -0.045 sigma and B score -0.00428 sigma. The active blocker is noise depth in this fixed scenario, not foreground or beam-response bias.
 - Analytic Gaussian power forecast requires base Q/U noise no larger than 0.192293 uK per pixel under the inherited one-to-three depth pattern, 10.4 times below the failed 2 uK per-pixel stress depth.
 - Independent harmonic validation passes exactly at its preregistered boundary: 58 of 64 seeds exceed 3 sigma, with mean 4.260 sigma and sample standard deviation 0.903. Treat this as a fragile synthetic design requirement, not proof of 90 percent power or Planck sensitivity.
+- Matrix-free cut-sky inverse filtering solves the 65024-dimensional anisotropic Q/U covariance without a dense matrix; six template/nuisance CG solves converge in 99 to 124 iterations with relative residual below 9.42e-8.
+- The inherited 0.192293 uK per-pixel harmonic depth is rejected by the more exact operator: 55 of 64 seeds exceed 3 sigma rather than the frozen 58, mean E score is 3.990 sigma, and maximum absolute B diagnostic is 3.601 sigma versus the 3-sigma veto. Recalibration must be a new preregistered gate.
 
 ## Excluded conclusions
 
