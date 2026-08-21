@@ -1,0 +1,38 @@
+version: 1
+experiment_id: wmap-t-radius-filter-v1
+epistemic_class: ADAPTED
+status: frozen_development_data
+purpose: >-
+  Screen development WMAP ILC temperature data for axisymmetric bubble-collision
+  signatures at revived radii using analytic matched-filter scores, giving amplitudes,
+  z-scores, and post-trials upper limits without any Monte Carlo null budget.
+data:
+  map: data/wmap_ilc_9yr_v5.fits
+  role: development
+  unit_conversion: millikelvin to microkelvin times 1000; dimensionless scores unaffected by overall scaling
+analysis:
+  basis: linear
+  angular_radii_deg: [10, 15, 20, 30]
+  lmax: 256
+  radial_nodes: 160
+  mask: binary Galactic cut rejecting |b| < 20 degrees, matching all prior gates
+  covariance: CAMB unlensed scalar TT only, cosmic-variance assumption; ILC residual noise neglected at low ell
+  statistic: harmonic matched filter score S over masked-map alms against each template
+  amplitude_estimator: a_hat = S / V with V the template self-information
+  trials_correction: >-
+    effective independent positions N_eff = f_sky * 4pi / (2 pi theta^2); post-trials
+    z threshold uses one-sided Gaussian factor sqrt(2 ln N_eff) on the observed maximum
+pass_conditions:
+  - every per-radius pre-trials z is finite
+  - report post-trials significance and 95 percent upper limits per radius
+  - no claim of detection unless any post-trials z >= 3
+forbidden_claims:
+  - detection of a bubble collision
+  - evidence for a multiverse
+  - Planck access or holdout promotion
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - Masked-map alms use the pseudo-Cl approximation; mode coupling is a documented limitation, acceptable for screening.
+  - This gate screens only; any interesting excess must survive a frozen end-to-end null pipeline before any promotion language.

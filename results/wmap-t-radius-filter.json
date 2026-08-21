@@ -1,0 +1,72 @@
+{
+  "checks": {
+    "detection": false,
+    "finite_scores": true
+  },
+  "contract": {
+    "path": "research/wmap-t-radius-filter.yml",
+    "sha256": "4f346c72e0a3f61075203686a33b624b827584f8b68737c53aef3e2b3b5af775"
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "wmap-t-radius-filter-v1",
+  "limitations": [
+    "Pseudo-Cl masked alms ignore mode coupling; this is screening, not a final analysis.",
+    "ILC residual noise and foreground residuals are neglected under the cosmic-variance assumption.",
+    "Trials correction uses an independent-lobe approximation, not an end-to-end null pipeline.",
+    "Any interesting excess must survive a frozen end-to-end null pipeline before promotion language.",
+    "No Planck product or observational polarization was accessed."
+  ],
+  "provenance": {
+    "development_data_only": true,
+    "map_path": "data/wmap_ilc_9yr_v5.fits",
+    "map_sha256": "4501090f824f9140e916339f9e8e490333f6ffe4257a6ee6a02526c8640099a9",
+    "nside": 512,
+    "observational_cmb_maps_opened": true,
+    "planck_accessed": false,
+    "polarization_accessed": false,
+    "sky_fraction_used": 0.658203125
+  },
+  "radii": [
+    {
+      "amplitude_hat_R0": -1.9319926118695586e-05,
+      "angular_radius_deg": 10.0,
+      "effective_positions": 43.21506796695147,
+      "post_trials_z": -2.887057250714456,
+      "pre_trials_z": -0.142539358637114,
+      "trials_penalty_sigma": 2.744517892077342,
+      "typical_physical_R0": 0.00027194122108147636,
+      "upper_limit_95_R0": 0.0002229450928685218
+    },
+    {
+      "amplitude_hat_R0": -4.6717131185652314e-05,
+      "angular_radius_deg": 15.0,
+      "effective_positions": 19.206696874200656,
+      "post_trials_z": -2.9845630939634913,
+      "pre_trials_z": -0.5534073960494316,
+      "trials_penalty_sigma": 2.43115569791406,
+      "typical_physical_R0": 0.0006099277094256771,
+      "upper_limit_95_R0": 0.00013885402186533875
+    },
+    {
+      "amplitude_hat_R0": -7.414171876819797e-07,
+      "angular_radius_deg": 20.0,
+      "effective_positions": 10.803766991737868,
+      "post_trials_z": -2.1915765212405938,
+      "pre_trials_z": -0.009882285630829142,
+      "trials_penalty_sigma": 2.181694235609765,
+      "typical_physical_R0": 0.001079502087932239,
+      "upper_limit_95_R0": 0.00012340492835365906
+    },
+    {
+      "amplitude_hat_R0": 6.559509299779193e-05,
+      "angular_radius_deg": 30.0,
+      "effective_positions": 4.801674218550164,
+      "post_trials_z": -0.7771068170258285,
+      "pre_trials_z": 0.9943133209595728,
+      "trials_penalty_sigma": 1.7714201379854013,
+      "typical_physical_R0": 0.0023981452722585464,
+      "upper_limit_95_R0": 0.0001085113961095408
+    }
+  ],
+  "status": "NO-DETECTION"
+}

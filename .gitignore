@@ -24,6 +24,7 @@ results/*
 !results/te-noise-depth.json
 !results/te-pixel-covariance.json
 !results/bubble-geometry-scan.json
+!results/wmap-t-radius-filter.json
 *.fits
 *.h5
 *.hdf5
