@@ -7,8 +7,8 @@ engines:
   - {name: Wolfram Cloud MCP, role: independent official CAS check, license: service terms, url: https://agenttools.wolfram.com/mcp, decision: keep}
   - {name: Astropy, role: FITS units coordinates cosmology, license: BSD-3-Clause, url: https://github.com/astropy/astropy, decision: keep}
   - {name: QuTiP, role: open quantum system simulation, license: BSD-3-Clause, url: https://github.com/qutip/qutip, decision: keep}
-  - {name: NaMaster, role: masked pseudo-Cl and mode-coupling, license: BSD-3-Clause, url: https://github.com/LSSTDESC/NaMaster, decision: add only before publication-grade cut-sky spectra}
-  - {name: PySM3, role: foreground simulations, license: BSD-3-Clause, url: https://github.com/galsci/pysm, decision: add before frequency foreground validation}
+  - {name: NaMaster, package: pymaster, version: 3.0.1, role: cut-sky E/B purification and exact nuisance deprojection, license: BSD-3-Clause, url: https://github.com/LSSTDESC/NaMaster, decision: active optional masked-te engine; serial build is scientifically equivalent and avoids nonportable OpenMP linkage}
+  - {name: PySM3, version: 3.4.6, role: frozen polarized dust and synchrotron nuisance simulations, license: BSD-3-Clause, url: https://github.com/galsci/pysm, decision: active optional masked-te foreground engine; exact-template gate does not cover model mismatch}
   - {name: CAMB, version: 2.0.3, role: physical visibility and T/E transfer functions, license: LGPL-2.1, url: https://github.com/cmbant/CAMB, decision: active pinned transfer engine for physical bubble templates and covariance}
   - {name: AIPOCH OpenScience, role: optional specialist and provenance workbench, license: Apache-2.0, url: https://github.com/aipoch/open-science, revision: 96f42c8ae061571c7a20fb34a1d01017e0ae1c9d, decision: local reviewer only; never scientific authority}
   - {name: sbi, role: simulation-based posterior inference, license: AGPL-3.0, url: https://github.com/sbi-dev/sbi, decision: defer until simulator coverage is calibrated}

@@ -1,0 +1,79 @@
+{
+  "checks": {
+    "b_leakage": true,
+    "foreground_deprojection": true,
+    "retained_snr": true,
+    "sky_fraction": true
+  },
+  "contract": {
+    "frozen_inputs": {
+      "basis": "linear",
+      "injection_amplitude_sigma": 5.0,
+      "injection_center_galactic_deg": {
+        "latitude": -57.39952353962295,
+        "longitude": 207.1022727272727
+      },
+      "nside": 64,
+      "physical_template": "results/bubble-te-template.json",
+      "seed": 20260821,
+      "template_lmax": 96
+    },
+    "path": "research/masked-te-injection.yml",
+    "sha256": "7eb504af73e593c49d48083d1f7a36f4d47187d4b514d9f109235336f0b4705a",
+    "thresholds": {
+      "maximum_absolute_b_leakage_sigma": 1.0,
+      "maximum_absolute_foreground_score_delta_sigma": 0.1,
+      "minimum_binary_sky_fraction": 0.55,
+      "minimum_retained_snr_fraction": 0.8
+    }
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "masked-physical-te-injection-v1",
+  "foregrounds": {
+    "exact_templates_supplied_to_deprojection": true,
+    "frequency_ghz": 100.0,
+    "presets": {
+      "d1": 1.1558869003082522e-06,
+      "s1": 1.855270049091032e-07
+    }
+  },
+  "injection": {
+    "conditional_q_rms": 1.2946054870551478e-07,
+    "conditional_u_rms": 1.354369811547737e-07,
+    "full_sky_conditional_e_sigma": 5.0,
+    "injected_unit_basis_amplitude": 0.0026367444276455495,
+    "temperature_map_rms": 2.3007667451358575e-05
+  },
+  "limitations": [
+    "Synthetic T/Q/U only; no observational CMB polarization or Planck product was opened.",
+    "Foreground deprojection receives the exact PySM templates used in the injection and does not test model mismatch.",
+    "The harmonic score uses full-sky conditional covariance after NaMaster purification, not a full cut-sky pixel covariance.",
+    "No beam, anisotropic instrument noise, calibration error, or frequency bandpass mismatch is included.",
+    "Passing this gate is method validation, not observational evidence for a bubble collision or multiverse."
+  ],
+  "mask": {
+    "binary_sky_fraction": 0.6614583333333334,
+    "effective_apodized_sky_fraction": 0.6269414829211671
+  },
+  "provenance": {
+    "camb_version": "2.0.3",
+    "healpy_version": "1.20.0",
+    "namaster_version": "3.0.1",
+    "observational_cmb_maps_opened": false,
+    "physical_template_path": "results/bubble-te-template.json",
+    "physical_template_sha256": "92531a1b2b95c543c33b8a45ddd8aae1fc05bf77abd702e4b796b5137b6ba7aa",
+    "planck_accessed": false,
+    "pysm3_version": "3.4.6"
+  },
+  "recovery": {
+    "expected_processed_injection_score_sigma": 4.998457280387069,
+    "foreground_deprojected_injection_response_score_sigma": 4.998457280387069,
+    "foreground_total_score_delta_sigma": -4.0432363105158765e-16,
+    "full_sky_conditional_information": 3595869.606362796,
+    "processed_cut_sky_information": 3593650.9812603425,
+    "purified_b_leakage_score_sigma": 1.662686743448429e-05,
+    "recovered_injection_response_score_sigma": 4.998457280387068,
+    "retained_snr_fraction": 0.9996914560774139
+  },
+  "status": "PASS"
+}

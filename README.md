@@ -58,6 +58,15 @@ bun scripts/fetch-data.ts --group wmap
 uv run python src/wmap_pilot.py --null-simulations 128 --output results/wmap-pilot.json
 ```
 
+The synthetic masked T/Q/U gate uses optional native NaMaster and PySM3 engines. On macOS with Homebrew, install `cfitsio`, `fftw`, `gsl`, `libomp`, `autoconf`, `automake`, and `libtool`, then:
+
+```bash
+uv sync --frozen --extra masked-te
+uv run --extra masked-te python src/masked_te_injection.py
+```
+
+This command uses synthetic CMB and PySM foregrounds only. It does not fetch or open Planck or observational polarization maps.
+
 Planck is a declared holdout and is **not** fetched automatically. See [`research/planck-confirmation.yml`](research/planck-confirmation.yml).
 
 ## Research tracks

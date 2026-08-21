@@ -19,6 +19,7 @@ results/*
 !results/joint-te-synthetic.json
 !results/camb-te-selection.json
 !results/bubble-te-template.json
+!results/masked-te-injection.json
 *.fits
 *.h5
 *.hdf5

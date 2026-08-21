@@ -13,6 +13,8 @@
 - CAMB 2.0.3 gives a frozen 5-degree filtered T/E correlation of 0.08195 with two TE sign changes; conditional calibration passes both template orientations while naive false-positive rates vary from 0.073 to 0.305 percent.
 - Public CAMB 2.0.3 plus a repository-owned Feeney Eq. 1-4 adapter produces converged five-degree unit-linear and unit-quadratic T/E basis templates; reconstructed TT/EE/TE p95 relative errors are all below 0.078 percent.
 - Cosmic-variance-only Fisher decomposition gives joint-over-temperature information ratios of 1.740 for the linear basis and 1.607 for the quadratic basis; the basis correlation is 0.964, so these are fixed-other-basis forecasts rather than marginalized observational sensitivities.
+- Frozen synthetic `NSIDE=64`, `lmax=96` T/Q/U injection through a 20-degree Galactic cut and 5-degree C2 apodization retains 99.969 percent of conditional-E signal-to-noise; NaMaster recovers 4.99846 sigma from the expected 4.99846 sigma with 0.0000166 sigma B leakage.
+- Exact 100 GHz PySM3 d1+s1 template deprojection changes the recovered score by 4.04e-16 sigma. This validates the projection operator only; foreground-model mismatch, beam, anisotropic noise, and calibration remain untested.
 
 ## Excluded conclusions
 
@@ -35,3 +37,4 @@
 - Restricted AIPOCH to optional provenance review; repository artifacts remain authoritative and AIPOCH cannot promote scientific evidence.
 - Selected maintained CAMB plus a minimal spatial-profile adapter instead of adopting the Python-2-era CosmoBubbles runtime; CAMB owns transfer physics and the repository owns only the missing profile-to-transfer integration.
 - Applied CAMB's exact spin-2 E normalization from `CalcScalCls` and verified it by independently reconstructing unlensed scalar TT/EE/TE.
+- Pinned NaMaster 3.0.1 and PySM3 3.4.6 in the optional `masked-te` environment so native cut-sky engines do not burden portable core CI; OpenMP is disabled because it changes performance, not the estimator.
