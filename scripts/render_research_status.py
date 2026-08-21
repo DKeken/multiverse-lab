@@ -17,6 +17,7 @@ DEPTH_INPUT = ROOT / "results" / "te-noise-depth.json"
 PIXEL_INPUT = ROOT / "results" / "te-pixel-covariance.json"
 SCAN_INPUT = ROOT / "results" / "bubble-geometry-scan.json"
 WMAP_FILTER_INPUT = ROOT / "results" / "wmap-t-radius-filter.json"
+NULL_INPUT = ROOT / "results" / "wmap-t-null-pipeline.json"
 OUTPUT = ROOT / "results" / "research-control-room.svg"
 
 
@@ -114,6 +115,8 @@ def render() -> str:
     scan_rows = json.loads(SCAN_INPUT.read_text())["radii"]
     scan_typical = {row["angular_radius_deg"]: float(row["typical_ceiling_sigma"]) for row in scan_rows}
     wmap_rows = json.loads(WMAP_FILTER_INPUT.read_text())
+    null_result = json.loads(NULL_INPUT.read_text())
+    null_p = float(null_result["observed"]["p_value"])
 
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">',
@@ -204,8 +207,8 @@ def render() -> str:
         out.append(text(x + 16, 616, label, 12, "#eef2ff", 750))
         out.append(text(x + 16, 641, state, 10, color, 700))
     out += [
-        text(64, 696, f"WMAP-T screen: no excess at 10–30° (|z|<1); 95% UL R₀ = 1.1–2.2×10⁻⁴ — typical amplitudes excluded at ≥15°.", 12, "#45d483"),
-        text(1366, 696, "Development data only · Planck sealed", 11, "#ffba69", 700, "end"),
+        text(64, 696, f"Null-calibrated: p = {null_p:.3f}; 95% UL R₀ = 1.1–2.3×10⁻⁴; development-data collision search closed.", 12, "#45d483"),
+        text(1366, 696, "Planck sealed · approval-gated", 11, "#ffba69", 700, "end"),
     ]
 
     out += card(24, 752, 1392, 120, "Operations")

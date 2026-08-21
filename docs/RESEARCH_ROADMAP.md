@@ -65,6 +65,8 @@ Geometry scan (revival found): a nine-radius cosmic-variance Fisher survey over 
 
 WMAP temperature screen (first development-data result): an analytic multi-radius matched filter (`10/15/20/30°`, `|b|≥20°` cut, pseudo-`C_ℓ`, cosmic-variance TT covariance) on the WMAP ILC 9-year map finds **no excess**: all pre-trials `|z|<1` (`−0.55…+0.99`). It delivers 95% upper limits `R_0^L = 1.09–2.23×10⁻⁴` across radii — `4.4–29×` below typical physical amplitudes at `15–30°`, constraining `δφ₀/M_Pl × (1−cosΔx)` at the few-`10⁻³` level. The post-trials column subtracts the independent-lobe penalty from signed `z` and is only meaningful for positive excursions; nothing approaches it. Any future excess must survive a frozen end-to-end null pipeline; Planck remains sealed and approval-gated.
 
+Null-calibrated closure: an end-to-end pipeline (ud-grade to `NSIDE=256`, `|b|≥20°` mask, zero-iteration harmonics, identical scoring) run on `1000` Gaussian skies calibrates the observed maximum `z = 0.994` at **`p = 0.417`** — the WMAP-T no-detection is fully calibrated. Empirical 95% limits `R_0^L = 1.08–2.29×10⁻⁴` match the analytic screen within a few percent, confirming mask coupling is negligible at these radii. The development-data bubble-collision screen is closed: no excess, calibrated limits delivered. Next observational steps require Planck approval (holdout) or a different observable; synthetic-method work continues only where it changes a decision.
+
 ## Dataset strategy
 
 Do not mirror large datasets. Registry entries must freeze URL, SHA-256, byte size, release, license/terms, field/order/unit semantics, role (`development`, `calibration`, `holdout`), redistribution status, and cache path.

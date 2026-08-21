@@ -1,0 +1,74 @@
+{
+  "checks": {
+    "detection": false,
+    "finite_scores": true
+  },
+  "contract": {
+    "path": "research/wmap-t-null-pipeline.yml",
+    "screen_result_sha256": "3128ce2750b1d5cb27534ce8936515ce856a6b805e00f97cf79ca52052e1d37e",
+    "sha256": "e2078454b9ad690b7a93bcf935f8ad12a5d36d41853ac976f100eed68a1e3b9e"
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "wmap-t-null-pipeline-v1",
+  "limitations": [
+    "Nulls are pure Gaussian CMB skies; ILC residual noise and foreground residuals are not simulated.",
+    "Zero-iteration transforms are applied identically to data and nulls, making calibration internally exact for this pipeline definition.",
+    "The ud_grade to nside 256 is part of the frozen pipeline and differs from the nside-512 screen; this gate supersedes analytic screen thresholds.",
+    "No Planck product or observational polarization was accessed."
+  ],
+  "observed": {
+    "exceedances": 416,
+    "max_z": 0.9938321192758965,
+    "null_max_maximum": 4.0809816027008825,
+    "null_max_mean": 0.8484609019842033,
+    "null_max_std": 0.8515775473044367,
+    "p_value": 0.4165834165834166,
+    "per_radius": [
+      {
+        "angular_radius_deg": 10.0,
+        "data_amplitude_R0": -1.9516218353585776e-05,
+        "data_z": -0.1439875716941825,
+        "empirical_amplitude_sigma": 0.00013902639239643763,
+        "typical_physical_R0": 0.00027194122108147636,
+        "upper_limit_95_R0": 0.000228678065775259
+      },
+      {
+        "angular_radius_deg": 15.0,
+        "data_amplitude_R0": -4.670711840091671e-05,
+        "data_z": -0.5532887854030347,
+        "empirical_amplitude_sigma": 8.906380995436903e-05,
+        "typical_physical_R0": 0.0006099277094256771,
+        "upper_limit_95_R0": 0.00014649693083356054
+      },
+      {
+        "angular_radius_deg": 20.0,
+        "data_amplitude_R0": -7.556883128934097e-07,
+        "data_z": -0.010072504225644307,
+        "empirical_amplitude_sigma": 7.857698796450966e-05,
+        "typical_physical_R0": 0.001079502087932239,
+        "upper_limit_95_R0": 0.0001292476436483459
+      },
+      {
+        "angular_radius_deg": 30.0,
+        "data_amplitude_R0": 6.556334800501544e-05,
+        "data_z": 0.9938321192758965,
+        "empirical_amplitude_sigma": 6.585587638602615e-05,
+        "typical_physical_R0": 0.0023981452722585464,
+        "upper_limit_95_R0": 0.00010832327712962293
+      }
+    ]
+  },
+  "provenance": {
+    "development_data_only": true,
+    "map_path": "data/wmap_ilc_9yr_v5.fits",
+    "map_sha256": "4501090f824f9140e916339f9e8e490333f6ffe4257a6ee6a02526c8640099a9",
+    "nside_analysis": 256,
+    "null_count": 1000,
+    "null_seed_start": 20261100,
+    "observational_cmb_maps_opened": true,
+    "planck_accessed": false,
+    "polarization_accessed": false,
+    "sky_fraction_used": 0.6575520833333334
+  },
+  "status": "NO-DETECTION"
+}

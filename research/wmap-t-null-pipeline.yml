@@ -1,0 +1,48 @@
+version: 1
+experiment_id: wmap-t-null-pipeline-v1
+epistemic_class: ADAPTED
+status: frozen_development_data
+purpose: >-
+  Calibrate the multi-radius WMAP-T matched filter against an end-to-end synthetic
+  null pipeline that passes identical mask, harmonic, and scoring steps, upgrading
+  the screening gate to a fully calibrated no-detection result with empirical
+  significance and upper limits.
+inherit:
+  screen_contract: research/wmap-t-radius-filter.yml
+  screen_result: results/wmap-t-radius-filter.json
+data:
+  map: data/wmap_ilc_9yr_v5.fits
+  role: development
+  unit_conversion: millikelvin divided by 2725.5 to dimensionless temperature
+pipeline:
+  nside_analysis: 256
+  degradation: healpy ud_grade mean from native nside
+  lmax: 256
+  angular_radii_deg: [10, 15, 20, 30]
+  radial_nodes: 160
+  basis: linear
+  mask: binary Galactic cut rejecting |b| < 20 degrees evaluated at analysis nside
+  harmonic_transform: healpy map2alm with zero iterations applied identically to data and nulls
+  covariance: CAMB unlensed scalar TT, dimensionless raw Cl
+statistic:
+  per_radius_score: harmonic matched filter z against each template
+  detection_statistic: maximum per-radius z across radii
+  null_simulations: 1000
+  null_seed_start: 20261100
+  p_value_rule: one plus count of null maxima at or above observed divided by one plus null count
+  upper_limit_rule: empirical per-radius amplitude standard deviation times 1.6448536269514722
+pass_conditions:
+  - every null and data score is finite
+  - report calibrated p-value of the observed maximum
+  - report empirical 95 percent upper limits per radius
+forbidden_claims:
+  - detection of a bubble collision
+  - evidence for a multiverse
+  - Planck access or holdout promotion
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - Nulls are pure Gaussian CMB skies; ILC residual noise is not simulated and remains a documented limitation shared with the screen.
+  - Zero-iteration transforms are used identically on data and nulls so the calibration is internally exact for this pipeline definition.
+  - This gate supersedes the analytic-threshold interpretation of the screen wherever the two differ.

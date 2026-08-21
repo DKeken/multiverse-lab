@@ -25,6 +25,7 @@ results/*
 !results/te-pixel-covariance.json
 !results/bubble-geometry-scan.json
 !results/wmap-t-radius-filter.json
+!results/wmap-t-null-pipeline.json
 *.fits
 *.h5
 *.hdf5
