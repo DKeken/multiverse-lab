@@ -9,6 +9,8 @@ engines:
   - {name: QuTiP, role: open quantum system simulation, license: BSD-3-Clause, url: https://github.com/qutip/qutip, decision: keep}
   - {name: NaMaster, role: masked pseudo-Cl and mode-coupling, license: BSD-3-Clause, url: https://github.com/LSSTDESC/NaMaster, decision: add only before publication-grade cut-sky spectra}
   - {name: PySM3, role: foreground simulations, license: BSD-3-Clause, url: https://github.com/galsci/pysm, decision: add before frequency foreground validation}
+  - {name: CAMB, role: physical visibility and T/E transfer functions, license: LGPL-2.1, url: https://github.com/cmbant/CAMB, decision: add after conditional statistic freeze when physical templates consume it}
+  - {name: AIPOCH OpenScience, role: optional specialist and provenance workbench, license: Apache-2.0, url: https://github.com/aipoch/open-science, revision: 96f42c8ae061571c7a20fb34a1d01017e0ae1c9d, decision: local reviewer only; never scientific authority}
   - {name: sbi, role: simulation-based posterior inference, license: AGPL-3.0, url: https://github.com/sbi-dev/sbi, decision: defer until simulator coverage is calibrated}
   - {name: TARP, role: posterior coverage tests, license: MIT, url: https://github.com/Ciela-Institute/tarp, decision: pair with sbi if adopted}
   - {name: pyribs, role: maintained MAP-Elites archive, license: MIT, url: https://github.com/icaros-usc/pyribs, decision: add only after standard-library archive profiling shows need}

@@ -1,0 +1,44 @@
+{
+  "checks": {
+    "conditional_mean_calibrated": true,
+    "conditional_std_calibrated": true,
+    "conditional_tail_calibrated": true,
+    "injection_recovered": true,
+    "nuisance_invariant": true,
+    "pure_e_preserves_b_veto": true
+  },
+  "configuration": {
+    "conditional_injection_sigma": 3.0,
+    "one_sided_z_threshold": 3.0,
+    "seed": 20260821,
+    "skies": 16384,
+    "te_correlation": 0.55,
+    "vector_bins": 24
+  },
+  "controls": {
+    "b_veto_count": 49,
+    "injected_score_mean": 3.0034601331063526,
+    "maximum_nuisance_score_delta": 1.4432899320127035e-15
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "joint-te-selection-calibration-v1",
+  "forbidden_claim": "PASS does not constitute evidence for a bubble collision, the multiverse, or any observation.",
+  "interpretation": "Synthetic calibration of a conditional T/E statistic; no observational polarization data were accessed.",
+  "null_calibration": {
+    "conditional_count": 32,
+    "conditional_mean": 0.0034601331063533794,
+    "conditional_rate": 0.001953125,
+    "conditional_standard_deviation": 1.003905714700506,
+    "count_standard_deviation": 4.6996674372567595,
+    "expected_count": 22.116729350227487,
+    "expected_one_sided_rate": 0.0013498980316300957,
+    "naive_selected_e_count": 2242,
+    "naive_selected_e_rate": 0.1368408203125
+  },
+  "selection": {
+    "known_cold_spot_separation_deg": 1.1028793761607039,
+    "selected_temperature_mean_sigma": -2.8230311246678004,
+    "temperature_trials_per_sky": 256
+  },
+  "status": "PASS"
+}

@@ -14,6 +14,10 @@ results/*
 !results/.gitkeep
 !results/fixture-reproduction.json
 !results/wmap-pilot.json
+!results/wmap-null-budget.json
+!results/research-control-room.svg
+!results/joint-te-synthetic.json
+!results/camb-te-selection.json
 *.fits
 *.h5
 *.hdf5

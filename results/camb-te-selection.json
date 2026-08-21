@@ -1,0 +1,127 @@
+{
+  "engine": {
+    "cosmology": {
+      "As": 2e-09,
+      "H0": 67.5,
+      "ns": 0.965,
+      "ombh2": 0.022,
+      "omch2": 0.122,
+      "tau": 0.06
+    },
+    "name": "CAMB",
+    "version": "2.0.3"
+  },
+  "epistemic_class": "ADAPTED",
+  "experiment_id": "camb-te-selection-calibration-v1",
+  "filter": {
+    "absolute_information_ell_50": 66,
+    "absolute_information_ell_90": 236,
+    "beam_fwhm_arcmin": 60.0,
+    "effective_rho": 0.08194835300838742,
+    "filtered_ee_variance_microkelvin2": 0.09682696645569204,
+    "filtered_te_covariance_microkelvin2": 0.943582396578614,
+    "filtered_tt_variance_microkelvin2": 1369.25039616437,
+    "scale_deg": 5.0,
+    "te_sign_changes": 2
+  },
+  "forbidden_claim": "This covariance calculation is not a bubble template, observation, detection, or holdout result.",
+  "interpretation": "CAMB Lambda-CDM covariance calibration only; no observational polarization map or bubble E template was accessed.",
+  "next_gate": "Generate physical bubble T/E templates from Feeney et al. Eq. 2-4, then freeze orientation before observational access.",
+  "orientations": {
+    "aligned": {
+      "checks": {
+        "conditional_mean_calibrated": true,
+        "conditional_std_calibrated": true,
+        "conditional_tail_calibrated": true,
+        "injection_recovered": true,
+        "nuisance_invariant": true,
+        "pure_e_preserves_b_veto": true
+      },
+      "configuration": {
+        "conditional_injection_sigma": 3.0,
+        "one_sided_z_threshold": 3.0,
+        "seed": 20260821,
+        "skies": 16384,
+        "te_correlation": 0.08194835300838742,
+        "vector_bins": 24
+      },
+      "controls": {
+        "b_veto_count": 49,
+        "injected_score_mean": 3.003460133106352,
+        "maximum_nuisance_score_delta": 1.3322676295501878e-15
+      },
+      "epistemic_class": "ADAPTED",
+      "experiment_id": "joint-te-selection-calibration-v1",
+      "forbidden_claim": "PASS does not constitute evidence for a bubble collision, the multiverse, or any observation.",
+      "interpretation": "Synthetic calibration of a conditional T/E statistic; no observational polarization data were accessed.",
+      "null_calibration": {
+        "conditional_count": 32,
+        "conditional_mean": 0.003460133106353374,
+        "conditional_rate": 0.001953125,
+        "conditional_standard_deviation": 1.003905714700506,
+        "count_standard_deviation": 4.6996674372567595,
+        "expected_count": 22.116729350227487,
+        "expected_one_sided_rate": 0.0013498980316300957,
+        "naive_selected_e_count": 50,
+        "naive_selected_e_rate": 0.0030517578125
+      },
+      "selection": {
+        "known_cold_spot_separation_deg": 1.1028793761607039,
+        "selected_temperature_mean_sigma": -2.8230311246678004,
+        "temperature_trials_per_sky": 256
+      },
+      "status": "PASS"
+    },
+    "anti_aligned": {
+      "checks": {
+        "conditional_mean_calibrated": true,
+        "conditional_std_calibrated": true,
+        "conditional_tail_calibrated": true,
+        "injection_recovered": true,
+        "nuisance_invariant": true,
+        "pure_e_preserves_b_veto": true
+      },
+      "configuration": {
+        "conditional_injection_sigma": 3.0,
+        "one_sided_z_threshold": 3.0,
+        "seed": 20260821,
+        "skies": 16384,
+        "te_correlation": -0.08194835300838742,
+        "vector_bins": 24
+      },
+      "controls": {
+        "b_veto_count": 49,
+        "injected_score_mean": 3.003460133106352,
+        "maximum_nuisance_score_delta": 1.3600232051658168e-15
+      },
+      "epistemic_class": "ADAPTED",
+      "experiment_id": "joint-te-selection-calibration-v1",
+      "forbidden_claim": "PASS does not constitute evidence for a bubble collision, the multiverse, or any observation.",
+      "interpretation": "Synthetic calibration of a conditional T/E statistic; no observational polarization data were accessed.",
+      "null_calibration": {
+        "conditional_count": 32,
+        "conditional_mean": 0.0034601331063533742,
+        "conditional_rate": 0.001953125,
+        "conditional_standard_deviation": 1.003905714700506,
+        "count_standard_deviation": 4.6996674372567595,
+        "expected_count": 22.116729350227487,
+        "expected_one_sided_rate": 0.0013498980316300957,
+        "naive_selected_e_count": 12,
+        "naive_selected_e_rate": 0.000732421875
+      },
+      "selection": {
+        "known_cold_spot_separation_deg": 1.1028793761607039,
+        "selected_temperature_mean_sigma": -2.8230311246678004,
+        "temperature_trials_per_sky": 256
+      },
+      "status": "PASS"
+    }
+  },
+  "status": "PASS",
+  "summary": {
+    "conditional_false_positive_rate_max": 0.001953125,
+    "conditional_false_positive_rate_min": 0.001953125,
+    "naive_false_positive_rate_max": 0.0030517578125,
+    "naive_false_positive_rate_min": 0.000732421875
+  }
+}

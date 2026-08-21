@@ -1,0 +1,37 @@
+{
+  "allowed_claim": "A FUTILITY_STOPPED target is unreachable within this fixed budget even if every remaining null is non-exceeding.",
+  "epistemic_class": "ESTABLISHED",
+  "forbidden_claim": "This certificate is not a confidence interval, discovery test, model rejection, or optional-stopping-corrected p-value.",
+  "maximum_final_budget": 1000000,
+  "rule": "The final exceedance count cannot be lower than the count already observed.",
+  "source_empirical_p": 0.13178294573643412,
+  "source_null_exceedances": 16,
+  "source_null_simulations": 128,
+  "status": "budget_certificate",
+  "targets": [
+    {
+      "alpha": "0.05",
+      "best_case_p_at_budget": "0.00001699998300001699998300001700",
+      "required_budget": 339,
+      "status": "CONTINUE_ELIGIBLE"
+    },
+    {
+      "alpha": "0.01",
+      "best_case_p_at_budget": "0.00001699998300001699998300001700",
+      "required_budget": 1699,
+      "status": "CONTINUE_ELIGIBLE"
+    },
+    {
+      "alpha": "0.001",
+      "best_case_p_at_budget": "0.00001699998300001699998300001700",
+      "required_budget": 16999,
+      "status": "CONTINUE_ELIGIBLE"
+    },
+    {
+      "alpha": "2.866515718791933E-7",
+      "best_case_p_at_budget": "0.00001699998300001699998300001700",
+      "required_budget": 59305448,
+      "status": "FUTILITY_STOPPED"
+    }
+  ]
+}

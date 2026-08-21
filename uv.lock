@@ -179,6 +179,28 @@ css = [
 ]
 
 [[package]]
+name = "camb"
+version = "2.0.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "numpy", version = "2.5.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "packaging" },
+    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "scipy", version = "1.18.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "sympy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/46/6b/d4933b5fe21d81af39a44466614065636b24acba9f690603a9334da5a537/camb-2.0.3.tar.gz", hash = "sha256:34f789696a7b5ad63a4064999832b14f294238c12a4872873580911562763c71", size = 921693, upload-time = "2026-08-17T17:06:39.953Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/93/81/4436164167f051df9adb7d6a810ac6531b010d85755a099b50d80ce5efc7/camb-2.0.3-py3-none-macosx_14_0_arm64.whl", hash = "sha256:71283ab926bcbe4e880d04f7acdedb9392c18fa347a50fefaeabb5f03fbf72a9", size = 1500347, upload-time = "2026-08-17T17:06:26.075Z" },
+    { url = "https://files.pythonhosted.org/packages/15/a3/cb905f775a66f9ecadb78547d30b578b4dec93cd2d260761689f2704385d/camb-2.0.3-py3-none-macosx_14_0_x86_64.whl", hash = "sha256:c2b02d0e90f4d38b9f7cfacb0ea079b68399de17c9d1ee47951e031546134edf", size = 1553087, upload-time = "2026-08-17T17:06:27.62Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/33/a1bb31d11bfc2208613066b3a0d74da5ef5c1e10620086dde89333feda1a/camb-2.0.3-py3-none-macosx_15_0_arm64.whl", hash = "sha256:e8f22148215ddfa79b88f7cd4aaf4a56b8d426625b5120c676f2fe9b52f8e4a4", size = 1500482, upload-time = "2026-08-17T17:06:28.932Z" },
+    { url = "https://files.pythonhosted.org/packages/40/8e/0278161675627fbad2ac0ce20f2552b6c7436854c2bf9e4d1a1cfdbdc011/camb-2.0.3-py3-none-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:4248b03364e8621b94b26586cc9f190c0c32ed9c236219b61ad6d66e3385f5e0", size = 1764823, upload-time = "2026-08-17T17:06:30.245Z" },
+    { url = "https://files.pythonhosted.org/packages/49/23/d0e4af6600180d0c2cad4809e28cc0c2b96b59156d1080ab148a8877ebdc/camb-2.0.3-py3-none-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:108b684bc98b4fd7f20af9426bdd9c9846379127506bf2ea573141f6a1e879a4", size = 2392580, upload-time = "2026-08-17T17:06:31.705Z" },
+    { url = "https://files.pythonhosted.org/packages/3a/e9/10b029aa547c66fda720552ab7379bbcf0cf17ef6f24f9e044e232bd44d1/camb-2.0.3-py3-none-win_amd64.whl", hash = "sha256:53ae174411b131151c8c48f88a9a30533aa9ce89c23208f8b8f8138fdc0b23cf", size = 1667739, upload-time = "2026-08-17T17:06:33.26Z" },
+]
+
+[[package]]
 name = "certifi"
 version = "2026.7.22"
 source = { registry = "https://pypi.org/simple" }
@@ -888,6 +910,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "astropy" },
+    { name = "camb" },
     { name = "healpy" },
     { name = "jsonschema" },
     { name = "jupyterlab" },
@@ -903,6 +926,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "astropy", specifier = "==7.2.0" },
+    { name = "camb", specifier = "==2.0.3" },
     { name = "healpy", specifier = ">=1.18,<2" },
     { name = "jsonschema", specifier = ">=4.23,<5" },
     { name = "jupyterlab", specifier = ">=4.4,<5" },

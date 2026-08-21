@@ -1,0 +1,56 @@
+version: 1
+experiment_id: joint-te-selection-calibration-v1
+epistemic_class: ADAPTED
+status: synthetic_only
+purpose: >-
+  Calibrate a fixed-coordinate polarization statistic that removes the Gaussian
+  E-mode component predicted by the temperature data already used to select the
+  candidate. This is an open implementation gap, not a new physical prediction.
+prior_art_boundary:
+  already_done:
+    - WMAP and Planck Cold Spot radial Qr/Ur profiles
+    - temperature-only all-sky bubble matched filters
+    - theoretical and Fisher-forecast joint T/E bubble templates
+  gap:
+    - public observational bubble pipeline with conditional joint T/E covariance, nuisance projection, and B veto
+  sources:
+    - https://arxiv.org/abs/1002.4029
+    - https://arxiv.org/abs/1305.5527
+    - https://arxiv.org/abs/1206.5035
+    - https://arxiv.org/abs/1506.01716
+candidate_freeze:
+  source: results/wmap-pilot.json
+  interpretation: rediscovery of the known Cold Spot, not a new candidate
+  galactic_longitude_deg: 207.1022727272727
+  galactic_latitude_deg: -57.39952353962295
+  reference_cold_spot_separation_deg: 1.1028793761607039
+  scale_deg: 5.0
+  sign: cold
+statistic:
+  conditional_residual: E_perp_T = E - C_ET C_TT^-1 T
+  conditional_template: h_perp_T = h_E - C_ET C_TT^-1 h_T
+  covariance: S = C_EE - C_ET C_TT^-1 C_TE
+  matched_score: z = h_perp_T^T P r / sqrt(h_perp_T^T P h_perp_T)
+  nuisance_projection: P removes a frozen leakage/foreground basis in the S^-1 metric
+  b_mode_role: veto_only
+synthetic_calibration:
+  seed: 20260821
+  skies: 16384
+  temperature_trials: 256
+  te_correlation: 0.55
+  one_sided_z_threshold: 3.0
+  vector_bins: 24
+  conditional_injection_sigma: 3.0
+pass_conditions:
+  - conditional null false-positive rate is consistent with the fixed one-sided Gaussian threshold within declared Monte Carlo uncertainty
+  - conditional score mean and standard deviation remain calibrated after temperature-only selection
+  - adding any vector in the frozen nuisance span changes the score by no more than 1e-10
+  - pure-E injection does not increase the B-veto rejection rate beyond Monte Carlo uncertainty
+forbidden_claims:
+  - observational bubble evidence
+  - new Cold Spot discovery
+  - proof of a multiverse
+  - Planck confirmation
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited_until_statistic_and_thresholds_are_frozen

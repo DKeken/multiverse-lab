@@ -227,6 +227,7 @@ def run(root: Path, null_simulations: int, seed: int) -> dict[str, object]:
             "observed_max_sigma": observed_global_max,
             "null_99_percent_threshold_sigma": global_threshold,
             "empirical_p": global_empirical_p,
+            "null_exceedances": exceedances,
             "minimum_resolvable_p": 1.0 / (null_simulations + 1),
         },
         "scales": scale_results,

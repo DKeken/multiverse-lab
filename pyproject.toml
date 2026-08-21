@@ -25,6 +25,7 @@ dependencies = [
   "qutip==5.3.0",
   "scipy>=1.15,<2",
   "sympy==1.14.0",
+  "camb==2.0.3",
 ]
 
 [tool.uv]

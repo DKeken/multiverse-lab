@@ -14,7 +14,7 @@ Current work is on step 1. Portal engineering is not assessable yet.
 
 | Track | Observable | Strong rivals | Ready data/code | Missing invention | Cheapest next gate | Forbidden conclusion |
 |---|---|---|---|---|---|---|
-| CMB bubble collisions | azimuthal T/E disk profile | ΛCDM extrema, Galactic foregrounds, beams, masks | WMAP LAMBDA, Planck PLA, healpy, S2FIL, COMB, NaMaster, PySM3 | joint temperature/polarization matched filter with global coverage calibration | 1,000 end-to-end nulls on frozen WMAP pipeline, then approved Planck holdout | all multiverses proven/disproven |
+| CMB bubble collisions | conditional T/E disk template with B/foreground vetoes | ΛCDM extrema, Galactic foregrounds, beams, masks, T-selection bias | WMAP LAMBDA, healpy/ducc0, S2FIL, COMB, CAMB, NaMaster, PySM3 | public covariance-aware observational joint T/E pipeline with nuisance projection | replace synthetic covariance with physical CAMB template/covariance; calibrate injections before approved holdout | all multiverses proven/disproven |
 | Cosmic topology | matched circles; off-diagonal harmonic covariance | mask/scan coupling, foregrounds, chance circle pairs | Planck maps/masks, HEALPix, topology literature | scalable joint circle+covariance statistic with empirical trials | injection recovery on compact-topology simulations | topology implies another accessible universe |
 | Stochastic GW backgrounds | spectral shape, anisotropy, polarization | compact binaries, phase transitions, instrument correlations | LVK open data, PTAs, `bilby`, `enterprise`, `pygwb` | model-family discriminator robust to astrophysical population uncertainty | public injection challenge with frozen rivals | unexplained background proves multiverse |
 | Objective collapse | mass/time-dependent decoherence beyond environmental model | vibration, thermal, electromagnetic decoherence | matter-wave/optomechanics publications, QuTiP | experiment-specific nuisance-complete simulator and calibrated likelihood | reproduce published exclusion curves | Bell/quantum eraser proves branching |
@@ -39,9 +39,13 @@ Choose the cheapest decisive falsifier using expected information per constraine
 
 One pipeline for masks, beams, component separation, scale/position/sign trials, injection coverage, end-to-end nulls, and independent T/E holdouts. Output calibrated candidate ledgers, never “discoveries.”
 
-### 5. Joint temperature/polarization template matcher
+### 5. Conditional joint temperature/polarization matcher
 
-Pre-register a temperature-derived candidate, then test the predicted polarization phase/profile without recentering or retuning. This is the most valuable missing CMB discriminator.
+Published Cold Spot work already tested fixed-coordinate radial `Qr/Ur`; temperature-only all-sky bubble filters and theoretical joint T/E forecasts also exist. The missing open implementation is narrower: condition polarization on the temperature used for candidate selection,
+
+$$E_{\perp T}=E-C_{ET}C_{TT}^{-1}T,$$
+
+then project frozen leakage/foreground nuisance modes and reserve B for a veto. Synthetic calibration at 256 temperature trials per sky inflated a naive nominal one-sided `z≥3` E confirmation from the Gaussian `0.135%` target to `13.684%`; the conditional statistic returned `0.195%`, calibrated mean/std, nuisance invariance, and injection recovery. This is an adapted method result, not observational evidence.
 
 ## Dataset strategy
 

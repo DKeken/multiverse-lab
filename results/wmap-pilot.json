@@ -28,6 +28,7 @@
     "empirical_p": 0.13178294573643412,
     "minimum_resolvable_p": 0.007751937984496124,
     "null_99_percent_threshold_sigma": 5.398661798900952,
+    "null_exceedances": 16,
     "observed_max_sigma": 4.936787967306637
   },
   "pipeline": {

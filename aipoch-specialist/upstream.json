@@ -1,0 +1,15 @@
+{
+  "aipoch_open_science": {
+    "repository": "https://github.com/aipoch/open-science",
+    "revision": "96f42c8ae061571c7a20fb34a1d01017e0ae1c9d",
+    "observed_release": "v0.14.1",
+    "role": "optional local-first workbench"
+  },
+  "specialist_protocol": {
+    "repository": "https://github.com/aipoch/openscience-specialist-marketplace",
+    "revision": "d0ddb80b997f0c0288180e9bc8211cd227d66b73",
+    "schema_version": 1,
+    "role": "package format reference"
+  },
+  "authority_boundary": "AIPOCH reviews provenance but never replaces repository artifacts or promotes scientific evidence."
+}
