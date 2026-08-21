@@ -1,0 +1,81 @@
+version: 1
+experiment_id: bubble-amplitude-prior-v1
+epistemic_class: ADAPTED
+status: frozen_no_go_forecast
+purpose: >-
+  Map the repository unit-curvature template amplitudes onto the published physical
+  bubble-collision amplitude parameters, derive physically motivated ranges, and
+  state the resulting detectability ceiling for the conditional T/E program at the
+  frozen five-degree Cold Spot geometry.
+parameterization_source:
+  paper: arXiv:1506.01716 (Feeney et al., Forecasting constraints from the CMB on eternal inflation)
+  equations: {linear_amplitude: 15, quadratic_amplitude: 16, total: 17, constants: 7, template_definition: 5}
+  unit_basis_match: >-
+    The repository unit-linear and unit-quadratic bases are identical to the published
+    L-hat and Q-hat normalizations fixed to zero at x_c and one at x_ls, so the stored
+    injected_unit_basis_amplitude equals R_0 directly.
+geometry:
+  angular_radius_deg: 5.0
+  shell_ratio_xls_minus_xc_over_xls: 3.80512e-3
+  inverse_shell_ratio: 262.80
+published_constants_fiducial:
+  tensor_to_scalar_ratio_r_obs: 0.1
+  curvature_density_Omega_k_obs: 1.0e-4
+  A: 0.179
+  B: 2.0e-4
+  linear_coefficient_A_times_shell_ratio: 6.8112e-4
+  quadratic_coefficient_B_times_shell_ratio_squared: 2.8958e-9
+physical_amplitude_mapping:
+  linear: R_0^L = 6.8112e-4 * (delta_phi_0_over_Mpl) * (1 - cos(Delta_x_sep))
+  quadratic: R_0^Q = 2.8958e-9 * (1 - cos(Delta_x_sep))^2
+  priors: delta_phi_0_over_Mpl log-prior on [1e-3, 1]; separation factor uniform-shaped on [0, 2]
+  fiducial_linear_maximum: 1.3622e-3
+  fiducial_quadratic_maximum: 1.1583e-8
+repository_forecast_sigmas:
+  source: results/bubble-te-template.json fisher_information.per_basis
+  linear_joint_sigma: 3.41749e-4
+  quadratic_joint_sigma: 5.65859e-4
+  covariance: cosmic-variance-only unlensed scalar CAMB TT/EE/TE, ell 2 to 256
+stored_injection_amplitude:
+  value: 2.6367e-3
+  linear_ratio_to_fiducial_maximum: 1.936
+  quadratic_ratio_to_fiducial_maximum: 2.276e5
+detectability_ceiling_joint_TE:
+  linear_fiducial_maximum_sigma: 3.99
+  linear_delta_phi_0_0.1_factor_1_sigma: 0.20
+  linear_delta_phi_0_0.01_factor_1_sigma: 0.020
+  quadratic_fiducial_maximum_sigma: 2.05e-5
+required_polarization_depth_for_90pct_power_3sigma:
+  reference_depth_at_stored_injection_uK_arcmin: 10.57
+  scaling: depth scales inversely with amplitude
+  linear_fiducial_maximum_uK_arcmin: 5.46
+  linear_delta_phi_0_0.1_uK_arcmin: 0.273
+  linear_delta_phi_0_0.01_uK_arcmin: 0.0273
+  quadratic_fiducial_maximum_uK_arcmin: 4.64e-5
+instrument_comparison:
+  planck_hfi_polarization_uK_arcmin: {order_of_magnitude: 600, note: per channel, inference: true}
+  planck_shortage_at_linear_maximum: at least 60x
+  cmbs4_sat_target_uK_arcmin: {order_of_magnitude: 1, inference: true}
+  cmbs4_margin_at_linear_maximum: about 5x below the required depth
+verdict:
+  quadratic_basis: NO-GO at any current or funded experiment; physically suppressed by 2.3e5 relative to the stored injection and cosmic-variance ceiling is 2e-5 sigma.
+  linear_typical: NO-GO; delta_phi_0/Mpl of 0.01 to 0.1 gives ceilings of 0.02 to 0.20 sigma even for a perfect full-sky noise-free experiment.
+  linear_extreme_corner: CLOSED-IN-PRACTICE; only delta_phi_0/Mpl near 1 with near-maximal separation reaches a 3.99 sigma perfect-experiment ceiling, and every realistic instrument is at least 5x too shallow.
+  program_conclusion: >-
+    The conditional T/E program at the frozen five-degree geometry cannot produce a
+    detection or a meaningful upper limit improvement for physically motivated bubble
+    collision amplitudes. Any future work must change the geometry, the observable, or
+    await a fundamentally deeper polarization survey, and must recompute this mapping
+    for the new geometry rather than reusing these numbers.
+forbidden_claims:
+  - observational bubble evidence
+  - proof that bubble collisions do not exist
+  - proof of a multiverse or of eternal inflation
+  - reuse of these depth numbers at other angular radii or centers
+holdout:
+  planck_access: prohibited
+  observational_polarization_access: prohibited
+notes:
+  - Planck and CMB-S4 sensitivity figures are order-of-magnitude inferences from published instrument documentation and must be pinned to primary sources before any future gate reuses them.
+  - The mapping assumes identical-bubble collisions with the published A and B constants; different Omega_k or r assumptions rescale A and B and must be recomputed.
+  - This verdict is a Fisher-forecast no-go, not an observational constraint; existing WMAP7 and Planck searches remain the observational authority.
