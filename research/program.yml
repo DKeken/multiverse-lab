@@ -1,0 +1,22 @@
+program:
+  objective: Search for reproducible observational constraints on bubble-collision models using public CMB data.
+  phase_1:
+    name: baseline-reproduction
+    cost_usd: 0
+    deliverable: reproduce published null-search behavior on public WMAP or Planck-compatible maps
+  phase_2:
+    name: injection-recovery
+    cost_usd: 0
+    deliverable: calibrated sensitivity and false-positive rate on simulated injected disk profiles
+  phase_3:
+    name: blinded-public-data-analysis
+    cost_usd: 0
+    deliverable: preregistered statistic, frozen pipeline, and result with uncertainty
+  stop_conditions:
+    - baseline cannot be reproduced
+    - foreground or look-elsewhere controls are undefined
+    - model cannot produce a discriminating observable
+  excluded:
+    - portal-gun construction
+    - claims that Bell tests prove Many-Worlds
+    - server-side compute jobs without explicit approval

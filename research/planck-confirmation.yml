@@ -1,0 +1,35 @@
+version: 1
+updated: 2026-08-21
+epistemic_class: UNVERIFIED
+status: unopened_holdout
+rule: WMAP pilot coordinates, scales, signs, profile, statistic, masks, and multiplicity correction must be frozen before accessing holdout products.
+tiers:
+  - id: P1
+    purpose: independent temperature component-separation consistency
+    products:
+      - COM_CMB_IQU-smica_2048_R3.00_full.fits
+      - COM_CMB_IQU-commander_2048_R3.00_full.fits
+      - COM_Mask_CMB-common-Mask-Int_2048_R3.00.fits
+    pass: frozen profile agrees in location sign scale and amplitude within predeclared uncertainty across SMICA and Commander
+    fail: component disagreement or common-mask contamination
+  - id: P2
+    purpose: foreground spectral veto
+    products: [HFI 100 GHz, HFI 143 GHz, HFI 217 GHz]
+    pass: thermodynamic CMB scaling after beam harmonization
+    fail: dust CO synchrotron or single-band dependence
+  - id: P3
+    purpose: independent polarization prediction
+    products: [Planck Q/U maps, polarization confidence mask]
+    pass: preregistered radial E-mode profile and T-E phase relation passes corrected threshold
+    fail: missing or inconsistent frozen polarization signature
+nulls:
+  required: end-to-end FFP10 or NPIPE simulations through identical pipeline
+  target_count: 1000
+  multiplicity: global over positions scales signs and every development choice
+promotion:
+  empirically_supported: permitted only after all tiers and frozen global threshold pass
+  meaning: supports only tested bubble-collision observable subclass
+  forbidden: [proof of multiverse, proof of causal accessibility, proof of portal feasibility]
+approval:
+  required_before_download: true
+  reason: official products exceed 100 MB and open designated holdout data

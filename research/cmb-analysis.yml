@@ -1,0 +1,40 @@
+version: 1
+updated: 2026-08-21
+epistemic_class: UNVERIFIED
+purpose: Engineering diagnostic for one bubble-collision observable subclass; not a multiverse detection claim.
+development_data:
+  wmap_ilc:
+    url: https://lambda.gsfc.nasa.gov/data/map/dr5/dfp/ilc/wmap_ilc_9yr_v5.fits
+    sha256: 4501090f824f9140e916339f9e8e490333f6ffe4257a6ee6a02526c8640099a9
+    input: {nside: 512, ordering: NESTED, unit: mK thermodynamic, beam_fwhm_deg: 1.0}
+  kq75_mask:
+    url: https://lambda.gsfc.nasa.gov/data/map/dr5/ancillary/masks/wmap_temperature_kq75_analysis_mask_r9_9yr_v5.fits
+    sha256: 888e7e22f0f242ce3ffdc3cf0ef117fd34d95d24de6386be1d5b39484b30601e
+    field: N_OBS
+    semantics: {0: rejected, 1: accepted}
+    accepted_fraction: 0.688084602355957
+pipeline:
+  output: results/wmap-pilot.json
+  analysis_nside: 128
+  lmax: 256
+  ordering: RING
+  unit: K_CMB
+  scales_deg: [5, 10, 20, 30]
+  remove_monopole_dipole: masked least-squares
+  apodization_deg: 2
+  mask_buffer_deg: max(2, scale/2)
+  null_model: WMAP LCDM spectrum convolved with 1 degree beam
+  null_simulations: 128
+  trials: global maximum over all valid pixels and scales
+acceptance:
+  diagnostic_only: true
+  minimum_nulls: 32
+  frozen_seed: 20260821
+  no_empirical_promotion: true
+  candidate_language: engineering candidate only
+limitations:
+  - Official WMAP says ILC is reliable above about 10 degrees and cautions about smaller-scale bias structure.
+  - 128 nulls resolve no p-value below 1/129.
+  - ILC foreground residuals require component-separated and frequency-map vetoes.
+  - Mask-distance buffer uses conservative pixel-graph expansion.
+  - Planck temperature and polarization remain unopened holdouts.

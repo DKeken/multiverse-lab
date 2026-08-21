@@ -1,0 +1,25 @@
+version: 1
+allowed_now:
+  - Parses a restricted hypothesis JSON schema.
+  - Rejects tested unit domain integrity and status-transition failures.
+  - Renders a restricted Wolfram expression and records official tool provenance.
+  - Produces append-only local audit events on Darwin.
+  - Reproduces controlled CMB fixture localization and a diagnostic WMAP pilot.
+requires_more_evidence:
+  - arbitrary symbolic mathematics support
+  - cross-platform locking
+  - customer workflow fit
+  - willingness to pay or pricing
+  - publication-grade anomaly significance
+  - regulated model-validation suitability
+forbidden:
+  - proves physical reality
+  - discovers or proves a multiverse
+  - makes a portal feasible
+  - replaces expert scientific review
+  - guarantees correctness
+  - is certified for safety-critical medical financial weapons or export-controlled use
+separation:
+  product: CAS-CI scientific consistency and provenance
+  research: unverified multiverse and wormhole hypotheses
+  rule: Product copy cannot use speculative research as evidence of capability.

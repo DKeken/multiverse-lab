@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.fits binary
+*.h5 binary
+*.hdf5 binary
+*.npy binary
+*.npz binary

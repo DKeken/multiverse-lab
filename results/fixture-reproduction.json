@@ -1,0 +1,510 @@
+{
+  "all_truth_recovered": false,
+  "backend": {
+    "healpy": "1.20.0",
+    "lmax": 256,
+    "nside": 128
+  },
+  "false_peak_budget_per_scale": 2,
+  "fixture_closure_max_abs": 5.960464477539063e-08,
+  "limitations": [
+    "Uses modern healpy/ducc0 transforms rather than the unrebuildable legacy S2/FastCSWT stack.",
+    "Uses the exact continuous COMB generator profile z0=1, zc=0.2 and theta0=1.1*theta_c.",
+    "One supplied null realization calibrates thresholds; this is fixture sensitivity measurement, not publication-grade significance."
+  ],
+  "paper": "https://arxiv.org/abs/1202.2861",
+  "recovered_truth_count": 4,
+  "recovered_truth_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "reference": "https://github.com/astro-informatics/s2fil",
+  "scales": [
+    {
+      "candidate_count": 15,
+      "matches": [
+        {
+          "distance_deg": 5.403227708390396,
+          "filtered_amplitude": 6.085318210420513,
+          "matched": false,
+          "phi": 3.3098922600321035,
+          "pixel": 393,
+          "significance": 6.085318210420513,
+          "theta": 0.08933401624466152,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 2.8354012616926876,
+          "filtered_amplitude": 5.370464319671253,
+          "matched": true,
+          "phi": 5.583690067903733,
+          "pixel": 39623,
+          "significance": 5.370464319671253,
+          "theta": 0.9285966665393162,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 5.092927199281444,
+          "filtered_amplitude": 4.888756481258925,
+          "matched": false,
+          "phi": 5.618617630458668,
+          "pixel": 358,
+          "significance": 4.888756481258925,
+          "theta": 0.08294921270612154,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 4.761053316141239,
+          "filtered_amplitude": 4.353881413327968,
+          "matched": false,
+          "phi": 5.7186803772376695,
+          "pixel": 34514,
+          "significance": 4.353881413327968,
+          "theta": 0.8618403524478178,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 59.60121892088451,
+          "filtered_amplitude": 4.295171792264393,
+          "matched": false,
+          "phi": 0.15998851476614687,
+          "pixel": 190673,
+          "significance": 4.295171792264393,
+          "theta": 2.7954070618863747,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 6.894907647381925,
+          "filtered_amplitude": 4.2897411623683634,
+          "matched": false,
+          "phi": 2.2383847656827274,
+          "pixel": 788,
+          "significance": 4.2897411623683634,
+          "theta": 0.12766426866687355,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 2.773437746745102,
+          "filtered_amplitude": 4.266813990332409,
+          "matched": true,
+          "phi": 5.5898259910552754,
+          "pixel": 32967,
+          "significance": 4.266813990332409,
+          "theta": 0.8410686705679303,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 13.246226523233256,
+          "filtered_amplitude": -4.208119182437681,
+          "matched": false,
+          "phi": 5.325981295538946,
+          "pixel": 39602,
+          "significance": 4.208119182437681,
+          "theta": 0.9285966665393162,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 11.513922364413164,
+          "filtered_amplitude": -4.083553670037866,
+          "matched": false,
+          "phi": 2.0309905631605885,
+          "pixel": 127909,
+          "significance": 4.083553670037866,
+          "theta": 1.877673659782586,
+          "truth_index": 1
+        },
+        {
+          "distance_deg": 0.3698947202889178,
+          "filtered_amplitude": 4.062292684571807,
+          "matched": true,
+          "phi": 1.8775924843720246,
+          "pixel": 115097,
+          "significance": 4.062292684571807,
+          "theta": 1.74352900495937,
+          "truth_index": 1
+        },
+        {
+          "distance_deg": 50.853807641976665,
+          "filtered_amplitude": -3.95049228394334,
+          "matched": false,
+          "phi": 0.558046063466608,
+          "pixel": 193657,
+          "significance": 3.95049228394334,
+          "theta": 2.8985978393719765,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 13.276465007966971,
+          "filtered_amplitude": -3.911275284272212,
+          "matched": false,
+          "phi": 5.36314745862829,
+          "pixel": 2499,
+          "significance": 3.911275284272212,
+          "theta": 0.2237270917329438,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 6.058019296300878,
+          "filtered_amplitude": 3.9082796191645173,
+          "matched": false,
+          "phi": 5.479379374327509,
+          "pixel": 37054,
+          "significance": 3.9082796191645173,
+          "theta": 0.895664793857865,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 16.537589135048556,
+          "filtered_amplitude": -3.839056612993101,
+          "matched": false,
+          "phi": 2.890019804376548,
+          "pixel": 111595,
+          "significance": 3.839056612993101,
+          "theta": 1.7066303175622954,
+          "truth_index": 4
+        },
+        {
+          "distance_deg": 54.644570612121605,
+          "filtered_amplitude": 3.835717396226516,
+          "matched": false,
+          "phi": 0.34974761963792617,
+          "pixel": 68380,
+          "significance": 3.835717396226516,
+          "theta": 1.263918993807207,
+          "truth_index": 0
+        }
+      ],
+      "null_false_peaks": 2,
+      "scale_deg": 5.0,
+      "threshold": 3.8341996497250976
+    },
+    {
+      "candidate_count": 12,
+      "matches": [
+        {
+          "distance_deg": 0.5694937072425706,
+          "filtered_amplitude": 11.26850586821402,
+          "matched": true,
+          "phi": 2.356194490192345,
+          "pixel": 1,
+          "significance": 11.26850586821402,
+          "theta": 0.006378890353433737,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 0.8078979600720191,
+          "filtered_amplitude": 9.726349903318567,
+          "matched": true,
+          "phi": 5.602097837358362,
+          "pixel": 37064,
+          "significance": 9.726349903318567,
+          "theta": 0.895664793857865,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 0.62994204228822,
+          "filtered_amplitude": 8.152696921237746,
+          "matched": true,
+          "phi": 1.8837284075235674,
+          "pixel": 113561,
+          "significance": 8.152696921237746,
+          "theta": 1.7276891978153577,
+          "truth_index": 1
+        },
+        {
+          "distance_deg": 5.672657043975317,
+          "filtered_amplitude": 4.896257490717109,
+          "matched": false,
+          "phi": 2.356194490192345,
+          "pixel": 159168,
+          "significance": 4.896257490717109,
+          "theta": 2.2392735303753533,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 4.199430061934484,
+          "filtered_amplitude": 4.678891903139705,
+          "matched": false,
+          "phi": 2.9391071895888885,
+          "pixel": 82927,
+          "significance": 4.678891903139705,
+          "theta": 1.4139034557744354,
+          "truth_index": 4
+        },
+        {
+          "distance_deg": 18.018533518818455,
+          "filtered_amplitude": -4.2122516309171285,
+          "matched": false,
+          "phi": 5.209398755659636,
+          "pixel": 37032,
+          "significance": 4.2122516309171285,
+          "theta": 0.895664793857865,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 16.644525483109284,
+          "filtered_amplitude": -4.069178432117309,
+          "matched": false,
+          "phi": 2.5781548407177106,
+          "pixel": 4215,
+          "significance": 4.069178432117309,
+          "theta": 0.29449146566972323,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 58.5539276277958,
+          "filtered_amplitude": 3.893782840623143,
+          "matched": false,
+          "phi": 3.8042723539563896,
+          "pixel": 161334,
+          "significance": 3.893782840623143,
+          "theta": 2.266108273251665,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 5.860034015271354,
+          "filtered_amplitude": 3.5635664749836797,
+          "matched": false,
+          "phi": 2.3489222849757017,
+          "pixel": 173225,
+          "significance": 3.5635664749836797,
+          "theta": 2.438266684105982,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 13.168240184007361,
+          "filtered_amplitude": -3.5270356219850005,
+          "matched": false,
+          "phi": 5.833366359051956,
+          "pixel": 24388,
+          "significance": 3.5270356219850005,
+          "theta": 0.7169324719698342,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 39.31946771648142,
+          "filtered_amplitude": -3.4984414397229893,
+          "matched": false,
+          "phi": 2.7137741418204513,
+          "pixel": 30224,
+          "significance": 3.4984414397229893,
+          "theta": 0.80626378469076,
+          "truth_index": 4
+        },
+        {
+          "distance_deg": 57.1203839153709,
+          "filtered_amplitude": 3.448666250096393,
+          "matched": false,
+          "phi": 4.1172044346850605,
+          "pixel": 44111,
+          "significance": 3.448666250096393,
+          "theta": 0.9859355159108825,
+          "truth_index": 2
+        }
+      ],
+      "null_false_peaks": 2,
+      "scale_deg": 10.0,
+      "threshold": 3.444651846717186
+    },
+    {
+      "candidate_count": 8,
+      "matches": [
+        {
+          "distance_deg": 0.9679564341713492,
+          "filtered_amplitude": 7.860769198092824,
+          "matched": true,
+          "phi": 2.381327231421063,
+          "pixel": 165297,
+          "significance": 7.860769198092824,
+          "theta": 2.321438596779491,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 28.369667371271678,
+          "filtered_amplitude": -4.650940699819149,
+          "matched": false,
+          "phi": 2.6384469551633023,
+          "pixel": 118231,
+          "significance": 4.650940699819149,
+          "theta": 1.7753447316754483,
+          "truth_index": 4
+        },
+        {
+          "distance_deg": 7.850179975145014,
+          "filtered_amplitude": 4.388615763173717,
+          "matched": false,
+          "phi": 5.871786269209494,
+          "pixel": 918,
+          "significance": 4.388615763173717,
+          "theta": 0.13405682970273036,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 19.436598598202405,
+          "filtered_amplitude": -4.156360430162717,
+          "matched": false,
+          "phi": 2.215068257706865,
+          "pixel": 123828,
+          "significance": 4.156360430162717,
+          "theta": 1.8342500615694903,
+          "truth_index": 1
+        },
+        {
+          "distance_deg": 7.839525564896948,
+          "filtered_amplitude": 4.1179934502354305,
+          "matched": false,
+          "phi": 3.098641191528995,
+          "pixel": 75772,
+          "significance": 4.1179934502354305,
+          "theta": 1.3395748473375477,
+          "truth_index": 4
+        },
+        {
+          "distance_deg": 29.039388189745427,
+          "filtered_amplitude": -4.069379023854718,
+          "matched": false,
+          "phi": 2.8593401886188348,
+          "pixel": 41449,
+          "significance": 4.069379023854718,
+          "theta": 0.9543674518731895,
+          "truth_index": 4
+        },
+        {
+          "distance_deg": 51.881256541452494,
+          "filtered_amplitude": 3.674609400606062,
+          "matched": false,
+          "phi": 3.9085830475326135,
+          "pixel": 36926,
+          "significance": 3.674609400606062,
+          "theta": 0.895664793857865,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 36.25204721576935,
+          "filtered_amplitude": 3.647949955211534,
+          "matched": false,
+          "phi": 2.3746022596469727,
+          "pixel": 73665,
+          "significance": 3.647949955211534,
+          "theta": 1.318116071652818,
+          "truth_index": 4
+        }
+      ],
+      "null_false_peaks": 2,
+      "scale_deg": 20.0,
+      "threshold": 3.5200611086271465
+    },
+    {
+      "candidate_count": 10,
+      "matches": [
+        {
+          "distance_deg": 9.890952034445858,
+          "filtered_amplitude": 5.066591576497045,
+          "matched": false,
+          "phi": 2.2252947962927703,
+          "pixel": 175740,
+          "significance": 5.066591576497045,
+          "theta": 2.4788863791273594,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 28.834675057142984,
+          "filtered_amplitude": -4.349137302334876,
+          "matched": false,
+          "phi": 2.5464081078901644,
+          "pixel": 125903,
+          "significance": 4.349137302334876,
+          "theta": 1.8558927670476428,
+          "truth_index": 3
+        },
+        {
+          "distance_deg": 40.534757682920905,
+          "filtered_amplitude": -3.864988628333608,
+          "matched": false,
+          "phi": 0.7211383136649298,
+          "pixel": 24030,
+          "significance": 3.864988628333608,
+          "theta": 0.7169324719698342,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 32.919325016315476,
+          "filtered_amplitude": -3.830580140955467,
+          "matched": false,
+          "phi": 3.08636934522591,
+          "pixel": 140283,
+          "significance": 3.830580140955467,
+          "theta": 2.0120609933754294,
+          "truth_index": 4
+        },
+        {
+          "distance_deg": 22.4030852085583,
+          "filtered_amplitude": 3.7625111551504187,
+          "matched": false,
+          "phi": 2.12916533358527,
+          "pixel": 84909,
+          "significance": 3.7625111551504187,
+          "theta": 1.4349623360274977,
+          "truth_index": 1
+        },
+        {
+          "distance_deg": 39.496571172255095,
+          "filtered_amplitude": -3.6823989823240657,
+          "matched": false,
+          "phi": 2.897081904607569,
+          "pixel": 22455,
+          "significance": 3.6823989823240657,
+          "theta": 0.6897533478627949,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 8.779606128032782,
+          "filtered_amplitude": 3.539056390373254,
+          "matched": false,
+          "phi": 6.119560689805119,
+          "pixel": 1197,
+          "significance": 3.539056390373254,
+          "theta": 0.1532430094961162,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 24.83682799061639,
+          "filtered_amplitude": 3.460657934817268,
+          "matched": false,
+          "phi": 5.890486225480861,
+          "pixel": 67296,
+          "significance": 3.460657934817268,
+          "theta": 1.2474847106288904,
+          "truth_index": 0
+        },
+        {
+          "distance_deg": 62.02854394469201,
+          "filtered_amplitude": 3.3775525224754617,
+          "matched": false,
+          "phi": 4.252194744018997,
+          "pixel": 51290,
+          "significance": 3.3775525224754617,
+          "theta": 1.0710912860355324,
+          "truth_index": 2
+        },
+        {
+          "distance_deg": 65.17993541043349,
+          "filtered_amplitude": 3.364219806203111,
+          "matched": false,
+          "phi": 3.939262663290326,
+          "pixel": 153153,
+          "significance": 3.364219806203111,
+          "theta": 2.1619167354791573,
+          "truth_index": 4
+        }
+      ],
+      "null_false_peaks": 2,
+      "scale_deg": 30.0,
+      "threshold": 3.3227071062286377
+    }
+  ],
+  "status": "modern-backend fixture reproduction",
+  "truth_count": 5
+}

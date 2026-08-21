@@ -1,0 +1,19 @@
+Multiverse Lab
+Copyright 2026 Daniil Schovkunov and contributors
+Licensed under GPL-3.0-or-later.
+
+Scientific methods and upstream software retain their own attribution and licenses:
+
+- S2FIL, astro-informatics, GPL-3.0, pinned revision aa545b97a0928a4bc54d55785d6473d0cc1b4fc3.
+  https://github.com/astro-informatics/s2fil
+- COMB, astro-informatics, GPL-3.0, pinned revision 3bd9996243490ac1beff3fe9f3f679193f55e6f2.
+  https://github.com/astro-informatics/comb
+- healpy, GPL-2.0-or-later; ducc0 backend, GPL-2.0.
+  https://github.com/healpy/healpy
+- SymPy, BSD-3-Clause; Astropy, BSD-3-Clause; QuTiP, BSD-3-Clause.
+- WMAP data and masks are obtained from NASA LAMBDA and are not redistributed.
+  https://lambda.gsfc.nasa.gov/product/wmap/
+- Planck products are obtained from ESA Planck Legacy Archive and are not redistributed.
+
+Primary bubble-collision method reference:
+McEwen et al., Bayesian analysis of anisotropic universe models: systematics and polarization, arXiv:1202.2861. Users must cite the applicable primary papers and datasets in derivative scientific work.

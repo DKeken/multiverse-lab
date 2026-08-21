@@ -1,0 +1,535 @@
+version: 1
+updated: 2026-08-21
+name: hypothesis-to-evidence-operating-system
+authority:
+  purpose: Canonical execution contract for the research funnel; other plans reference this file instead of redefining gates.
+  hypothesis_schema: research/hypothesis.schema.json
+  candidate_ledger: results/hypotheses.jsonl
+  mutation_protocol: research/remote-mutator-protocol.yml
+  research_program: research/program.yml
+  claims_register: research/claims.yml
+  precedence: This file controls gate order, budgets, scheduling, statuses, caching, and artifact envelopes. The schema controls hypothesis payload shape.
+
+scientific_boundary:
+  epistemic_classes:
+    - ESTABLISHED
+    - ADAPTED
+    - NOVEL PROPOSAL
+    - UNVERIFIED
+  required_on_every_artifact: epistemic_class
+  statements:
+    - epistemic_class: ESTABLISHED
+      text: A language-model proposal, symbolic identity, or simulation is not observational evidence.
+    - epistemic_class: ESTABLISHED
+      text: A negative result constrains only the preregistered model subclass and sensitivity region tested.
+    - epistemic_class: NOVEL PROPOSAL
+      text: Portal feasibility is admissible only as a search for mathematical consistency, no-go results, and a discriminating observable; construction and existence claims are out of scope.
+  forbidden_inferences:
+    - a CAS result implies empirical support
+    - a simulation demonstrates that portals or other universes exist
+    - an analogue or holographic model establishes macroscopic traversability
+    - a Bell, quantum-eraser, or ordinary unitary experiment distinguishes standard interpretations without added dynamics
+
+status_contract:
+  storage: Append immutable status events to results/hypotheses.jsonl; never update or delete an earlier event.
+  allowed:
+    - generated
+    - schema_valid
+    - locally_screened
+    - wolfram_verified
+    - cas_disagreement
+    - simulation_eligible
+    - rejected
+    - empirically_supported
+  terminal:
+    - cas_disagreement
+    - rejected
+    - empirically_supported
+  rule: A gate may emit only the status values named in its contract. Only G90 may emit empirically_supported.
+  repeat_status_rule: A later simulation gate may append another simulation_eligible event; this records survival without rewriting history.
+
+artifact_contracts:
+  candidate_event:
+    path: results/hypotheses.jsonl
+    format: one UTF-8 JSON object per line
+    mutability: append_only
+    required_fields:
+      - event_id
+      - candidate_id
+      - occurred_at
+      - gate_id
+      - status
+      - epistemic_class
+      - input_hash
+      - output_hash
+      - artifact_refs
+    conditional_fields:
+      hypothesis: Required on generated and schema_valid events; it is the exact object validated against research/hypothesis.schema.json, not executable code.
+      rejection: Required for rejected or cas_disagreement events; contains reason_code, falsified_assumption, and evidence_ref.
+      parent_event_id: Required after the first event for a candidate.
+    canonicalization: RFC 8785 JSON Canonicalization Scheme before SHA-256 hashing.
+  gate_artifact:
+    root: results/gates
+    naming: "{candidate_id}/{gate_id}/{output_hash}.json"
+    mutability: content_addressed_immutable
+    required_fields:
+      - gate_id
+      - candidate_id
+      - epistemic_class
+      - engine
+      - engine_version
+      - inputs
+      - outputs
+      - assumptions
+      - seeds
+      - started_at
+      - finished_at
+      - cost_actual
+      - decision
+      - cache_key
+  batch_manifest:
+    root: results/batches
+    naming: "{request_id}.json"
+    mutability: content_addressed_immutable
+    required_fields:
+      - request_id
+      - protocol_version
+      - epistemic_class
+      - model_id
+      - request_hash
+      - response_hash
+      - candidate_ids
+      - retry_count
+      - cost_actual
+  observational_freeze:
+    root: results/freezes
+    naming: "{candidate_id}-{freeze_hash}.json"
+    mutability: write_once
+    required_fields:
+      - candidate_id
+      - epistemic_class
+      - hypothesis_hash
+      - pipeline_hash
+      - data_development_manifest_hash
+      - data_holdout_manifest_hash
+      - statistic
+      - thresholds
+      - multiplicity_correction
+      - foreground_vetoes
+      - seeds
+      - stop_rules
+      - signed_at
+
+cache:
+  digest: sha256
+  canonical_encoding: RFC 8785 JSON
+  policy:
+    - Cache only deterministic outputs or a complete remote response bound to its exact request body.
+    - A cache hit must reproduce the original artifact reference and append a new status event that cites it; it must not copy or edit the artifact.
+    - Engine version, rule version, dataset checksums, assumptions, and seeds are always part of a gate key.
+    - Failed, truncated, or schema-invalid remote responses are never positive cache entries.
+    - Changing a decision rule, mask, calibration, engine version, or hypothesis invalidates downstream keys automatically through input hashes.
+
+resource_policy:
+  paid_usd_without_approval: 0
+  gpu_hours_without_approval: 0
+  remote_host_role: inference_only
+  remote_mutation_max_requests_in_flight: 1
+  local_limits:
+    total_cpu_workers: 8
+    total_memory_gb_soft: 16
+    wolfram_calls_in_flight: 2
+    low_fidelity_jobs_in_flight: 4
+    injection_jobs_in_flight: 2
+    cross_survey_jobs_in_flight: 1
+    observational_jobs_in_flight: 1
+  admission:
+    - The scheduler must reserve the full per-gate ceiling before launch.
+    - If the ceiling cannot be reserved, leave the candidate at its last immutable status; do not silently use a lower-fidelity substitute.
+    - A paid call, GPU job, large download, or server-side compute job requires explicit approval outside this plan.
+
+ready_engines:
+  policy: Prefer these mature engines or official data services; custom Python under src is thin, package-free orchestration and never a replacement numerical engine.
+  capabilities:
+    schema_validation:
+      engine: JSON Schema Draft 2020-12 validator such as check-jsonschema/jsonschema
+      epistemic_class: ESTABLISHED
+    exact_algebra:
+      engine: SymPy
+      epistemic_class: ESTABLISHED
+    units_coordinates_fits:
+      engine: Astropy
+      epistemic_class: ESTABLISHED
+    independent_cas:
+      engine: official Wolfram MCP or Wolfram Language service
+      epistemic_class: ESTABLISHED
+    spherical_maps:
+      engine: healpy plus s2fft/s2fil where the published method requires it
+      epistemic_class: ADAPTED
+    cut_sky_spectra:
+      engine: NaMaster/pymaster
+      epistemic_class: ADAPTED
+    cmb_likelihoods:
+      engine: official Planck likelihoods with Cobaya where applicable
+      epistemic_class: ADAPTED
+    posterior_diagnostics:
+      engine: ArviZ including SBC/TARP coverage checks where applicable
+      epistemic_class: ADAPTED
+    public_evidence:
+      engine: NASA LAMBDA and official Planck Legacy Archive products with checksums
+      epistemic_class: ESTABLISHED
+  replacement_rule: If a named engine already supplies the scientific operation, glue may configure and call it but must not reimplement it.
+
+gates:
+  - id: G00
+    name: stateless_generation
+    epistemic_class: NOVEL PROPOSAL
+    input:
+      - mutation objective and niche
+      - failure-archive digest
+      - research/hypothesis.schema.json hash
+      - remote-mutator-protocol.yml hash
+    output:
+      - immutable batch manifest
+      - generated candidate events containing untrusted hypothesis payloads
+    status:
+      pass: generated
+      fail: rejected
+    cost_ceiling:
+      scope: one batch of at most 32 candidates
+      wall_seconds: 120
+      remote_requests: 1
+      retries_after_initial: 2
+      cpu_hours: 0.002
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 0
+    concurrency: one remote request globally; candidates are batched inside it
+    cache_key: sha256(protocol_version, exact_request_body, model_id, seed, failure_archive_digest)
+    stop_rule:
+      - Stop the batch after the retry policy is exhausted, the response exceeds 2 MiB, or the response is not one JSON object.
+      - Reject individual duplicate or unsafe candidates; never execute an equation, code fragment, URL, or instruction returned by the model.
+      - Stop all remote mutation if serving it would require SSH, server mutation, server-side tools, or paid inference.
+
+  - id: G10
+    name: schema_and_safety_validation
+    epistemic_class: ESTABLISHED
+    input:
+      - generated hypothesis payload
+      - research/hypothesis.schema.json
+    output:
+      - validator report
+      - canonical hypothesis hash when valid
+    status:
+      pass: schema_valid
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate
+      wall_seconds: 0.10
+      cpu_hours: 0.00003
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 0
+    concurrency: up to 8 local workers
+    cache_key: sha256(canonical_candidate, schema_hash, validator_name, validator_version, safety_rule_version)
+    stop_rule:
+      - Reject additional properties, missing fields, expression depth above 12, more than 256 total expression nodes, non-finite numbers, or any payload requiring code execution.
+      - Do not repair a malformed candidate in place; a later mutation is a new candidate with a new id.
+
+  - id: G20
+    name: deterministic_local_screen
+    epistemic_class: ADAPTED
+    input:
+      - schema-valid hypothesis
+      - declared assumptions and domains
+    output:
+      - dimensions report
+      - domain and boundary report
+      - symmetry and conservation report
+      - named-rival discriminability report
+    status:
+      pass: locally_screened
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate
+      wall_seconds: 2
+      cpu_hours: 0.0006
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 0
+    concurrency: up to 8 local workers
+    cache_key: sha256(hypothesis_hash, normalized_assumptions, local_rule_version, sympy_version, astropy_version)
+    stop_rule:
+      - Reject on a units, declared-domain, boundary, symmetry, conservation, undefined-symbol, or deterministic counterexample failure.
+      - Reject when the observable has no frozen decision rule or cannot discriminate at least one named rival.
+      - Fitness, novelty, or model confidence cannot override a failure.
+
+  - id: G30
+    name: independent_wolfram_verification
+    epistemic_class: ADAPTED
+    input:
+      - locally screened normalized equations
+      - identical explicit assumptions used locally
+      - local symbolic report
+    output:
+      - official Wolfram request and response artifact
+      - normalized agreement report
+    status:
+      pass: wolfram_verified
+      disagreement: cas_disagreement
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate, equations grouped into one verification request
+      wall_seconds: 20
+      official_calls: 1
+      cpu_hours: 0.006
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 0
+    concurrency: at most 2 official Wolfram calls
+    cache_key: sha256(normalized_equations, normalized_assumptions, local_report_hash, wolfram_engine_id, wolfram_engine_version)
+    stop_rule:
+      - Emit cas_disagreement and quarantine when Wolfram and local CAS disagree; never vote, average, retry with changed assumptions, or simulate the candidate.
+      - Reject a Wolfram counterexample that is inside the declared domain.
+      - If the official verifier is unavailable or would cost money, stop at locally_screened; do not substitute another LLM or mark verified.
+
+  - id: G40
+    name: published_baseline_reproduction
+    epistemic_class: ADAPTED
+    input:
+      - wolfram-verified candidate family
+      - checksummed public fixture or development data manifest
+      - published method and acceptance tolerance
+    output:
+      - baseline reproduction report
+      - engine and data provenance manifest
+    status:
+      pass: wolfram_verified
+      fail: rejected
+    cost_ceiling:
+      scope: once per candidate family and engine-version tuple
+      wall_seconds: 1800
+      cpu_hours: 1
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 1
+    concurrency: one baseline job per family; identical families share the cache
+    cache_key: sha256(family_signature, method_version, fixture_checksums, tolerance, engine_versions, seeds)
+    stop_rule:
+      - Stop the entire family if the published null or calibration behavior cannot be reproduced within the frozen tolerance.
+      - Stop if foreground, mask, beam, noise, or look-elsewhere controls are undefined.
+      - Never tune the tolerance after inspecting the candidate result.
+
+  - id: G50
+    name: low_fidelity_simulation
+    epistemic_class: UNVERIFIED
+    input:
+      - wolfram-verified candidate
+      - passing family baseline
+      - fixed low-resolution simulation manifest
+    output:
+      - signal amplitude and degeneracy report
+      - exact seeds and simulator configuration
+    status:
+      pass: simulation_eligible
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate
+      wall_seconds: 60
+      cpu_hours: 0.02
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 0.05
+    concurrency: up to 4 local jobs
+    cache_key: sha256(hypothesis_hash, baseline_hash, simulator_version, fidelity, parameter_grid, seeds)
+    stop_rule:
+      - Reject when the predicted signal is numerically invisible at the declared scale, degenerate with every named rival, unstable under a predeclared boundary perturbation, or outside the data support.
+      - Stop on numerical non-convergence; do not treat it as evidence for or against the hypothesis.
+
+  - id: G60
+    name: injection_recovery
+    epistemic_class: ADAPTED
+    input:
+      - simulation-eligible candidate
+      - frozen injections, null simulations, masks, seeds, and recovery statistic
+    output:
+      - sensitivity curve
+      - false-positive and false-negative estimates
+      - calibration and coverage report
+    status:
+      pass: simulation_eligible
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate
+      wall_seconds: 900
+      cpu_hours: 0.5
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 0.5
+    concurrency: up to 2 local jobs
+    cache_key: sha256(candidate_simulation_hash, injection_manifest_hash, statistic_hash, masks, seeds, engine_versions)
+    stop_rule:
+      - Reject if the frozen statistic misses the minimum declared effect, exceeds the false-positive ceiling, fails coverage, or cannot distinguish the named rival.
+      - Stop rather than retune after seeing recovery results; any changed statistic creates a new candidate lineage and new development split.
+
+  - id: G70
+    name: cross_survey_development_confirmation
+    epistemic_class: UNVERIFIED
+    input:
+      - calibrated candidate
+      - development-only WMAP/Planck splits or equivalent independent instruments
+      - frozen frequency, polarization, foreground, and null vetoes
+    output:
+      - cross-instrument consistency report
+      - trials-corrected development likelihood report
+    status:
+      pass: simulation_eligible
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate
+      wall_seconds: 3600
+      cpu_hours: 2
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 5
+    concurrency: one cross-survey job
+    cache_key: sha256(candidate_hash, development_manifest_checksums, pipeline_hash, masks, vetoes, multiplicity_rule, seeds)
+    stop_rule:
+      - Reject instrument-specific, frequency-dependent, foreground-correlated, polarization-incoherent, or trials-uncorrected effects.
+      - Stop if survey products are not independently checksummed or if holdout information leaked into development.
+      - A passing development result remains UNVERIFIED and simulation_eligible, not empirically_supported.
+
+  - id: G80
+    name: confirmatory_freeze
+    epistemic_class: ESTABLISHED
+    input:
+      - all upstream immutable artifact hashes
+      - untouched observational holdout manifest
+    output:
+      - write-once observational freeze artifact
+    status:
+      pass: simulation_eligible
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate
+      wall_seconds: 60
+      cpu_hours: 0.01
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 0
+    concurrency: one freeze operation
+    cache_key: sha256(all_upstream_hashes, holdout_manifest_hash, statistic, thresholds, vetoes, multiplicity_correction, stop_rules)
+    stop_rule:
+      - Reject if the holdout was inspected, the complete decision rule is not frozen, or any upstream artifact is mutable or missing.
+      - No candidate mutation, parameter tuning, mask change, or new rival is permitted after the freeze.
+
+  - id: G90
+    name: observational_holdout
+    epistemic_class: UNVERIFIED
+    input:
+      - write-once freeze artifact
+      - untouched checksummed observational holdout
+    output:
+      - locked holdout result with uncertainties, veto outcomes, sensitivity region, and provenance
+    status:
+      pass: empirically_supported
+      fail: rejected
+    cost_ceiling:
+      scope: per candidate, executed once
+      wall_seconds: 14400
+      cpu_hours: 4
+      gpu_hours: 0
+      paid_usd: 0
+      new_data_gb: 10
+    concurrency: one observational job globally
+    cache_key: sha256(freeze_hash, holdout_checksums, pipeline_hash, engine_versions)
+    stop_rule:
+      - Execute exactly once and report the frozen decision regardless of outcome.
+      - Emit empirically_supported only when every frozen threshold and veto passes after multiplicity correction and the effect lies inside the calibrated sensitivity region.
+      - Otherwise emit rejected with the applicable null, veto, sensitivity, or model-mismatch reason; do not reopen development on the same holdout.
+      - Even empirically_supported means support for the tested observable model subclass, not proof of portals, other universes, or a particular interpretation.
+
+scheduler:
+  epistemic_class: NOVEL PROPOSAL
+  objective: Maximize expected information gained per constrained unit of wall time while preserving quality-diversity niches and all hard gates.
+  score: "priority = p_pass * expected_entropy_reduction_bits * novelty_weight * reproducibility_weight / max(1, expected_wall_seconds + 3600*expected_paid_usd + 60*expected_new_data_gb)"
+  required_estimates:
+    - p_pass derived only from prior immutable outcomes in the same gate and niche, with uncertainty
+    - expected_entropy_reduction_bits against named rivals
+    - expected wall time, CPU hours, data staging, and paid cost
+  queue_policy:
+    - First discard candidates that failed a hard gate or are exact/structural duplicates.
+    - Keep one active elite per domain, cost band, mechanism, angular or frequency scale, and dominant falsifier niche.
+    - Reserve 20 percent of each zero-cost gate budget for under-sampled niches; use 80 percent for highest conservative lower-bound priority.
+    - Schedule the cheapest decisive falsifier, not the most favorable analysis.
+    - Age an eligible item only to break statistically indistinguishable priorities; age cannot override a gate or cost ceiling.
+    - Launch downstream work only when all parent artifact hashes and the full cost reservation exist.
+  kill_criteria:
+    - posterior probability of meeting the next frozen gate is below 0.01 after at least 20 comparable outcomes
+    - conservative information-gain lower bound is zero
+    - candidate is Pareto-dominated on information gain, cost, and discriminability within its niche
+    - required public data, independent verifier, or named rival is unavailable
+    - cumulative actual cost reaches the gate ceiling
+  audit: Persist every priority input, computed score, queue decision, and kill reason as a content-addressed artifact.
+
+execution_ladder:
+  assumptions:
+    epistemic_class: UNVERIFIED
+    mutation_batch_size: 32
+    mutation_batches_per_day_ceiling: 12
+    counts_are: admission ceilings, not promised yields
+    speedups_are: planning ratios against sending or simulating every generated candidate; measure actual ratios from artifacts before making product claims
+  one_hour:
+    objective: Prove the zero-cost funnel and find fast failures, not evidence.
+    ceiling:
+      mutation_batches: 1
+      generated: 32
+      locally_screened: 8
+      wolfram_verified: 4
+      low_fidelity_simulations: 4
+      injection_recoveries: 0
+      observational_holdouts: 0
+    deliverables:
+      - one immutable batch manifest
+      - candidate status events and dedup failure signatures
+      - gate-cost telemetry and cache-hit telemetry
+    quantified_speedup:
+      - One batch replaces up to 32 serial mutation requests, a request-count reduction of up to 32x while retaining the one-request-in-flight rule.
+      - Simulating at most 4 of 32 candidates reduces low-fidelity simulation work by 8x relative to simulating all 32; this is an UNVERIFIED planning ceiling.
+  one_day:
+    objective: Reproduce one published baseline and calibrate a few falsifiable survivors.
+    ceiling:
+      mutation_batches: 12
+      generated: 384
+      locally_screened: 96
+      wolfram_verified: 32
+      low_fidelity_simulations: 16
+      injection_recoveries: 4
+      cross_survey_development_runs: 0
+      observational_holdouts: 0
+    deliverables:
+      - passing or terminal baseline reproduction report
+      - sensitivity and false-positive curves for at most 4 survivors
+      - measured funnel survival, wall-time, and cache-hit rates
+    quantified_speedup:
+      - Injecting at most 4 of 384 candidates reduces injection work by 96x relative to injecting all generated candidates.
+      - Eight local deterministic workers provide at most 8x local wall-time compression when work and hardware scale; this changes latency, not scientific evidence or total CPU work.
+  one_week:
+    objective: Reach one honestly frozen observational holdout only if every earlier stop rule passes.
+    ceiling:
+      mutation_batches: 84
+      generated: 2688
+      locally_screened: 672
+      wolfram_verified: 128
+      low_fidelity_simulations: 48
+      injection_recoveries: 12
+      cross_survey_development_runs: 3
+      observational_freezes: 1
+      observational_holdouts: 1
+    deliverables:
+      - quality-diversity archive with measured rejection causes
+      - up to 3 cross-survey development reports
+      - at most one write-once freeze and one locked holdout result
+    quantified_speedup:
+      - Running at most 3 cross-survey analyses instead of 2688 reduces that high-fidelity workload by 896x; this is an UNVERIFIED admission ratio, not a measured speedup.
+      - Exact caches and structural dedup add only measured savings; no numerical cache speedup may be claimed until the audit artifacts report it.

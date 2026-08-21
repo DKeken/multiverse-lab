@@ -1,0 +1,41 @@
+version: 1
+epistemic_class: UNVERIFIED
+candidate: handheld-inter-universe-portal
+verdict: not_assessable
+blocking_evidence_gates:
+  - check: target_existence
+    status: unestablished
+    evidence: No observation currently establishes a physically accessible second universe or destination region.
+  - check: causal_accessibility
+    status: unestablished
+    evidence: No observation establishes a controllable causal channel to such a destination.
+  - check: destination_addressability
+    status: undefined
+    evidence: Without an established destination and causal relation, no operational targeting variable exists.
+downstream_engineering_constraints:
+  - check: operational_geometry
+    status: untested
+    evidence: Traversable-wormhole equations are a theoretical sandbox, not evidence of an inter-universe channel.
+  - check: stress_energy_source
+    status: unavailable
+    evidence: No demonstrated controllable macroscopic stress-energy source implements such a geometry.
+unknowns:
+  - semiclassical_backreaction
+  - nonlinear_stability
+  - quantum_gravity_completion
+  - chronology_protection
+  - required_total_energy_joule
+  - negative_energy_integral_joule_second_per_metre
+checks:
+  throat: required
+  flare_out: required
+  finite_redshift: required
+  curvature: required
+  nec_anec_ledger: required
+  qei_for_declared_field_state: required
+  payload_tidal_limit: required
+  linear_and_nonlinear_stability: required
+  backreaction: required
+  chronology: required
+  targeting: blocked_by_target_existence
+promotion_rule: Engineering feasibility is not scored until target existence and causal accessibility have observational support. Symbolic or simulated wormhole passes cannot establish either prerequisite.

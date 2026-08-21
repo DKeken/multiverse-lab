@@ -1,0 +1,40 @@
+name: Falsifiable hypothesis
+description: Propose a machine-checkable scientific hypothesis
+title: "[Hypothesis] "
+labels: [hypothesis, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: "Extraordinary claims need explicit assumptions, rivals, falsifiers, and evidence boundaries."
+  - type: dropdown
+    id: class
+    attributes: {label: Epistemic class, options: [ESTABLISHED, ADAPTED, NOVEL PROPOSAL, UNVERIFIED]}
+    validations: {required: true}
+  - type: textarea
+    id: claim
+    attributes: {label: Exact claim, description: One bounded proposition.}
+    validations: {required: true}
+  - type: textarea
+    id: sources
+    attributes: {label: Primary sources and assumptions}
+    validations: {required: true}
+  - type: textarea
+    id: observable
+    attributes: {label: Observable and frozen decision rule}
+    validations: {required: true}
+  - type: textarea
+    id: rivals
+    attributes: {label: Conventional rivals and nuisance parameters}
+    validations: {required: true}
+  - type: textarea
+    id: falsifier
+    attributes: {label: Cheapest decisive falsifier}
+    validations: {required: true}
+  - type: textarea
+    id: trials
+    attributes: {label: Trial factors and holdout boundary}
+    validations: {required: true}
+  - type: textarea
+    id: forbidden
+    attributes: {label: Conclusions this test cannot support}
+    validations: {required: true}

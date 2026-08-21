@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use Multiverse Lab, cite this software and the upstream scientific methods and datasets listed in NOTICE."
+title: "Multiverse Lab"
+type: software
+version: 0.1.0
+date-released: 2026-08-21
+authors:
+  - family-names: Schovkunov
+    given-names: Daniil
+repository-code: "https://github.com/DKeken/multiverse-lab"
+license: GPL-3.0-or-later
+keywords:
+  - cosmology
+  - CMB
+  - scientific verification
+  - open science

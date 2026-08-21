@@ -1,0 +1,12 @@
+version: 1
+epistemic_class: NOVEL PROPOSAL
+fidelities:
+  - {id: schema, ceiling_seconds: 0.1, reject_on: malformed unsafe duplicate nonfinite or oversized JSON}
+  - {id: local_symbolic, ceiling_seconds: 2, reject_on: units domain boundary conservation or rival failure}
+  - {id: wolfram, ceiling_seconds: 20, quarantine_on: CAS disagreement}
+  - {id: toy_simulation, ceiling_seconds: 60, reject_on: invisible degenerate unstable or unsupported signal}
+  - {id: injection_recovery, ceiling_seconds: 900, reject_on: sensitivity false-positive or coverage failure}
+  - {id: cross_survey, ceiling_seconds: 3600, reject_on: instrument foreground frequency polarization or trials veto}
+  - {id: observational_holdout, ceiling_seconds: 14400, execute: once after write-once freeze}
+rule: Schedule cheapest decisive falsifier and preserve one elite per quality-diversity niche.
+forbidden: [fitness overriding hard fail, CAS empirical promotion, changed rule after result, uncalibrated neural posterior]

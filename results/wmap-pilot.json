@@ -1,0 +1,303 @@
+{
+  "claim": "No multiverse or bubble-collision inference is permitted from this pilot.",
+  "dataset": {
+    "accepted_fraction_analysis_core": 0.6560923258463541,
+    "accepted_fraction_high_resolution": 0.688084602355957,
+    "analysis_nside": 128,
+    "analysis_ordering": "RING",
+    "analysis_unit": "K_CMB",
+    "coordinate_system": "Galactic",
+    "ilc_resolution_deg": 1.0,
+    "input_nside": 512,
+    "input_ordering": "NESTED",
+    "input_unit": "mK, thermodynamic",
+    "map_sha256": "4501090f824f9140e916339f9e8e490333f6ffe4257a6ee6a02526c8640099a9",
+    "map_url": "https://lambda.gsfc.nasa.gov/data/map/dr5/dfp/ilc/wmap_ilc_9yr_v5.fits",
+    "mask_sha256": "888e7e22f0f242ce3ffdc3cf0ef117fd34d95d24de6386be1d5b39484b30601e",
+    "mask_url": "https://lambda.gsfc.nasa.gov/data/map/dr5/ancillary/masks/wmap_temperature_kq75_analysis_mask_r9_9yr_v5.fits"
+  },
+  "epistemic_class": "UNVERIFIED",
+  "fail_closed_flags": [
+    "KQ75 core defines searched centers; every reported disk must be at least 80 percent unmasked.",
+    "The 128-null ensemble is diagnostic and cannot establish publication-grade tail significance.",
+    "Mask-edge leakage remains included in the diagnostic null maximum and can only raise its threshold.",
+    "No Planck component-separation, frequency, or polarization holdout has been opened.",
+    "Candidates are engineering outputs, not evidence of a multiverse."
+  ],
+  "global_pilot": {
+    "empirical_p": 0.13178294573643412,
+    "minimum_resolvable_p": 0.007751937984496124,
+    "null_99_percent_threshold_sigma": 5.398661798900952,
+    "observed_max_sigma": 4.936787967306637
+  },
+  "pipeline": {
+    "apodization_deg": 2.0,
+    "beam_fwhm_arcmin": 60.0,
+    "lmax": 256,
+    "monopole_dipole": "least-squares fit on KQ75 core, removed before masking",
+    "null_simulations": 128,
+    "scales_deg": [
+      5.0,
+      10.0,
+      20.0,
+      30.0
+    ],
+    "seed": 20260821,
+    "trials_scope": "global maximum over all valid pixels and all four scales"
+  },
+  "scales": [
+    {
+      "candidates": [
+        {
+          "disk_unmasked_fraction": 0.9813953488372092,
+          "filtered_amplitude": -4.936787967306637,
+          "galactic_latitude_deg": -57.39952353962295,
+          "galactic_longitude_deg": 207.1022727272727,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.614616547454165,
+          "pixel": 181146,
+          "significance": 4.936787967306637,
+          "theta": 2.572607001637307
+        },
+        {
+          "disk_unmasked_fraction": 0.92,
+          "filtered_amplitude": 4.620094662251714,
+          "galactic_latitude_deg": -33.152887928619876,
+          "galactic_longitude_deg": 322.03124999999994,
+          "passes_global_pilot_threshold": false,
+          "phi": 5.620505606812988,
+          "pixel": 152266,
+          "significance": 4.620094662251714,
+          "theta": 2.149423377693996
+        },
+        {
+          "disk_unmasked_fraction": 0.913953488372093,
+          "filtered_amplitude": -4.22109554527879,
+          "galactic_latitude_deg": -79.38582555083227,
+          "galactic_longitude_deg": 184.6551724137931,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.2228407394584946,
+          "pixel": 194927,
+          "significance": 4.22109554527879,
+          "theta": 2.956340362070761
+        },
+        {
+          "disk_unmasked_fraction": 0.9391100702576113,
+          "filtered_amplitude": -3.8541694248530627,
+          "galactic_latitude_deg": 65.69633519657744,
+          "galactic_longitude_deg": 22.5,
+          "passes_global_pilot_threshold": false,
+          "phi": 0.39269908169872414,
+          "pixel": 8596,
+          "significance": 3.8541694248530627,
+          "theta": 0.4241789711207841
+        },
+        {
+          "disk_unmasked_fraction": 0.9114219114219114,
+          "filtered_amplitude": -3.846303480357768,
+          "galactic_latitude_deg": 60.43443884495228,
+          "galactic_longitude_deg": 183.9375,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.21031499288707,
+          "pixel": 12803,
+          "significance": 3.846303480357768,
+          "theta": 0.5160163873553204
+        }
+      ],
+      "disk_unmasked_fraction_minimum": 0.8,
+      "null_sigma_filtered_kelvin": 3.195997831048401e-05,
+      "scale_deg": 5.0,
+      "valid_sky_fraction": 0.6560923258463541
+    },
+    {
+      "candidates": [
+        {
+          "disk_unmasked_fraction": 0.966895690193629,
+          "filtered_amplitude": -4.831881356087547,
+          "galactic_latitude_deg": -59.677785226578806,
+          "galactic_longitude_deg": 211.28048780487808,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.687540157414849,
+          "pixel": 183188,
+          "significance": 4.831881356087547,
+          "theta": 2.612370169296727
+        },
+        {
+          "disk_unmasked_fraction": 0.92196349905601,
+          "filtered_amplitude": 4.03302298585674,
+          "galactic_latitude_deg": -34.953865257188454,
+          "galactic_longitude_deg": 325.1953125,
+          "passes_global_pilot_threshold": false,
+          "phi": 5.675728915176872,
+          "pixel": 154830,
+          "significance": 4.03302298585674,
+          "theta": 2.1808563618312897
+        },
+        {
+          "disk_unmasked_fraction": 0.8485607008760951,
+          "filtered_amplitude": -3.9251531904348997,
+          "galactic_latitude_deg": -31.03924001039789,
+          "galactic_longitude_deg": 222.1875,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.877903431774901,
+          "pixel": 149052,
+          "significance": 3.9251531904348997,
+          "theta": 2.112533262293099
+        },
+        {
+          "disk_unmasked_fraction": 0.8667504714016342,
+          "filtered_amplitude": -3.6847974344038805,
+          "galactic_latitude_deg": -32.44286613851179,
+          "galactic_longitude_deg": 80.15625,
+          "passes_global_pilot_threshold": false,
+          "phi": 1.3989904785517047,
+          "pixel": 150898,
+          "significance": 3.6847974344038805,
+          "theta": 2.137031159695706
+        },
+        {
+          "disk_unmasked_fraction": 0.9686126804770873,
+          "filtered_amplitude": -3.565263153153708,
+          "galactic_latitude_deg": 37.16889965599944,
+          "galactic_longitude_deg": 245.03906250000003,
+          "passes_global_pilot_threshold": false,
+          "phi": 4.276738436625168,
+          "pixel": 39004,
+          "significance": 3.565263153153708,
+          "theta": 0.9220766484543186
+        }
+      ],
+      "disk_unmasked_fraction_minimum": 0.8,
+      "null_sigma_filtered_kelvin": 2.79824149348355e-05,
+      "scale_deg": 10.0,
+      "valid_sky_fraction": 0.6560923258463541
+    },
+    {
+      "candidates": [
+        {
+          "disk_unmasked_fraction": 0.9111328125,
+          "filtered_amplitude": 4.298875886428579,
+          "galactic_latitude_deg": -58.91977535280316,
+          "galactic_longitude_deg": 159.10714285714286,
+          "passes_global_pilot_threshold": false,
+          "phi": 2.776943506298121,
+          "pixel": 182476,
+          "significance": 4.298875886428579,
+          "theta": 2.599140401236715
+        },
+        {
+          "disk_unmasked_fraction": 0.9452233452885556,
+          "filtered_amplitude": -3.3594298600876953,
+          "galactic_latitude_deg": 48.141207794360284,
+          "galactic_longitude_deg": 229.41964285714283,
+          "passes_global_pilot_threshold": false,
+          "phi": 4.004128136606633,
+          "pixel": 25149,
+          "significance": 3.3594298600876953,
+          "theta": 0.7305737448965524
+        },
+        {
+          "disk_unmasked_fraction": 0.8449991842062327,
+          "filtered_amplitude": -3.144157358540709,
+          "galactic_latitude_deg": -33.152887928619876,
+          "galactic_longitude_deg": 348.74999999999994,
+          "passes_global_pilot_threshold": false,
+          "phi": 6.086835766330223,
+          "pixel": 152304,
+          "significance": 3.144157358540709,
+          "theta": 2.149423377693996
+        },
+        {
+          "disk_unmasked_fraction": 0.8688631544609362,
+          "filtered_amplitude": 2.9233004318678586,
+          "galactic_latitude_deg": -29.656013541178424,
+          "galactic_longitude_deg": 106.875,
+          "passes_global_pilot_threshold": false,
+          "phi": 1.8653206380689396,
+          "pixel": 146840,
+          "significance": 2.9233004318678586,
+          "theta": 2.088391406104483
+        },
+        {
+          "disk_unmasked_fraction": 0.9370001632120124,
+          "filtered_amplitude": -2.9007828317512807,
+          "galactic_latitude_deg": 34.95386525718846,
+          "galactic_longitude_deg": 193.71093749999997,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.3808936564999525,
+          "pixel": 42003,
+          "significance": 2.9007828317512807,
+          "theta": 0.9607362917585034
+        }
+      ],
+      "disk_unmasked_fraction_minimum": 0.8,
+      "null_sigma_filtered_kelvin": 2.6185137789634534e-05,
+      "scale_deg": 20.0,
+      "valid_sky_fraction": 0.6560923258463541
+    },
+    {
+      "candidates": [
+        {
+          "disk_unmasked_fraction": 0.801500074261102,
+          "filtered_amplitude": 3.294607048164336,
+          "galactic_latitude_deg": -34.22886632781257,
+          "galactic_longitude_deg": 35.5078125,
+          "passes_global_pilot_threshold": false,
+          "phi": 0.619728238305799,
+          "pixel": 153394,
+          "significance": 3.294607048164336,
+          "theta": 2.1682027434402467
+        },
+        {
+          "disk_unmasked_fraction": 0.8957792448631408,
+          "filtered_amplitude": 2.863026670825931,
+          "galactic_latitude_deg": -64.19874590253252,
+          "galactic_longitude_deg": 197.35714285714286,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.4445319451859517,
+          "pixel": 186821,
+          "significance": 2.863026670825931,
+          "theta": 2.6912758184453076
+        },
+        {
+          "disk_unmasked_fraction": 0.9432844661631867,
+          "filtered_amplitude": 2.545120636547025,
+          "galactic_latitude_deg": 80.11972495915612,
+          "galactic_longitude_deg": 121.66666666666666,
+          "passes_global_pilot_threshold": false,
+          "phi": 2.1234839232597675,
+          "pixel": 1440,
+          "significance": 2.545120636547025,
+          "theta": 0.1724433304653431
+        },
+        {
+          "disk_unmasked_fraction": 0.938323041440369,
+          "filtered_amplitude": -2.509083986418556,
+          "galactic_latitude_deg": 45.38920300540005,
+          "galactic_longitude_deg": 203.82352941176472,
+          "passes_global_pilot_threshold": false,
+          "phi": 3.5573916812707953,
+          "pixel": 28353,
+          "significance": 2.509083986418556,
+          "theta": 0.7786052894945602
+        },
+        {
+          "disk_unmasked_fraction": 0.8544454356229557,
+          "filtered_amplitude": -2.508139227753341,
+          "galactic_latitude_deg": -40.22818472806108,
+          "galactic_longitude_deg": 334.3359375,
+          "passes_global_pilot_threshold": false,
+          "phi": 5.835262917116979,
+          "pixel": 162011,
+          "significance": 2.508139227753341,
+          "theta": 2.2729106024000623
+        }
+      ],
+      "disk_unmasked_fraction_minimum": 0.8,
+      "null_sigma_filtered_kelvin": 2.5609476026876817e-05,
+      "scale_deg": 30.0,
+      "valid_sky_fraction": 0.6560923258463541
+    }
+  ],
+  "status": "engineering_diagnostic"
+}

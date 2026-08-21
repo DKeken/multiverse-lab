@@ -1,0 +1,28 @@
+version: 1
+primary_wedge: CAS-CI for computational science
+assumptions:
+  pricing: unknown until LOI
+  acquisition_cost: unknown
+  hosting_cost: zero for local pilot
+  gross_margin: unknown
+milestones:
+  - id: M0
+    deliverable: local CLI demo on three public repositories
+    cost: local CPU only
+    evidence: catches seeded errors and emits immutable report
+    stop: do not build hosted service before workflow demand
+  - id: M1
+    deliverable: 15 approved workflow interviews
+    cost: human time; external contact approval required
+    pass: at least 3 provide real equation catalogs
+    kill: fewer than 3 real workflows
+  - id: M2
+    deliverable: one design-partner pilot
+    pass: signed LOI or paid pilot with exact scope
+    kill: zero LOI after 15 qualified interviews
+  - id: M3
+    deliverable: private package or CI integration
+    prerequisite: customer security and data-retention contract
+    defer: multi-tenant SaaS dashboard
+fallback_trigger: primary wedge M2 kill
+fallback: anomaly-search provenance toolkit for astronomy

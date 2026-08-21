@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Multiverse Lab Hypothesis IR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "classification", "domain", "claim", "assumptions", "symbols", "equations", "observable", "falsifier", "rivals", "cost"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"},
+    "title": {"type": "string", "minLength": 8, "maxLength": 160},
+    "classification": {"enum": ["NOVEL PROPOSAL", "UNVERIFIED"]},
+    "domain": {"enum": ["cmb", "quantum-foundations", "gravitational-waves", "cosmic-topology", "analogue-gravity", "general-relativity"]},
+    "claim": {"type": "string", "minLength": 20, "maxLength": 800},
+    "assumptions": {"type": "array", "minItems": 1, "maxItems": 12, "items": {"type": "string", "minLength": 3, "maxLength": 240}},
+    "symbols": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 40,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["dimension", "domain"],
+        "properties": {
+          "dimension": {"type": "array", "prefixItems": [{"type":"number"},{"type":"number"},{"type":"number"},{"type":"number"}], "minItems": 4, "maxItems": 4},
+          "domain": {"enum": ["real", "positive", "nonnegative", "angle"]},
+          "min": {"type": "number"},
+          "max": {"type": "number"}
+        }
+      }
+    },
+    "equations": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["lhs", "rhs", "role"],
+        "properties": {
+          "lhs": {"$ref": "#/$defs/expression"},
+          "rhs": {"$ref": "#/$defs/expression"},
+          "role": {"enum": ["definition", "constraint", "prediction", "conservation"]}
+        }
+      }
+    },
+    "observable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["quantity", "dataset", "signature", "decision_rule"],
+      "properties": {
+        "quantity": {"type": "string", "minLength": 2, "maxLength": 120},
+        "dataset": {"type": "string", "minLength": 2, "maxLength": 240},
+        "signature": {"type": "string", "minLength": 10, "maxLength": 500},
+        "decision_rule": {"type": "string", "minLength": 10, "maxLength": 500}
+      }
+    },
+    "falsifier": {"type": "string", "minLength": 10, "maxLength": 500},
+    "rivals": {"type": "array", "minItems": 1, "maxItems": 10, "items": {"type": "string", "minLength": 3, "maxLength": 200}},
+    "cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["data_gb", "cpu_hours", "gpu_hours"],
+      "properties": {
+        "data_gb": {"type": "number", "minimum": 0, "maximum": 10},
+        "cpu_hours": {"type": "number", "minimum": 0, "maximum": 24},
+        "gpu_hours": {"type": "number", "minimum": 0, "maximum": 0}
+      }
+    }
+  },
+  "$defs": {
+    "expression": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": false, "required": ["number"], "properties": {"number": {"type": "number"}}},
+        {"type": "object", "additionalProperties": false, "required": ["symbol"], "properties": {"symbol": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]*$"}}},
+        {"type": "object", "additionalProperties": false, "required": ["op", "args"], "properties": {"op": {"enum": ["add", "mul"]}, "args": {"type": "array", "minItems": 2, "maxItems": 12, "items": {"$ref": "#/$defs/expression"}}}},
+        {"type": "object", "additionalProperties": false, "required": ["op", "base", "exponent"], "properties": {"op": {"const": "pow"}, "base": {"$ref": "#/$defs/expression"}, "exponent": {"type": "number"}}},
+        {"type": "object", "additionalProperties": false, "required": ["op", "arg"], "properties": {"op": {"enum": ["sin", "cos", "exp", "log", "neg"]}, "arg": {"$ref": "#/$defs/expression"}}}
+      ]
+    }
+  }
+}

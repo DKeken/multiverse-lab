@@ -1,0 +1,11 @@
+choice,status,values,trial_handling,notes
+sky_position,searched,all KQ75-safe pixels,included in global null maximum,mask edge buffer scale-dependent
+angular_scale,searched,"5;10;20;30 deg",joint global maximum,inter-scale correlations preserved within each null realization
+sign,searched,positive and negative,absolute statistic in global maximum,two-sided
+centering,searched,HEALPix pixel centers,included in global maximum,no post-hoc recentering
+mask,frozen,KQ75 r9 9yr v5,not searched,SHA-256 frozen
+beam,frozen,1 degree,not searched,official WMAP ILC resolution
+apodization,frozen,2 degree,not searched,engineering choice before result
+null_seed,frozen,20260821,not searched,128 diagnostic simulations
+foreground_veto,pending,Planck component methods and frequencies,required before confirmation,holdout unopened
+polarization_veto,pending,Planck Q/U to E radial profile,required before confirmation,holdout unopened

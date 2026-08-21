@@ -1,0 +1,21 @@
+version: 1
+auto_allowed:
+  - local deterministic parsing and symbolic checks
+  - cached public metadata lookup
+  - local simulation within frozen gate budget
+  - one stateless remote LLM request in flight through existing tunnel
+human_approval_required:
+  - {action: paid API or cloud compute, reason: external cost}
+  - {action: download over 100 MB, reason: storage bandwidth and holdout contamination}
+  - {action: open observational holdout, reason: preserves blind inference}
+  - {action: mutate or restart inference server, reason: shared production risk}
+  - {action: publish or contact researchers/customers, reason: external representation}
+  - {action: purchase or operate equipment, reason: cost and physical safety}
+  - {action: promote to empirically_supported, reason: scientific claim boundary}
+  - {action: collect personal or proprietary data, reason: privacy and authorization}
+prohibited:
+  - candidate-generated code execution
+  - server scientific compute
+  - hidden post-result threshold changes
+  - CAS result promoted as observation
+  - portal or multiverse existence claim from simulation

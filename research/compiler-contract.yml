@@ -1,0 +1,21 @@
+version: 1
+epistemic_class: ADAPTED
+schema: research/hypothesis.schema.json
+limits: {input_bytes: 2097152, ast_depth: 12, ast_nodes: 256, data_gb: 10, cpu_hours: 24, gpu_hours: 0}
+public_api:
+  load_schema: load_schema(path) -> plain JSON object
+  compile_candidate: compile_candidate(raw, schema_path) -> compiled envelope
+  verify_local: verify_local(compiled) -> locally_screened or rejected envelope
+  to_wolfram: to_wolfram(locally_screened) -> restricted Wolfram FullForm string
+envelope_fields: [status, status_history, candidate, normalized_json, content_sha256, schema_sha256, rejection_codes]
+status_owners:
+  compiler: [schema_valid, rejected]
+  local_verifier: [locally_screened, rejected]
+  wolfram_gate: [wolfram_verified, cas_disagreement, rejected]
+safety:
+  forbidden_apis: [eval, exec, compile, sympy.sympify, sympy.parse_expr, lambdify, candidate code execution]
+  strict_json: [duplicate-key rejection, nonfinite-number rejection, exact scalar types, bounded input]
+  integrity: Recanonicalize and verify candidate JSON and SHA-256 at every public boundary.
+  wolfram: Candidate symbols map to Hyp$ plus UTF-8 hex; only compiler-owned FullForm heads are rendered.
+dimensions: four exact rational exponents; add/equation parity required; transcendental arguments dimensionless
+fail_closed_domains: [log positive, negative power positive, fractional power nonnegative, declared bounds consistent]

@@ -1,0 +1,25 @@
+name: Independent reproduction
+description: Report a reproduction, null result, or discrepancy
+title: "[Reproduction] "
+labels: [reproduction, needs-triage]
+body:
+  - type: input
+    id: artifact
+    attributes: {label: Original artifact or claim reference}
+    validations: {required: true}
+  - type: textarea
+    id: environment
+    attributes: {label: Environment, code revision, data hashes, and seeds}
+    validations: {required: true}
+  - type: textarea
+    id: method
+    attributes: {label: Frozen method and deviations}
+    validations: {required: true}
+  - type: textarea
+    id: result
+    attributes: {label: Result with uncertainty and trial treatment}
+    validations: {required: true}
+  - type: textarea
+    id: artifacts
+    attributes: {label: Reproducible artifact links}
+    validations: {required: true}

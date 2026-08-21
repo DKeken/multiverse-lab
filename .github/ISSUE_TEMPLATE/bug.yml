@@ -1,0 +1,21 @@
+name: Reproducible bug
+description: Report wrong code behavior or a security-safe parser failure
+title: "[Bug] "
+labels: [bug, needs-triage]
+body:
+  - type: textarea
+    id: observed
+    attributes: {label: Observed behavior}
+    validations: {required: true}
+  - type: textarea
+    id: expected
+    attributes: {label: Expected contract}
+    validations: {required: true}
+  - type: textarea
+    id: reproduction
+    attributes: {label: Minimal reproduction without secrets/private data}
+    validations: {required: true}
+  - type: textarea
+    id: environment
+    attributes: {label: OS, Python, lock revision, data hashes}
+    validations: {required: true}

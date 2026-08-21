@@ -1,0 +1,16 @@
+version: 1
+engines:
+  - {name: healpy, role: HEALPix maps and spherical transforms, backend: ducc0, license: GPL-2.0, url: https://github.com/healpy/healpy, decision: keep}
+  - {name: s2fil, role: original matched-filter formulas and fixtures, license: GPL-3.0, url: https://github.com/astro-informatics/s2fil, decision: reference-source}
+  - {name: COMB, role: bubble template generator formulas, license: GPL-3.0, url: https://github.com/astro-informatics/comb, decision: reference-source}
+  - {name: SymPy, role: local exact symbolic screening, license: BSD-3-Clause, url: https://github.com/sympy/sympy, decision: keep}
+  - {name: Wolfram Cloud MCP, role: independent official CAS check, license: service terms, url: https://agenttools.wolfram.com/mcp, decision: keep}
+  - {name: Astropy, role: FITS units coordinates cosmology, license: BSD-3-Clause, url: https://github.com/astropy/astropy, decision: keep}
+  - {name: QuTiP, role: open quantum system simulation, license: BSD-3-Clause, url: https://github.com/qutip/qutip, decision: keep}
+  - {name: NaMaster, role: masked pseudo-Cl and mode-coupling, license: BSD-3-Clause, url: https://github.com/LSSTDESC/NaMaster, decision: add only before publication-grade cut-sky spectra}
+  - {name: PySM3, role: foreground simulations, license: BSD-3-Clause, url: https://github.com/galsci/pysm, decision: add before frequency foreground validation}
+  - {name: sbi, role: simulation-based posterior inference, license: AGPL-3.0, url: https://github.com/sbi-dev/sbi, decision: defer until simulator coverage is calibrated}
+  - {name: TARP, role: posterior coverage tests, license: MIT, url: https://github.com/Ciela-Institute/tarp, decision: pair with sbi if adopted}
+  - {name: pyribs, role: maintained MAP-Elites archive, license: MIT, url: https://github.com/icaros-usc/pyribs, decision: add only after standard-library archive profiling shows need}
+  - {name: BoTorch, role: information-gain scheduling, license: MIT, url: https://github.com/pytorch/botorch, decision: defer until evaluation history exists}
+skills_are_not_engines: [sympy skill, astropy skill, qutip skill, hypothesis-generation skill, scientific-brainstorming skill]

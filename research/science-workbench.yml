@@ -1,0 +1,30 @@
+version: 1
+updated: 2026-08-21
+status: ready_contract
+surface:
+  notebook: JupyterLab for plots and controlled experiments
+  orchestrator: isolated OMP profile multiverse-lab
+  symbolic_local: SymPy
+  symbolic_independent: official Wolfram Cloud MCP
+  astronomy: [Astropy, healpy, ducc0]
+  quantum: QuTiP
+  records: [research/*.yml, results/*.json, results/*.jsonl]
+  dashboard: deferred until files prove insufficient
+data_flow:
+  - LLM emits untrusted hypothesis JSON.
+  - compiler and local verifier emit hashed envelopes.
+  - archive appends immutable gate events.
+  - notebooks consume frozen manifests and write result artifacts.
+  - human reviews any observation holdout promotion.
+claim_badges:
+  ESTABLISHED: robust primary evidence or consensus, source required
+  ADAPTED: established method applied to this pipeline
+  NOVEL PROPOSAL: unverified hypothesis or method
+  UNVERIFIED: unsupported, unresolved, or disproved in current gate
+single_authority:
+  hypothesis_archive: results/hypotheses.jsonl
+  claims: research/claims.yml
+  gate_contract: research/operating-system.yml
+  provenance_schema: research/provenance.schema.json
+  experiment_schema: research/experiment.schema.json
+not_building: [custom backend, database, custom CAS, custom HEALPix transforms, claim-editing web app, automatic empirical promotion]

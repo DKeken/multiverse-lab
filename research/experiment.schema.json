@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["experiment_id", "candidate_id", "gate_id", "epistemic_class", "inputs", "engine", "engine_version", "code_hash", "environment_hash", "seeds", "thresholds", "stop_rules", "outputs", "decision"],
+  "properties": {
+    "experiment_id": {"type": "string", "minLength": 3}, "candidate_id": {"type": "string"}, "gate_id": {"type": "string"},
+    "epistemic_class": {"enum": ["ESTABLISHED", "ADAPTED", "NOVEL PROPOSAL", "UNVERIFIED"]},
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ref", "sha256"],
+        "properties": {
+          "ref": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "engine": {"type": "string"}, "engine_version": {"type": "string"}, "code_hash": {"type": "string"}, "environment_hash": {"type": "string"},
+    "seeds": {"type": "array", "items": {"type": "integer"}}, "thresholds": {"type": "object"}, "stop_rules": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ref", "sha256"],
+        "properties": {
+          "ref": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "decision": {"enum": ["pass", "fail", "inconclusive"]}, "started_at_utc": {"type": "string", "format": "date-time"}, "finished_at_utc": {"type": "string", "format": "date-time"}
+  }
+}

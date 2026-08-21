@@ -1,0 +1,6 @@
+effect,demonstrated_quantity,scale,status,portal_relevance,source,caveat
+Casimir effect,attractive force consistent with modified vacuum mode energy,micrometre/sub-micrometre,ESTABLISHED,shows local renormalized negative energy can occur,https://doi.org/10.1103/PhysRev.73.360,not a demonstrated macroscopic controllable throat source
+Squeezed light,sub-vacuum quadrature and constrained negative energy flux,optical modes/transient,ESTABLISHED,tests quantum inequality structure,https://doi.org/10.1103/PhysRevD.43.3972,negative pulses are bounded and compensated
+Quantum energy teleportation,energy extraction enabled by local operations classical communication and shared correlations,quantum systems,ADAPTED,analogue of energy-information constraints,https://doi.org/10.1103/PhysRevA.78.052319,does not teleport matter or create spacetime
+Gao-Jafferis-Wall coupling,negative averaged null energy enabling traversability in a special AdS setup,holographic model,ADAPTED,existence proof under special boundary conditions,https://arxiv.org/abs/1608.05687,not an experimentally available flat-spacetime portal source
+Macroscopic negative-energy reservoir,none demonstrated,unknown,UNVERIFIED,required by many classical traversable-wormhole models,none,no known construction or measured capacity

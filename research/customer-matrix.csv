@@ -1,0 +1,7 @@
+segment,pain,current_alternative,willingness_to_pay_evidence,validation_offer,delivery_cost,liability,priority
+computational physics groups,unit domain and assumption mistakes survive notebooks,manual review plus SymPy or Mathematica,unknown,CI review of one equation catalog,low,medium,1
+quantitative model validation teams,need reproducible independent model checks,internal validators and governance suites,public budgets exist but price for this wedge unknown,private pilot on nonproduction equations,medium,high,2
+engineering simulation teams,silent parameter and units errors,unit libraries tests and peer review,unknown,pre-commit unit and invariant checker,medium,high,3
+scientific software maintainers,reviewing symbolic formulas and examples is manual,tests notebooks and CAS sessions,unknown,open-source repository audit,low,low,4
+astronomy survey teams,trial factors provenance and holdouts are hard to audit,custom pipelines and workflow engines,unknown,frozen anomaly-search manifest pilot,high,high,5
+education,students make algebra and units errors,CAS and autograders,low-price market known but no product evidence,classroom equation checker,low,medium,6

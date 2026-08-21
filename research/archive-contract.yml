@@ -1,0 +1,19 @@
+version: 1
+epistemic_class: ADAPTED
+path: results/hypotheses.jsonl
+mutability: append_only
+locking: Darwin POSIX flock around read-validate-append
+hashing: canonical UTF-8 JSON sorted keys compact separators SHA-256
+required_event_fields: [event_id, candidate_id, occurred_at, gate_id, status, epistemic_class, input_hash, output_hash, artifact_refs]
+invariants:
+  - Candidate begins at generated and points to current parent thereafter.
+  - Hypothesis content never changes after generation.
+  - Status transitions are monotonic; rejected cas_disagreement and empirically_supported are terminal.
+  - wolfram_verified requires Wolfram tool provenance.
+  - empirically_supported requires dataset freeze and result hashes.
+  - Rejection signatures are cached by reason and falsified assumption.
+quality_diversity_niche: [domain, cost_band, mechanism, scale, dominant_falsifier]
+scheduler:
+  behavior: planning only; never executes a gate
+  priority: expected information per constrained cost with deterministic ties
+  constraints: [full cost reservation, prerequisites first, terminal exclusion, one remote LLM job maximum]

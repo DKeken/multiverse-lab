@@ -1,0 +1,19 @@
+claims:
+  - id: C1
+    statement: Detectable collisions between inflationary bubbles may leave azimuthally symmetric signatures in CMB maps.
+    status: testable-subclass
+    evidence_state: prior searches found no compelling detection
+    observable: temperature and polarization disk profiles
+    cannot_establish: all multiverse models
+  - id: C2
+    statement: Standard Many-Worlds interpretation predicts distinct observable statistics from other interpretations of standard linear quantum mechanics.
+    status: unsupported
+    evidence_state: standard interpretations are empirically equivalent for ordinary quantum experiments
+    observable: none currently established without adding new dynamics
+    cannot_establish: world branching from Bell or quantum-eraser experiments
+  - id: C3
+    statement: A handheld device can create a macroscopic traversable portal between universes.
+    status: not-assessable
+    evidence_state: target existence and causal accessibility are not established; downstream engineering constraints remain theoretical
+    observable: no operational destination or channel observable currently defined
+    cannot_establish: portal feasibility from CMB signatures, symbolic metrics, analogue systems, or holographic simulations

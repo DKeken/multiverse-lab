@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/DKeken/multiverse-lab/security/advisories/new
+    about: Report security issues privately.
+  - name: Research discussion
+    url: https://github.com/DKeken/multiverse-lab/discussions
+    about: Discuss broad ideas before creating a bounded hypothesis.

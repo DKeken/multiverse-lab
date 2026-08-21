@@ -1,0 +1,12 @@
+claim_id,claim,classification,status,evidence,source,caveat
+E1,Bubble collisions may produce azimuthally symmetric CMB signatures,ESTABLISHED,testable-subclass,model-derived temperature and polarization profiles,https://arxiv.org/abs/1012.1995,applies to one eternal-inflation bubble-collision subclass
+E2,Published WMAP searches found no compelling bubble-collision evidence,ESTABLISHED,null-constraint,published Bayesian and matched-filter analyses,https://arxiv.org/abs/1202.2861,does not exclude all multiverse models
+E3,Modern-backend fixture localizes all supplied sources without CMB/noise,ADAPTED,verified,5 of 5 within 3 degrees,results/fixture-reproduction.json,signal-only control differs from noisy sensitivity
+E4,Modern-backend fixture recovers noisy supplied sources,ADAPTED,sensitivity,4 of 5 under frozen two-false-peak-per-scale threshold,results/fixture-reproduction.json,one null realization is not publication significance
+E5,WMAP nine-year diagnostic shows global excess,UNVERIFIED,not-observed,observed max 4.9368 versus null 99 percent threshold 5.3987 and empirical p 0.1318,results/wmap-pilot.json,128 nulls and ILC foregrounds make this diagnostic only
+E6,Official Wolfram agrees with restricted identity,ADAPTED,verified,FullSimplify identity returned True via official MCP,research/wolfram-no-go.md,mathematical agreement is not physical evidence
+E7,Multiverse existence is established,UNVERIFIED,unsupported,no discriminating replicated observation in this program,research/claims.yml,interpretations and model subclasses differ
+E8,A destination universe is causally accessible,UNVERIFIED,unestablished,no operational observable or targeting protocol,research/portal-scorecard.yml,CMB signature would not establish accessibility
+E9,A handheld portal is buildable,UNVERIFIED,not-assessable,target existence and causal access gates are unmet,research/portal-scorecard.yml,wormhole metrics remain theoretical sandbox
+E10,Casimir negative energy enables a macroscopic portal,UNVERIFIED,unsupported,Casimir force is established but no throat source demonstrated,research/negative-energy-ledger.csv,analogy does not supply required macroscopic stress tensor
+E11,CAS-CI has paying demand,UNVERIFIED,unknown,no interviews LOI or revenue,research/commercialization.md,external validation needs approval

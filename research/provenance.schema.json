@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["provenance_id", "created_at_utc", "epistemic_class", "sources", "data", "code", "environment", "assumptions", "uncertainty", "claim_status"],
+  "properties": {
+    "provenance_id": {"type": "string", "minLength": 3},
+    "created_at_utc": {"type": "string", "format": "date-time"},
+    "epistemic_class": {"enum": ["ESTABLISHED", "ADAPTED", "NOVEL PROPOSAL", "UNVERIFIED"]},
+    "sources": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["url", "accessed_at_utc", "source_type"], "properties": {"url": {"type": "string", "format": "uri"}, "accessed_at_utc": {"type": "string", "format": "date-time"}, "source_type": {"enum": ["primary-paper", "official-data", "official-docs", "source-code"]}, "citation": {"type": "string"}}}},
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path_or_url", "sha256"],
+        "properties": {
+          "path_or_url": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "code": {"type": "object", "additionalProperties": false, "required": ["paths", "hash"], "properties": {"paths": {"type": "array", "items": {"type": "string"}}, "hash": {"type": "string"}}},
+    "environment": {"type": "object", "additionalProperties": false, "required": ["python", "lock_sha256"], "properties": {"python": {"type": "string"}, "lock_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "packages": {"type": "object"}}},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "uncertainty": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "claim_status": {"enum": ["generated", "schema_valid", "locally_screened", "wolfram_verified", "cas_disagreement", "simulation_eligible", "rejected", "empirically_supported"]}
+  }
+}

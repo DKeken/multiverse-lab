@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "datasets": [
+    {
+      "id": "wmap-ilc-9yr-v5",
+      "group": "wmap",
+      "kind": "http",
+      "url": "https://lambda.gsfc.nasa.gov/data/map/dr5/dfp/ilc/wmap_ilc_9yr_v5.fits",
+      "path": "data/wmap_ilc_9yr_v5.fits",
+      "sha256": "4501090f824f9140e916339f9e8e490333f6ffe4257a6ee6a02526c8640099a9",
+      "bytes": 25174080,
+      "authority": "NASA LAMBDA",
+      "license_or_terms": "NASA public data; verify LAMBDA terms and cite WMAP",
+      "role": "development",
+      "redistribution": false,
+      "semantics": {"nside": 512, "ordering": "NESTED", "unit": "mK thermodynamic", "beam_fwhm_deg": 1.0}
+    },
+    {
+      "id": "wmap-kq75-mask-r9-9yr-v5",
+      "group": "wmap",
+      "kind": "http",
+      "url": "https://lambda.gsfc.nasa.gov/data/map/dr5/ancillary/masks/wmap_temperature_kq75_analysis_mask_r9_9yr_v5.fits",
+      "path": "data/wmap_temperature_kq75_analysis_mask_r9_9yr_v5.fits",
+      "sha256": "888e7e22f0f242ce3ffdc3cf0ef117fd34d95d24de6386be1d5b39484b30601e",
+      "bytes": 25174080,
+      "authority": "NASA LAMBDA",
+      "license_or_terms": "NASA public data; verify LAMBDA terms and cite WMAP",
+      "role": "development-mask",
+      "redistribution": false,
+      "semantics": {"field": "N_OBS", "accepted": 1, "rejected": 0, "ordering": "NESTED"}
+    },
+    {
+      "id": "s2fil",
+      "group": "fixture",
+      "kind": "git",
+      "url": "https://github.com/astro-informatics/s2fil.git",
+      "path": "vendor/s2fil",
+      "revision": "aa545b97a0928a4bc54d55785d6473d0cc1b4fc3",
+      "authority": "astro-informatics",
+      "license_or_terms": "GPL-3.0",
+      "role": "reference-source-and-fixture",
+      "redistribution": false
+    },
+    {
+      "id": "comb",
+      "group": "fixture",
+      "kind": "git",
+      "url": "https://github.com/astro-informatics/comb.git",
+      "path": "vendor/comb",
+      "revision": "3bd9996243490ac1beff3fe9f3f679193f55e6f2",
+      "authority": "astro-informatics",
+      "license_or_terms": "GPL-3.0",
+      "role": "reference-template-source",
+      "redistribution": false
+    },
+    {
+      "id": "planck-temperature-polarization",
+      "group": "planck-holdout",
+      "kind": "manual",
+      "authority": "ESA Planck Legacy Archive",
+      "license_or_terms": "Planck public data terms",
+      "role": "holdout",
+      "redistribution": false,
+      "approval_required": true,
+      "reason": "Large independent holdout; coordinates/statistics/vetoes must be frozen first",
+      "manifest": "research/planck-confirmation.yml"
+    }
+  ],
+  "upstream_tools": [
+    {"id": "scientific-agent-skills", "url": "https://github.com/K-Dense-AI/claude-scientific-skills.git", "revision": "9e8b0cb0b09059f2fd4505e57ab4e00c8be1cef6", "redistribution": false}
+  ]
+}
