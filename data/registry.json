@@ -54,6 +54,37 @@
       "redistribution": false
     },
     {
+      "id": "nanograv-15yr-kde-freespectra",
+      "group": "nanograv-gw",
+      "kind": "http",
+      "url": "https://zenodo.org/api/records/8060824/files/NANOGrav15yr_KDE-FreeSpectra_v1.0.0.zip/content",
+      "path": "data/NANOGrav15yr_KDE-FreeSpectra_v1.0.0.zip",
+      "md5": "8f9810ee90431886d54bf895dcbfb8a1",
+      "bytes": 6571028,
+      "authority": "NANOGrav Collaboration (Zenodo DOI 10.5281/zenodo.8060824)",
+      "license_or_terms": "CC-BY-4.0",
+      "role": "development",
+      "redistribution": false,
+      "sha256": "b461125ff9d384761ec4647756587c42067723c6980ef3c633b178012a4d91d8",
+      "fetch_status": "downloaded-md5-verified",
+      "semantics": {"content": "KDE probability densities of GWB free spectra for Ceffyl/PTArcade", "companion_paper": "10.3847/2041-8213/acdac6"}
+    },
+    {
+      "id": "nanograv-15yr-newphysics-chains",
+      "group": "nanograv-gw",
+      "kind": "http",
+      "url": "https://zenodo.org/api/records/8083620/files/chains.gz/content",
+      "path": "data/nanograv15yr_newphysics_chains.gz",
+      "md5": "464a0c2f2645aec4bd72cbd9f1bfb4cf",
+      "bytes": 22440020155,
+      "authority": "NANOGrav Collaboration (Zenodo DOI 10.5281/zenodo.8083620)",
+      "license_or_terms": "CC-BY-4.0",
+      "role": "development",
+      "redistribution": false,
+      "fetch_status": "declared-not-downloaded",
+      "semantics": {"content": "MCMC chains incl pt_bubble bubble-collision and SMBHB-superposed variants plus compare-folder Bayes hypermodels", "companion_paper": "10.3847/2041-8213/acdc91"}
+    },
+    {
       "id": "planck-temperature-polarization",
       "group": "planck-holdout",
       "kind": "manual",
